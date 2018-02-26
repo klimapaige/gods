@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>256</x>
+      <y>48</y>
+      <w>344</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>controllers
+--
+bg=#c4ddc6
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>216</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Driver
+-
+
+-
+_+ main(args : String[]) : void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>88</y>
+      <w>168</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Player
+-
+- username : String
+- deck : Deck
+- mana : int
+- health : int
+- god : God
+- credit : int
+-
++ Player(username : String) &lt;&lt;ctor&gt;&gt;
++ getHealth() : int
++ setHealth(health : int) : void
++ getMana() : int
++ setMana(mana : int) : void
++ getCredit() : int
++ setCredit(credit : int) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>384</y>
+      <w>144</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Card
+&lt;&lt;abstract&gt;&gt;
+-
+- name : String &lt;&lt;final&gt;&gt;
+- rank : CardRank &lt;&lt;final&gt;&gt;
+- moneyCost : int &lt;&lt;final&gt;&gt;
+- castingCost : int &lt;&lt;final&gt;&gt;
+- damage : int &lt;&lt;final&gt;&gt;
+- type : GodType &lt;&lt;final&gt;&gt;
+-
++ Card(name : String, rank : 
+CardRank, moneyCost : int, 
+castingCost : int, damage : 
+int, type : GodType) &lt;&lt;ctor&gt;&gt;
+
++ dealDamage(player : Player) &lt;&lt;abstract&gt;&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>320</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Shop
+-
+- player : Player
+-
++ buy(money : int) : Cards[]
++ sell(cards : Cards) : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>72</y>
+      <w>112</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Game
+-
+- player : Player
+-
++ loginScreen() : void
++ mainMenu() : void
++ playGame() : void
++ shop() : void
++ trade() : void
++ reset() : void
++ newPlayer() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1024</x>
+      <y>400</y>
+      <w>128</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>How do we want
+to do cards, each
+seperate class or
+have some higher class
+to manage the cards
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1064</x>
+      <y>184</y>
+      <w>96</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>CardRank
+&lt;&lt;enum&gt;&gt;
+-
+KNOWN
+ORDINARY
+EXTRAORDINARY
+RENOWNED
+MYTHICAL
+UNKNOWN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>984</x>
+      <y>192</y>
+      <w>72</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>GodType
+&lt;&lt;enum&gt;&gt;
+-
+WATER
+WAR
+LOVE
+KING
+DEATH
+MESSENGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1024</x>
+      <y>336</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Do we want each god
+to have their own
+unique ability or is it
+just based on their type
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>72</y>
+      <w>192</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Match
+-
+- firstPlayer : Player
+- secondPlayer : Player
+- firstPlayedCards : ArrayList&lt;Card&gt;
+- secondPlayedCards : ArrayList&lt;Card&gt;
+-
++ start() : void
++ turn() : void
++ win() : boolean
++ coinFlip() : boolean
++ drawCards() : void
++ end() : void
++ attack() : void
++ defend() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>976</x>
+      <y>64</y>
+      <w>192</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>enums
+--
+bg=#b2ffff
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>256</x>
+      <y>488</y>
+      <w>144</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>496</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>MC</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>648</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>CC</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>496</y>
+      <w>104</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Picture</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>584</y>
+      <w>104</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Discription</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>520</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>GT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>624</y>
+      <w>24</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>CR</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>424</x>
+      <y>512</y>
+      <w>120</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>MC: Mana Cost
+GT: GodType
+CR: CardRank
+CC: CardCost
+picture and discription
+could be flipfloped
+if wanted. Could add
+in a mythology to 
+specify which mythology
+it is from.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>552</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>880</x>
+      <y>328</y>
+      <w>112</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Could potentially use
+an enum, interface, or
+abstract class for this.
+or we could use this
+as an extended class.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>384</y>
+      <w>96</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;100.0;40.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>888</x>
+      <y>432</y>
+      <w>96</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Could potentially
+make all the fields
+a constant
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>408</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>880</x>
+      <y>496</y>
+      <w>112</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>This might be suitable
+for the base of the 
+Creature cards, the
+magic cards might
+need to be done a 
+little differently
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>472</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>200</y>
+      <w>176</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>View
+&lt;&lt;interface&gt;&gt;
+-
+
+-
++ showCard(card : Card) : void
++ showStore() : void
++ reviewHand(player : Player) : void
++ displayMenu() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>88</y>
+      <w>152</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>God
+-
++ godName : String &lt;&lt;final&gt;&gt;
++ type : GodType &lt;&lt;final&gt;&gt;
++ mythology : Mythology &lt;&lt;final&gt;&gt;
+-
++ God(type : GodType, 
+mythology : Mythology) &lt;&lt;ctor&gt;&gt;
++ ability() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>984</x>
+      <y>88</y>
+      <w>64</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Mythology
+&lt;&lt;enum&gt;&gt;
+-
+GREEK
+NORSE
+ROMAN
+HINDU
+NEUMONT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>568</x>
+      <y>344</y>
+      <w>152</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Deck
+-
+- deck : ArrayList&lt;Card&gt;
+- hand : Card[]
+-
++ Deck(god : God) &lt;&lt;ctor&gt;&gt;
++ getDeck() : ArrayList&lt;Cards&gt;
++ addCard(card : Card) : void
++ getCard() : Card
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>568</x>
+      <y>464</y>
+      <w>128</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>For starter decks, pass
+it the god to get their
+base deck type. Or could
+be god type 
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>608</x>
+      <y>440</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>608</x>
+      <y>64</y>
+      <w>344</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>player
+--
+bg=#FFFACD</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>560</x>
+      <y>304</y>
+      <w>440</w>
+      <h>424</h>
+    </coordinates>
+    <panel_attributes>card
+--
+bg=#FCE883</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>192</y>
+      <w>56</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>40</y>
+      <w>336</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>400.0;60.0;400.0;20.0;10.0;20.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>48</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>712</x>
+      <y>344</y>
+      <w>104</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;instance of&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0;110.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>264</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;instance of&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>104</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>104</y>
+      <w>40</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;30.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>280</y>
+      <w>272</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;40.0;320.0;40.0;320.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>184</y>
+      <w>120</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <additional_attributes>60.0;10.0;60.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>400</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Trade
+-
+- firstPlayer : Player
+- secondPlayer : Player
+-
++ trade(card : Card) : Card
++ show(card : Card) : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>256</x>
+      <y>296</y>
+      <w>160</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>traders
+--
+bg=#FAF0E6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>112</y>
+      <w>56</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>50.0;310.0;10.0;310.0;10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>344</y>
+      <w>56</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>50.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>264</y>
+      <w>264</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>310.0;10.0;310.0;40.0;80.0;40.0;80.0;180.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>328</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>72</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>GuiView
+-
+
+-
++ showCard(card : Card) : void
++ showStore() : void
++ reviewHand(player : Player) : void
++ displayMenu() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>24</x>
+      <y>48</y>
+      <w>192</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>viewer
+--
+bg=#CCCCFF</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>112</x>
+      <y>152</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>16</y>
+      <w>128</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>140.0;70.0;140.0;20.0;10.0;20.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>24</y>
+      <w>160</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0;180.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>24</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;330.0;10.0;330.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>184</y>
+      <w>112</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;180.0;80.0;180.0;80.0;10.0;10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>568</x>
+      <y>600</y>
+      <w>208</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>CreatureClass
+-
+description : String
+-
++ CreatureCard(name : String, rank : CardRank, moneyCost : int, castingCost : int, damage : int, type : GodType, description : String) &lt;&lt;ctor&gt;&gt;
+
++ dealDamage(player : Player) &lt;&lt;abstract&gt;&gt;
+layer=1
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>600</y>
+      <w>208</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>SpellClass
+-
+description : String
+-
++ SpellCard(name : String, rank : CardRank, moneyCost : int, castingCost : int, damage : int, type : GodType, description : String) &lt;&lt;ctor&gt;&gt;
+
++ dealDamage(player : Player) &lt;&lt;abstract&gt;&gt;
+layer=1
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>824</x>
+      <y>560</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>560</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>
