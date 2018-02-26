@@ -1,3 +1,3 @@
 # gods
 Mythology Trading Card Game
-The Best Game
+The Best Gam
