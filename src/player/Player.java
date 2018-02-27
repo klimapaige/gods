@@ -1,51 +1,73 @@
 package player;
 
-import card.Deck;
+import java.io.Serializable;
+import java.util.Random;
 
-public class Player 
-{
+import card.Deck;
+import enums.GodType;
+import enums.Mythology;
+
+public class Player implements Serializable{
 	private String username;
 	private Deck deck;
 	private int mana;
 	private int health;
 	private God god;
 	private int credit;
-	
-	public Player(String username)
-	{
-		
-		setCredit(0);
-		setHealth(20);
-		setMana(20);
+
+	public Player(String username, GodType godtype) {
+		setUsername(username);
+		Random rand = new Random();
+		Mythology[] mythos = Mythology.values();
+		Mythology mythology = mythos[rand.nextInt(mythos.length)];
+		God playerGod = new God(godtype, mythology);
 	}
-	
-	public int getHealth()
-	{
+
+	public int getHealth() {
 		return health;
 	}
-	
-	public void setHealth(int health)
-	{
-		this.health = health;
+
+	public void setHealth(int health) {
+
 	}
-	
-	public int getMana()
-	{
+
+	public int getMana() {
 		return mana;
 	}
-	
-	public void setMana(int mana)
-	{
-		this.mana = mana;
+
+	public void setMana(int mana) {
+
 	}
-	
-	public int getCredit()
-	{
+
+	public int getCredit() {
 		return credit;
 	}
-	
-	public void setCredit(int credit)
-	{
-		this.credit = credit;
+
+	public void setCredit(int credit) {
+
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Deck getDeck() {
+		return deck;
+	}
+
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+
+	public God getGod() {
+		return god;
+	}
+
+	public void setGod(God god) {
+		this.god = god;
 	}
 }
