@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-import enums.CardRank;
-import lib.ConsoleIO;
+import enums.GodType;
 import player.God;
 
+@SuppressWarnings("serial")
 public class Deck implements Serializable {
 
 	private ArrayList<Card> deck = new ArrayList<>();
 	private boolean isStarter;
+	private GodType godType;
 
 	public Deck() {
 

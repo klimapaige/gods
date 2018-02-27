@@ -12,11 +12,11 @@ public class Trade {
 	
 	public Card trade(Card card)
 	{
-		
+		return card;
 	}
 	
 	public boolean show(Card card)
 	{
-		
+		return false;
 	}
 }

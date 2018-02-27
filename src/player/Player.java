@@ -7,6 +7,7 @@ import card.Deck;
 import enums.GodType;
 import enums.Mythology;
 
+@SuppressWarnings("serial")
 public class Player implements Serializable {
 	
 	private String username;

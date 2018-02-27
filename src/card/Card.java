@@ -1,11 +1,13 @@
 package card;
 
+import java.io.Serializable;
+
 import enums.CardRank;
-import enums.GodType;
 import lib.ConsoleIO;
 import player.Player;
 
-public abstract class Card {
+@SuppressWarnings("serial")
+public abstract class Card implements Serializable{
 
 	public final String name;
 	public final CardRank rank;
