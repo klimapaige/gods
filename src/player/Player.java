@@ -8,15 +8,17 @@ import enums.GodType;
 import enums.Mythology;
 
 public class Player implements Serializable {
+	
 	private String username;
 	private Deck deck;
+	private Deck hand;
 	private int mana;
 	private int health;
 	private God god;
 	private int credit;
 	private final int MAX_MANA = 20;
 	private final int BASE_HEALTH = 20;
-	private final int BASE_MANA = 20;
+	private final int BASE_MANA = 0;
 
 	public Player(String username, GodType godtype) {
 		setUsername(username);
@@ -32,6 +34,11 @@ public class Player implements Serializable {
 		setDeck(d);
 	}
 
+	public void newGame() {
+		setHealth(BASE_HEALTH);
+		setMana(BASE_MANA);
+	}
+	
 	public int getHealth() {
 		return health;
 	}
@@ -83,5 +90,13 @@ public class Player implements Serializable {
 
 	public void setGod(God god) {
 		this.god = god;
+	}
+
+	public Deck getHand() {
+		return hand;
+	}
+
+	public void setHand(Deck hand) {
+		this.hand = hand;
 	}
 }
