@@ -17,7 +17,7 @@ public class GuiView implements View{
 	
 	@Override
 	public void reviewHand(Player player) {
-			
+		
 	}
 	
 	@Override
@@ -25,6 +25,12 @@ public class GuiView implements View{
 		int option = 0;
 		
 		return option;
+	}
+
+	@Override
+	public String[] getInformation() {
+		
+		return null;
 	}
 
 }
