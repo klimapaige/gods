@@ -12,36 +12,43 @@ public class Tool {
 	public static String cleanString(String str) {
 		char[] letterSubArr = str.toCharArray();
 		ArrayList<Character> letters = new ArrayList<>();
+		
 		for (char c : letterSubArr) {
 			letters.add(c);
 		}
+		
 		StringBuilder sb = new StringBuilder();
+		
 		for (char c : letters) {
-			if (c >= ' ') {
+			if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
 				sb.append(c);
 			}
 		}
+		
 		str = sb.toString();
+		
 		return str;
 	}
 
 	public static void serialize(Object o, String path) throws IOException {
 		FileOutputStream fos = new FileOutputStream(path);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-
+		
 		oos.writeObject(o);
+		
 		oos.close();
 		fos.close();
-
 	}
 
 	public static Object deserialize(String path) throws IOException, ClassNotFoundException {
-
 		FileInputStream fis = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fis);
+		
 		Object o = ois.readObject();
+		
 		ois.close();
 		fis.close();
+		
 		return o;
 	}
 }
