@@ -4,10 +4,11 @@ import enums.CardRank;
 import enums.GodType;
 import player.Player;
 
-public class Creature extends Card{
+public class Spell extends Card{
 
-	public Creature(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {
+	public Spell(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {
 		super(name, rank, cost, manaCost, damage, health, description);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -16,5 +17,4 @@ public class Creature extends Card{
 		
 	}
 
-	
 }

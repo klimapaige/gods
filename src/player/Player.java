@@ -89,7 +89,9 @@ public class Player implements Serializable {
 	}
 
 	public void setGod(God god) {
-		this.god = god;
+		if(god != null) {
+			this.god = god;
+		}
 	}
 
 	public Deck getHand() {
