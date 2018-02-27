@@ -12,9 +12,8 @@ public class Magic extends Card{
 	}
 
 	@Override
-	public int dealDamage(Player player) {
+	public void dealDamage(Player player) {
 		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
