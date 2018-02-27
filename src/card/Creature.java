@@ -11,8 +11,8 @@ public class Creature extends Card{
 	}
 
 	@Override
-	public int dealDamage(Player player) {
-		return 0;
+	public void dealDamage(Player player) {
+		player.setHealth(player.getHealth() - damage);
 	}
 	
 	

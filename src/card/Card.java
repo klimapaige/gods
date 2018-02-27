@@ -25,6 +25,6 @@ public abstract class Card {
 		this.description = description;
 	}
 	
-	public abstract int dealDamage(Player player);
+	public abstract void dealDamage(Player player);
 	
 }
