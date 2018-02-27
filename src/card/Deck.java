@@ -40,12 +40,18 @@ public class Deck implements Serializable {
 			boolean newCard = ConsoleIO.promptForBool("Do you want to add an existing card to your new Deck?", "y",
 					"n");
 			Card c = null;
-			if(newCard) {
+			if (newCard) {
 				c = Card.newCard();
-			}else {
-				String[] prompt = new String[master.getDeck().size()];
-				for(Card strCard : master.getDeck()) {
-					
+			} else {
+				String[] allCards = Tool.toStrArr(master.getDeck());
+				boolean addAnotherCard = true;
+				while (addAnotherCard) {
+					int selection = ConsoleIO.promptForMenuSelection(allCards, true);
+					if(selection == 0) {
+						addAnotherCard = false;
+					}else {
+						c = 
+					}
 				}
 			}
 		}
