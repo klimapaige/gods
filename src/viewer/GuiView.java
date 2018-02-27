@@ -40,6 +40,12 @@ public class GuiView extends Application implements View{
 	}
 
 	@Override
+	public String loginScreen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
 	public void launchGUI(String[] args) {
 		launch(args);
 	}
@@ -64,7 +70,5 @@ public class GuiView extends Application implements View{
         primaryStage.show();
 		
 	}
-
 	
-
 }
