@@ -1,6 +1,16 @@
 package controllers;
 
+import player.Player;
+import viewer.View;
+
 public class Game {
+	
+	private View view;
+	
+	public Game(View view)
+	{
+		this.view = view;
+	}
 	
 	public void mainMenu() {
 		
@@ -28,6 +38,8 @@ public class Game {
 	}
 	
 	public void newPlayer() {
+		
+		Player p = new Player();
 		
 	}
 	

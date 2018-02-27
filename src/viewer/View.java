@@ -9,5 +9,6 @@ public interface View {
 	public void showStore();
 	public void reviewHand(Player player);
 	public int displayMenu();
-	
+	public String[] getInformation(); 
+	// 0: Username, 1: God Type
 }
