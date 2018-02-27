@@ -1,11 +1,15 @@
 package controllers;
 
+import java.util.ArrayList;
+
+import enums.GodType;
 import player.Player;
 import viewer.View;
 
 public class Game {
 	
 	private View view;
+	private ArrayList<Player> players;
 	
 	public Game(View view)
 	{
@@ -13,7 +17,25 @@ public class Game {
 	}
 	
 	public void mainMenu() {
-		
+		int choice = view.displayMenu();
+		switch(choice)
+		{
+		case 1:
+			playGame();
+			break;
+		case 2: 
+			shop();
+			break;
+		case 3:
+			trade();
+			break;
+		case 4:
+			delete();
+			break;
+		case 5:
+			newPlayer();
+			break;
+		}
 	}
 
 	public void loginScreen() {
@@ -33,14 +55,14 @@ public class Game {
 		
 	}
 	
-	public void reset() {
+	public void delete() {
 		
 	}
 	
 	public void newPlayer() {
-		
-		Player p = new Player();
-		
+		String[] info = view.getInformation();
+		Player p = new Player(info[0], GodType.valueOf(info[1]));
+		players.add(p);
 	}
 	
 }
