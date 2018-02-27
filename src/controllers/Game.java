@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import enums.GodType;
 import player.Player;
+import traders.Trade;
 import viewer.View;
 
 public class Game {
@@ -25,7 +26,7 @@ public class Game {
 		switch(choice)
 		{
 		case 0:
-			loginScreen();
+			login();
 			break;
 		case 1:
 			playGame();
@@ -45,13 +46,21 @@ public class Game {
 		}
 	}
 
-	public void loginScreen() {
+	public void login() {
+		String username = view.loginScreen();
 		
 	}
 	
 	public void playGame() {
-		Match m = new Match();
-		m.start();
+		if(players.size() > 1)
+		{
+			String[] options = new String[players.size()];
+			options = players.toArray(options);
+			int firstOption = view.displayMenu(options);
+			int secondOptions = view.displayMenu(options);
+			Match m = new Match(players.get(firstOption), players.get(secondOptions));
+			m.start();
+		}
 	}
 	
 	public void shop() {
@@ -59,7 +68,14 @@ public class Game {
 	}
 	
 	public void trade() {
-		
+		if(players.size() > 1)
+		{
+			String[] options = new String[players.size()];
+			options = players.toArray(options);
+			int firstOptions = view.displayMenu(options);
+			int secondOption = view.displayMenu(options);
+			Trade t = new Trade(players.get(firstOptions), players.get(secondOption));
+		}
 	}
 	
 	public void delete() {
