@@ -1,10 +1,13 @@
 package card;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 import enums.GodType;
+import lib.ConsoleIO;
+import lib.Tool;
 import player.God;
 
 @SuppressWarnings("serial")
@@ -13,9 +16,10 @@ public class Deck implements Serializable {
 	private ArrayList<Card> deck = new ArrayList<>();
 	private boolean isStarter;
 	private GodType godType;
+	private String name;
 
-	public Deck() {
-
+	public Deck(String name) {
+		setName(name);
 	}
 
 	public Deck(God god) {
@@ -23,7 +27,28 @@ public class Deck implements Serializable {
 	}
 
 	public Deck(boolean admin) {
-		
+		Deck master = null;
+		try {
+			master = (Deck) Tool.deserialize("/deck/1/master.dc");
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		}
+		String name = ConsoleIO.promptForInput("What are you naming your deck?", false);
+		Deck newDeck = new Deck(name);
+		boolean done = false;
+		while (!done) {
+			boolean newCard = ConsoleIO.promptForBool("Do you want to add an existing card to your new Deck?", "y",
+					"n");
+			Card c = null;
+			if(newCard) {
+				c = Card.newCard();
+			}else {
+				String[] prompt = new String[master.getDeck().size()];
+				for(Card strCard : master.getDeck()) {
+					
+				}
+			}
+		}
 	}
 
 	public ArrayList<Card> getDeck() {
@@ -35,6 +60,7 @@ public class Deck implements Serializable {
 	}
 
 	public void shuffle() {
+
 		int len = deck.size();
 		Random rand = new Random();
 		ArrayList<Card> newDeck = new ArrayList<>();
@@ -60,6 +86,22 @@ public class Deck implements Serializable {
 
 	public void setStarter(boolean isStarter) {
 		this.isStarter = isStarter;
+	}
+
+	public GodType getGodType() {
+		return godType;
+	}
+
+	public void setGodType(GodType godType) {
+		this.godType = godType;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

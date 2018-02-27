@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import card.Card;
+
 public class Tool {
 
 	public static String cleanString(String str) {
@@ -50,5 +52,31 @@ public class Tool {
 		fis.close();
 		
 		return o;
+	}
+	
+	public static String[] toStrArr(Object[] arr) {
+		int i  = 0;
+		String[] strArr = new String[arr.length];
+		for(Object o : arr) {
+			strArr[i] = o.toString();
+			i++;
+		}
+		return strArr;
+	}
+	
+	public static ArrayList<String> toStrArrList(Object[] arr) {
+		ArrayList<String> strArrList = new ArrayList<>();
+		for(Object o : arr) {
+			strArrList.add(o.toString());
+		}
+		return strArrList;
+	}
+	
+	public static ArrayList<String> toStrArrList(ArrayList<Object> arrList) {
+		ArrayList<String> strArrList = new ArrayList<>();
+		for(Object o : arrList) {
+			strArrList.add(o.toString());
+		}
+		return strArrList;
 	}
 }
