@@ -10,16 +10,23 @@ public class Game {
 	
 	private View view;
 	private ArrayList<Player> players;
+	private String[] args;
 	
-	public Game(View view)
+	public Game(View view, String[] args)
 	{
 		this.view = view;
+		this.args = args;
 	}
 	
 	public void mainMenu() {
-		int choice = view.displayMenu();
+		view.launchGUI(args);
+		String[] options = {"Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player"};
+		int choice = view.displayMenu(options);
 		switch(choice)
 		{
+		case 0:
+			loginScreen();
+			break;
 		case 1:
 			playGame();
 			break;
@@ -56,7 +63,10 @@ public class Game {
 	}
 	
 	public void delete() {
-		
+		String[] options = new String[players.size()];
+		options = players.toArray(options);
+		int input = view.displayMenu(options);
+		players.remove(input);
 	}
 	
 	public void newPlayer() {
