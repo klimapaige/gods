@@ -2,16 +2,17 @@ package controllers;
 
 public class Game {
 	
+	public void mainMenu() {
+		
+	}
+
 	public void loginScreen() {
 		
 	}
 	
-	public void mainMenu() {
-		
-	}
-	
 	public void playGame() {
-		
+		Match m = new Match();
+		m.start();
 	}
 	
 	public void shop() {

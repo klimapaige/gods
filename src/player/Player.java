@@ -14,6 +14,9 @@ public class Player
 	public Player(String username)
 	{
 		
+		setCredit(0);
+		setHealth(20);
+		setMana(20);
 	}
 	
 	public int getHealth()
@@ -23,7 +26,7 @@ public class Player
 	
 	public void setHealth(int health)
 	{
-		
+		this.health = health;
 	}
 	
 	public int getMana()
@@ -33,7 +36,7 @@ public class Player
 	
 	public void setMana(int mana)
 	{
-		
+		this.mana = mana;
 	}
 	
 	public int getCredit()
@@ -43,6 +46,6 @@ public class Player
 	
 	public void setCredit(int credit)
 	{
-		
+		this.credit = credit;
 	}
 }
