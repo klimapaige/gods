@@ -16,7 +16,7 @@ public class Player implements Serializable {
 	private int health;
 	private God god;
 	private int credit;
-	private final int MAX_MANA = 20;
+	private final int MAX_MANA = 10;
 	private final int BASE_HEALTH = 20;
 	private final int BASE_MANA = 0;
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import enums.GodType;
 import player.Player;
+import traders.Shop;
 import traders.Trade;
 import viewer.View;
 
@@ -64,7 +65,11 @@ public class Game {
 	}
 	
 	public void shop() {
-		
+		String[] options = new String[players.size()];
+		options = players.toArray(options);
+		int input = view.displayMenu(options);
+		Shop s = new Shop(players.get(input));
+		s.shop();
 	}
 	
 	public void trade() {
