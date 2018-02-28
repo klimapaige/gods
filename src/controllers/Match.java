@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 
+import card.Board;
 import card.Card;
 import card.Deck;
 import player.Player;
@@ -9,6 +10,7 @@ import player.Player;
 public class Match {
 	private Player player1;
 	private Player player2;
+	private Board board = new Board();
 	
 	public Match(Player player1,Player player2) {
 		this.player1=player1;
@@ -26,25 +28,21 @@ public class Match {
 	}
 	
 	public void start() {
-		drawFirstCards(player1);
-		drawFirstCards(player2);
-		
+		board.drawFirstCards(player1, player2);	
 	}
 	
 	public void turn(int playerTurn) {
 		Player attacker;
-		Player defender;
 		for(int i =0;i<2;i++) {
-			if(playerTurn%2==0) {
+			if(playerTurn%2==1) {
+				playerTurn=1;
 				attacker = player1;
-				defender = player2;
 			} else {
+				playerTurn=2;
 				attacker = player2;
-				defender = player1;
 			}
-			drawCard(attacker);
+			board.drawCard(playerTurn,attacker);
 			attack(attacker);
-			defend(defender);
 		}
 	}
 	
@@ -54,23 +52,9 @@ public class Match {
 		return win;
 	}
 
-	public void drawFirstCards(Player player) {
-		Deck hand = new Deck(player.getUsername()+" Hand", false);
-		for(int i =0;i<5;i++) {
-			hand.addCard(player.getDeck().pullCard()); 
-		}
-		player.setHand(hand);
-	}
 	
-	public void drawCard(Player player) {
-		player.getHand().addCard(player.getDeck().pullCard());
-	}
 	
 	public void attack(Player player) {
-		
-	}
-	
-	public void defend(Player player) {
 		
 	}
 	
