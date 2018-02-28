@@ -4,6 +4,7 @@ import enums.CardRank;
 import enums.GodType;
 import player.Player;
 
+@SuppressWarnings("serial")
 public class Spell extends Card{
 
 	public Spell(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {

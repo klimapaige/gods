@@ -57,8 +57,6 @@ public abstract class Card implements Serializable {
 		} else {
 			c = new Creature(name, crArr[rank], cost, manaCost, damage, health, description);
 		}
-
-		System.out.println("You're not supposed to be here.");
 		return c;
 	}
 }
