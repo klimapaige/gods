@@ -1,7 +1,6 @@
 package card;
 
 import enums.CardRank;
-import enums.GodType;
 import player.Player;
 
 @SuppressWarnings("serial")
