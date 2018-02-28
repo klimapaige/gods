@@ -97,6 +97,10 @@ public class Deck implements Serializable {
 	public void setDeck(ArrayList<Card> deck) {
 		this.deck = deck;
 	}
+	
+	public Card getCard(int index) {
+		return deck.get(index);
+	}
 
 	public void shuffle() {
 

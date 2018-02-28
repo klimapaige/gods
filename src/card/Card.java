@@ -14,7 +14,6 @@ public abstract class Card implements Serializable {
 	public final int cost;
 	public final int manaCost;
 	public final int damage;
-	public final int health;
 	public final String description;
 
 	public Card(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {
@@ -24,7 +23,6 @@ public abstract class Card implements Serializable {
 		this.cost = cost;
 		this.manaCost = manaCost;
 		this.damage = damage;
-		this.health = health;
 		this.description = description;
 	}
 
