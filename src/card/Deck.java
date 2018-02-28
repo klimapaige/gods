@@ -118,6 +118,12 @@ public class Deck implements Serializable {
 		getDeck().remove(index);
 		return c;
 	}
+	
+	public Card pullCard(int index) {
+		Card c = getDeck().get(index);
+		getDeck().remove(index);
+		return c;
+	}
 
 	public GodType getGodType() {
 		return godType;
