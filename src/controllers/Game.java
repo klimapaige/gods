@@ -75,6 +75,7 @@ public class Game {
 			int firstOptions = view.displayMenu(options);
 			int secondOption = view.displayMenu(options);
 			Trade t = new Trade(players.get(firstOptions), players.get(secondOption));
+			t.beginTrade();
 		}
 	}
 	
