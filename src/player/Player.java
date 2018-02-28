@@ -12,7 +12,6 @@ public class Player implements Serializable {
 	
 	private String username;
 	private Deck deck;
-	private Deck hand;
 	private int mana;
 	private int health;
 	private God god;
@@ -93,13 +92,5 @@ public class Player implements Serializable {
 		if(god != null) {
 			this.god = god;
 		}
-	}
-
-	public Deck getHand() {
-		return hand;
-	}
-
-	public void setHand(Deck hand) {
-		this.hand = hand;
 	}
 }
