@@ -1,6 +1,5 @@
 package traders;
 
-import card.Card;
 import lib.ConsoleIO;
 import player.Player;
 
@@ -8,8 +7,8 @@ public class Trade {
 	
 	private Player first;
 	private Player second;
-	private Card firstTrade;
-	private Card secondTrade;
+	private int firstInput;
+	private int secondInput;
 	
 	public Trade(Player first, Player second)
 	{
@@ -37,8 +36,8 @@ public class Trade {
 	public void trade()
 	{
 		//We need a remove card method in deck to be able to remove the card
-		first.getDeck().addCard(secondTrade);
-		second.getDeck().addCard(firstTrade);
+		first.getDeck().addCard(second.getDeck().pullCard(secondInput));
+		second.getDeck().addCard(first.getDeck().pullCard(firstInput));
 	}
 	
 	public boolean show()
@@ -47,14 +46,20 @@ public class Trade {
 		
 		String[] options = new String[first.getDeck().getDeck().size()];
 		options = first.getDeck().getDeck().toArray(options);
-		int input = ConsoleIO.promptForMenuSelection(options, false);
-		firstTrade = first.getDeck().getDeck().get(input - 1);
+		firstInput = ConsoleIO.promptForMenuSelection(options, false);
+		firstInput--;
+		
+		//use this to show the card
+		first.getDeck().getDeck().get(firstInput);
 		
 		
 		String[] options2 = new String[second.getDeck().getDeck().size()];
 		options2 = second.getDeck().getDeck().toArray(options2);
-		int input2 = ConsoleIO.promptForMenuSelection(options2, false);
-		secondTrade = second.getDeck().getDeck().get(input2 - 1);
+		secondInput = ConsoleIO.promptForMenuSelection(options2, false);
+		secondInput--;
+		
+		//use this to show the card
+		second.getDeck().getDeck().get(secondInput);
 		
 		
 		//Then show the cards wanting to be traded
