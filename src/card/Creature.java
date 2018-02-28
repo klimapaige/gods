@@ -5,10 +5,13 @@ import enums.GodType;
 import player.Player;
 
 @SuppressWarnings("serial")
-public class Creature extends Card{
+public class Creature extends Card {
 
-	public Creature(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {
+	private int sleep;
+	
+	public Creature(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description, int sleep) {
 		super(name, rank, cost, manaCost, damage, health, description);
+		this.sleep = sleep;
 	}
 
 	@Override
