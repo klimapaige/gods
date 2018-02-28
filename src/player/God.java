@@ -17,6 +17,7 @@ public class God {
 	public int ability() {
 		return 0;
 	}
+	
 
 	private String findName() {
 		String name = "";

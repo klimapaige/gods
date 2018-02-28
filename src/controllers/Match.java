@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 
 import card.Card;
+import card.Deck;
 import player.Player;
 
 public class Match {
@@ -17,24 +18,34 @@ public class Match {
 	public void runGame() {
 		start();
 		int turnCount = 0;
+		int playerTurn = (int) (Math.random()*2);
 		while(!checkWin()) {
 			turnCount++;
-			if(turnCount == 1) {
-				drawFirstCards();
-			}else {
-				drawCard();
-			}
+			turn(playerTurn);
 		}
 	}
 	
 	public void start() {
+		drawFirstCards(player1);
+		drawFirstCards(player2);
 		
 	}
 	
-	public void turn() {
-		drawCard();
-		attack();
-		defend();
+	public void turn(int playerTurn) {
+		Player attacker;
+		Player defender;
+		for(int i =0;i<2;i++) {
+			if(playerTurn%2==0) {
+				attacker = player1;
+				defender = player2;
+			} else {
+				attacker = player2;
+				defender = player1;
+			}
+			drawCard(attacker);
+			attack(attacker);
+			defend(defender);
+		}
 	}
 	
 	public boolean checkWin() {
@@ -43,25 +54,27 @@ public class Match {
 		return win;
 	}
 
-	public void drawFirstCards() {
+	public void drawFirstCards(Player player) {
+		Deck hand = new Deck(player.getUsername()+" Hand", false);
+		for(int i =0;i<5;i++) {
+			hand.addCard(player.getDeck().pullCard()); 
+		}
+		player.setHand(hand);
+	}
+	
+	public void drawCard(Player player) {
+		player.getHand().addCard(player.getDeck().pullCard());
+	}
+	
+	public void attack(Player player) {
 		
 	}
 	
-	public void drawCard() {
+	public void defend(Player player) {
 		
 	}
 	
 	public void end() {
-		
-	}
-	
-
-	
-	public void attack() {
-		
-	}
-	
-	public void defend() {
 		
 	}
 	
