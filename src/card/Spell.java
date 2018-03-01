@@ -6,8 +6,8 @@ import player.Player;
 @SuppressWarnings("serial")
 public class Spell extends Card{
 
-	public Spell(String name, CardRank rank, int cost, int manaCost, int damage, int health, String description) {
-		super(name, rank, cost, manaCost, damage, health, description);
+	public Spell(String name, CardRank rank, int cost, int manaCost, int power, String description) {
+		super(name, rank, cost, manaCost, power, description);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -8,13 +8,13 @@ public class Creature extends Card {
 
 	private int sleep;
 	private final int MAX_HEALTH;
-	private int currentHealth;
+	private int health;
 	
-	public Creature(String name, CardRank rank, int cost, int manaCost, int damage, int health, int maxHealth, String description, int sleep) {
-		super(name, rank, cost, manaCost, damage, health, description);
-		MAX_HEALTH = maxHealth;
-		this.setSleep(sleep);
-		this.setCurrentHealth(maxHealth);
+	public Creature(String name, CardRank rank, int cost, int manaCost, int power, int health, int sleep, String description) {
+		super(name, rank, cost, manaCost, power, description);
+		MAX_HEALTH = health;
+		setHealth(health);
+		setSleep(sleep);
 	}
 
 	@Override
@@ -27,20 +27,20 @@ public class Creature extends Card {
 		return MAX_HEALTH;
 	}
 
-	public int getCurrentHealth() {
-		return currentHealth;
-	}
-
-	public void setCurrentHealth(int currentHealth) {
-		this.currentHealth = currentHealth;
-	}
-
 	public int getSleep() {
 		return sleep;
 	}
 
 	public void setSleep(int sleep) {
 		this.sleep = sleep;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 
 	

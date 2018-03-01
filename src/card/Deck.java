@@ -1,5 +1,7 @@
 package card;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -32,22 +34,33 @@ public class Deck implements Serializable {
 		Deck master = null;
 		try {
 			boolean done = false;
-			int edition = ConsoleIO.promptForInt("Which edition would you like to get a new deck from?", 1, 1);
-			master = (Deck) Tool.deserialize("/deck/" + edition + "/master.dc");
-			String name = ConsoleIO.promptForInput("What are you naming your deck?", false);
-			boolean isStarter = ConsoleIO.promptForBool("Is this a starter deck?", "y", "n");
+			int edition = ConsoleIO.promptForInt("Which edition would you like to get a new deck from?", 1, Integer.MAX_VALUE);
+			String name = "master";
+			boolean isStarter = false;
+			boolean isMaster = true;
+			try {
+				master = (Deck) Tool.deserialize("deck/" + edition + "/master.dc");
+				isMaster = false;
+				name = ConsoleIO.promptForInput("What are you naming your deck?", false);
+				isStarter = ConsoleIO.promptForBool("Is this a starter deck?", "y", "n");
+			} catch (FileNotFoundException e) {
+				System.out.println("Creating a new edition");
+				new File("deck/" + edition).mkdir();
+			}
 			Deck newDeck = new Deck(name, isStarter);
 			while (!done) {
 				String[] prompt = { "Add Card", "Remove Card", "Remove Master Card (Requires admin code)" };
 				int selection = ConsoleIO.promptForMenuSelection(prompt, true);
 				switch (selection) {
 				case 1:
-					boolean newCard = ConsoleIO.promptForBool("Do you want to add an existing card to your new Deck?",
-							"y", "n");
+					boolean newCard = ConsoleIO.promptForBool("Do you want to add a new card to your new deck or one from the master deck? (n/m)", "n",
+							"m");
 					Card c = null;
 					if (newCard) {
 						c = Card.newCard();
-						master.addCard(c);
+						if (!isMaster) {
+							master.addCard(c);
+						}
 					} else {
 						String[] allCards = Tool.toStrArr(master.getDeck());
 						boolean addAnotherCard = true;
@@ -69,23 +82,30 @@ public class Deck implements Serializable {
 					break;
 				case 3:
 					String isAdmin = ConsoleIO.promptForInput("Enter the code:", true);
-					if(isAdmin.equals("PJMJ")) {
+					if (isAdmin.equals("PJMJ")) {
 						String[] masterDeck = Tool.toStrArr(newDeck.getDeck());
 						int masterCardNum = ConsoleIO.promptForMenuSelection(masterDeck, true);
-						newDeck.getDeck().remove(masterCardNum - 1);						
-					}else {
+						newDeck.getDeck().remove(masterCardNum - 1);
+					} else {
 						System.out.println("You are not authorized to delete master card data.");
 					}
-					
+
+					break;
+				case 0:
+					done = true;
 					break;
 				default:
 					break;
 				}
-				
+
 			}
-			Tool.serialize(newDeck, "/deck/" + edition + name + ".dc");
-			Tool.serialize(master , "/deck/" + edition + "/master.dc");
-		} catch (ClassNotFoundException | IOException e) {
+			Tool.serialize(newDeck, "deck/" + edition + "/" + name + ".dc");
+			if (!isMaster) {
+				Tool.serialize(master, "deck/" + edition + "/master.dc");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
@@ -97,7 +117,7 @@ public class Deck implements Serializable {
 	public void setDeck(ArrayList<Card> deck) {
 		this.deck = deck;
 	}
-	
+
 	public Card getCard(int index) {
 		return deck.get(index);
 	}
@@ -122,7 +142,7 @@ public class Deck implements Serializable {
 		getDeck().remove(index);
 		return c;
 	}
-	
+
 	public Card pullCard(int index) {
 		Card c = getDeck().get(index);
 		getDeck().remove(index);
