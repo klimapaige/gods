@@ -58,4 +58,7 @@ public abstract class Card implements Serializable {
 		}
 		return c;
 	}
+	
+	
+	
 }
