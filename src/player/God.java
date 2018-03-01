@@ -55,7 +55,7 @@ public class God {
 			case NORSE:
 				name = "Freya";
 			case ROMAN:
-				name = "Neptune";
+				name = "Venus";
 			case HINDU:
 				name = "Rati";
 			case NEUMONT:
