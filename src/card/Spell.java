@@ -5,14 +5,10 @@ import player.Player;
 
 public class Spell extends Card{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3653971824268444554L;
 
 	public Spell(String name, CardRank rank, int cost, int manaCost, int power, String description) {
 		super(name, rank, cost, manaCost, power, description);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

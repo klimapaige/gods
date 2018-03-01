@@ -8,7 +8,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Tool {
-
+	
+	// Author: Matthew Maag
 	public static String cleanString(String str) {
 		char[] letterSubArr = str.toCharArray();
 		ArrayList<Character> letters = new ArrayList<>();
@@ -30,6 +31,7 @@ public class Tool {
 		return str;
 	}
 
+	// Author: Matthew Maag
 	public static void serialize(Object o, String path) throws IOException {
 		FileOutputStream fos = new FileOutputStream(path);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -40,6 +42,7 @@ public class Tool {
 		fos.close();
 	}
 
+	// Author: Matthew Maag
 	public static Object deserialize(String path) throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fis);
@@ -52,6 +55,7 @@ public class Tool {
 		return o;
 	}
 	
+	// Author: Matthew Maag
 	public static String[] toStrArr(Object[] arr) {
 		int i  = 0;
 		String[] strArr = new String[arr.length];
@@ -62,6 +66,7 @@ public class Tool {
 		return strArr;
 	}
 	
+	// Author: Matthew Maag
 	public static String[] toStrArr(ArrayList<?> arrList) {
 		int i  = 0;
 		String[] strArr = new String[arrList.size()];
@@ -72,6 +77,7 @@ public class Tool {
 		return strArr;
 	}
 	
+	// Author: Matthew Maag
 	public static ArrayList<String> toStrArrList(Object[] arr) {
 		ArrayList<String> strArrList = new ArrayList<>();
 		for(Object o : arr) {
@@ -80,6 +86,7 @@ public class Tool {
 		return strArrList;
 	}
 	
+	// Author: Matthew Maag
 	public static ArrayList<String> toStrArrList(ArrayList<?> arrList) {
 		ArrayList<String> strArrList = new ArrayList<>();
 		for(Object o : arrList) {

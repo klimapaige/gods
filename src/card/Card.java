@@ -6,9 +6,9 @@ import enums.CardRank;
 import lib.ConsoleIO;
 import player.Player;
 
-@SuppressWarnings("serial")
 public abstract class Card implements Serializable {
 
+	private static final long serialVersionUID = 8241558901048926297L;
 	public final String name;
 	public final CardRank rank;
 	public final int cost;

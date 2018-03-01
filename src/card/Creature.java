@@ -5,9 +5,6 @@ import player.Player;
 
 public class Creature extends Card {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1604270793646181661L;
 	private int sleep;
 	private final int MAX_HEALTH;
