@@ -18,7 +18,7 @@ public class Creature extends Card {
 	}
 
 	@Override
-	public void cardAbility(Player player, Card[] battlefeild) {
+	public void cardAbility(Player player, Card card) {
 		// 0 damage, 1 Heal, 2 Stun, 10 power up Off., 11 power up Def., 12 power Both
 	}
 
