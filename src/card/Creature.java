@@ -17,7 +17,14 @@ public class Creature extends Card {
 		setSleep(sleep);
 	}
 
+<<<<<<< HEAD
 	// 0 damage, 1 Heal, 2 Stun, 10 power up Off., 11 power up Def., 12 power Both
+=======
+	@Override
+	public void cardAbility(Player player, Card card) {
+		// 0 damage, 1 Heal, 2 Stun, 10 power up Off., 11 power up Def., 12 power Both
+	}
+>>>>>>> 0e328653c29c1d0b5dc35fd711cf73e94cc12664
 
 	public int getMAX_HEALTH() {
 		return MAX_HEALTH;

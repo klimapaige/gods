@@ -28,7 +28,7 @@ public abstract class Card implements Serializable {
 		this.powerID = powerID;
 	}
 
-	public abstract void cardAbility(Player player);
+	public abstract void cardAbility(Player player,Card card);
 
 	public static Card newCard() {
 		Card c = null;
