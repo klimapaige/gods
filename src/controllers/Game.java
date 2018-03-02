@@ -59,7 +59,7 @@ public class Game {
 			options = players.toArray(options);
 			int firstOption = view.displayMenu(options);
 			int secondOptions = view.displayMenu(options);
-			Match m = new Match(players.get(firstOption), players.get(secondOptions));
+			Match m = new Match(players.get(firstOption), players.get(secondOptions), view);
 			m.start();
 		}
 	}

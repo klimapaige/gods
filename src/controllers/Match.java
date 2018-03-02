@@ -6,13 +6,15 @@ import card.Board;
 import card.Card;
 import card.Deck;
 import player.Player;
+import viewer.View;
 
 public class Match {
 	private Player player1;
 	private Player player2;
 	private Board board = new Board();
+	View view;
 	
-	public Match(Player player1,Player player2) {
+	public Match(Player player1,Player player2, View view) {
 		this.player1=player1;
 		this.player2=player2;
 	}
@@ -41,8 +43,8 @@ public class Match {
 				playerTurn=2;
 				attacker = player2;
 			}
-			board.drawCard(playerTurn,attacker);
 			attack(attacker);
+			board.drawCard(playerTurn,attacker);
 		}
 	}
 	
