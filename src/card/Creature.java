@@ -10,8 +10,8 @@ public class Creature extends Card {
 	private final int MAX_HEALTH;
 	private int health;
 	
-	public Creature(String name, CardRank rank, int cost, int manaCost, int power, int health, int sleep, String description) {
-		super(name, rank, cost, manaCost, power, description);
+	public Creature(String name, CardRank rank, int cost, int manaCost, int power,int powerID, int health, int sleep, String description) {
+		super(name, rank, cost, manaCost, power, powerID, description);
 		MAX_HEALTH = health;
 		setHealth(health);
 		setSleep(sleep);
@@ -19,8 +19,7 @@ public class Creature extends Card {
 
 	@Override
 	public void cardAbility(Player player) {
-		// TODO Auto-generated method stub
-		
+		// 0 damage, 1 Heal, 2 Stun, 10 power up Off., 11 power up Def., 12 power Both
 	}
 
 	public int getMAX_HEALTH() {

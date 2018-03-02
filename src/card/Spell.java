@@ -7,13 +7,15 @@ public class Spell extends Card{
 
 	private static final long serialVersionUID = 3653971824268444554L;
 
-	public Spell(String name, CardRank rank, int cost, int manaCost, int power, String description) {
-		super(name, rank, cost, manaCost, power, description);
+	public Spell(String name, CardRank rank, int cost, int manaCost, int power, int powerID, String description) {
+		super(name, rank, cost, manaCost, power, powerID, description);
 	}
 
 	@Override
 	public void cardAbility(Player player) {
-		// TODO Auto-generated method stub
+		// 0 damage, 1 Heal, 2 Stun, 10 power up Off., 11 power up Def., 12 power Both
+		
+		
 		
 	}
 

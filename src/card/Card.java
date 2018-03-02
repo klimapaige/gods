@@ -14,9 +14,10 @@ public abstract class Card implements Serializable {
 	public final int cost;
 	public final int manaCost;
 	public final int power;
+	public final int powerID;
 	public final String description;
 
-	public Card(String name, CardRank rank, int cost, int manaCost, int power, String description) {
+	public Card(String name, CardRank rank, int cost, int manaCost, int power, int powerID, String description) {
 		super();
 		this.name = name;
 		this.rank = rank;
@@ -24,6 +25,7 @@ public abstract class Card implements Serializable {
 		this.manaCost = manaCost;
 		this.power = power;
 		this.description = description;
+		this.powerID = powerID;
 	}
 
 	public abstract void cardAbility(Player player);
