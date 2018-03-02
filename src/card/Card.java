@@ -3,8 +3,9 @@ package card;
 import java.io.Serializable;
 
 import enums.CardRank;
+import enums.PowerID;
 import lib.ConsoleIO;
-import player.Player;
+import lib.Tool;
 
 public abstract class Card implements Serializable {
 
@@ -28,8 +29,6 @@ public abstract class Card implements Serializable {
 		this.powerID = powerID;
 	}
 
-	public abstract void cardAbility(Player player,Card card);
-
 	public static Card newCard() {
 		Card c = null;
 		boolean isSpell = ConsoleIO.promptForBool("Is this a Spell or Creature (s/c)", "s", "c");
@@ -51,16 +50,16 @@ public abstract class Card implements Serializable {
 			done = ConsoleIO.promptForBool("Would you like to add another line? (y/n)", "n", "y");
 		}
 		int power = ConsoleIO.promptForInt("How much damage will this card have?", 0, Integer.MAX_VALUE);
+		String[] powerIds = Tool.toStrArr(PowerID.values());
+		int selection = ConsoleIO.promptForMenuSelection(powerIds, false);
 		if (isSpell) {
-			c = new Spell(name, crArr[rank], cost, manaCost, power, description);
+			c = new Spell(name, crArr[rank], cost, manaCost, power, selection, description);
 		} else {
 			int health = ConsoleIO.promptForInt("How much health will this card have?", 0, Integer.MAX_VALUE);
 			int sleep = ConsoleIO.promptForInt("How long will this card sleep before playing?", 0, Integer.MAX_VALUE);
-			c = new Creature(name, crArr[rank], cost, manaCost, power, health, sleep, description);
+			c = new Creature(name, crArr[rank], cost, manaCost, power, selection, health, sleep, description);
 		}
 		return c;
 	}
-	
-	
-	
+
 }

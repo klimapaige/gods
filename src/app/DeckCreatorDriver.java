@@ -8,7 +8,7 @@ public class DeckCreatorDriver {
 	public static void main(String[] args) {
 		run();
 	}
-	
+
 	public static void run() {
 		System.out.println("Welcome to the deck creation tool.");
 		boolean done = false;
