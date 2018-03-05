@@ -40,7 +40,7 @@ public class Shop {
 		options = player.getDeck().getDeck().toArray(options);
 		int input = ConsoleIO.promptForMenuSelection(options, false);
 		// adds the credit to the players money while also removing it from the deck
-		player.setCredit(player.getCredit() + player.getDeck().pullCard(input - 1).cost);
+		player.setCredit(player.getCredit() + player.getDeck().pullCard(input - 1).getCost());
 		
 	}
 }
