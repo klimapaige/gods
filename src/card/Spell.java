@@ -1,12 +1,13 @@
 package card;
 
 import enums.CardRank;
+import enums.PowerID;
 
 public class Spell extends Card {
 
 	private static final long serialVersionUID = 3653971824268444554L;
 
-	public Spell(String name, CardRank rank, int cost, int manaCost, int power, int powerID, String description) {
+	public Spell(String name, CardRank rank, int cost, int manaCost, int power, PowerID powerID, String description) {
 		super(name, rank, cost, manaCost, power, powerID, description);
 	}
 

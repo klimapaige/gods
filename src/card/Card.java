@@ -15,10 +15,10 @@ public abstract class Card implements Serializable {
 	public final int cost;
 	public final int manaCost;
 	public final int power;
-	public final int powerID;
+	public final PowerID powerID;
 	public final String description;
 
-	public Card(String name, CardRank rank, int cost, int manaCost, int power, int powerID, String description) {
+	public Card(String name, CardRank rank, int cost, int manaCost, int power, PowerID powerID, String description) {
 		super();
 		this.name = name;
 		this.rank = rank;
@@ -51,13 +51,13 @@ public abstract class Card implements Serializable {
 		}
 		int power = ConsoleIO.promptForInt("How much damage will this card have?", 0, Integer.MAX_VALUE);
 		String[] powerIds = Tool.toStrArr(PowerID.values());
-		int selection = ConsoleIO.promptForMenuSelection(powerIds, false);
+		PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
 		if (isSpell) {
-			c = new Spell(name, crArr[rank], cost, manaCost, power, selection, description);
+			c = new Spell(name, crArr[rank], cost, manaCost, power, powerID, description);
 		} else {
 			int health = ConsoleIO.promptForInt("How much health will this card have?", 0, Integer.MAX_VALUE);
-			int sleep = ConsoleIO.promptForInt("How long will this card sleep before playing?", 0, Integer.MAX_VALUE);
-			c = new Creature(name, crArr[rank], cost, manaCost, power, selection, health, sleep, description);
+			boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack?", "y", "n");
+			c = new Creature(name, crArr[rank], cost, manaCost, power, powerID, health, sleep, description);
 		}
 		return c;
 	}

@@ -1,6 +1,7 @@
 package card;
 
 import enums.CardRank;
+import enums.PowerID;
 
 public class Creature extends Card {
 
@@ -9,8 +10,8 @@ public class Creature extends Card {
 	private final int MAX_HEALTH;
 	private int health;
 
-	public Creature(String name, CardRank rank, int cost, int manaCost, int power, int powerID, int health, boolean sleep,
-			String description) {
+	public Creature(String name, CardRank rank, int cost, int manaCost, int power, PowerID powerID, int health,
+			boolean sleep, String description) {
 		super(name, rank, cost, manaCost, power, powerID, description);
 		MAX_HEALTH = health;
 		setHealth(health);
