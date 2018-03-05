@@ -11,6 +11,7 @@ import enums.Mythology;
 public class Player implements Serializable {
 	
 	private String username;
+	private String password;
 	private Deck deck;
 	private int mana;
 	private int health;
@@ -20,8 +21,9 @@ public class Player implements Serializable {
 	private final int BASE_HEALTH = 20;
 	private final int BASE_MANA = 0;
 
-	public Player(String username, GodType godtype) {
+	public Player(String username, String password, GodType godtype) {
 		setUsername(username);
+		setPassword(password);
 		Random rand = new Random();
 		Mythology[] mythos = Mythology.values();
 		Mythology mythology = mythos[rand.nextInt(mythos.length)];
@@ -92,5 +94,13 @@ public class Player implements Serializable {
 		if(god != null) {
 			this.god = god;
 		}
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
