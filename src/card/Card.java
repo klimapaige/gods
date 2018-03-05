@@ -14,7 +14,7 @@ public abstract class Card implements Serializable {
 	public final CardRank rank;
 	public final int cost;
 	public final int manaCost;
-	public final int power;
+	public int power;
 	public final PowerID powerID;
 	public final String description;
 
