@@ -17,13 +17,15 @@ public class Match {
 	public Match(Player player1,Player player2, View view) {
 		this.player1=player1;
 		this.player2=player2;
+		this.view = view;
 	}
 	
 	public void runGame() {
 		start();
 		int turnCount = 0;
 		int playerTurn = (int) (Math.random()*2);
-		while(!checkWin()) {
+		
+		while(checkWin()==null) {
 			turnCount++;
 			turn(playerTurn);
 		}
@@ -48,9 +50,16 @@ public class Match {
 		}
 	}
 	
-	public boolean checkWin() {
-		boolean win = false;
-		
+	public Player checkWin() {
+		Player win = null;
+		if(player1.getHealth()<=0&&player2.getHealth()>0) {
+			win=player2;
+		}else if(player2.getHealth()<=0&&player1.getHealth()>0) {
+			win=player1;
+		}else if(player2.getHealth()<=0&&player1.getHealth()<=0) {
+			player1.setHealth(10);
+			player2.setHealth(10);
+		}
 		return win;
 	}
 

@@ -62,4 +62,18 @@ public abstract class Card implements Serializable {
 		return c;
 	}
 
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		if(power>=0) {
+			this.power = power;			
+		}else {
+			this.power = 0;
+		}
+	}
+	
+	
+
 }
