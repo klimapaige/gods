@@ -93,7 +93,7 @@ public class Game {
 	
 	public void newPlayer() {
 		String[] info = view.getInformation();
-		Player p = new Player(info[0], GodType.valueOf(info[1]));
+		Player p = new Player(info[0], info[1], GodType.valueOf(info[2]));
 		players.add(p);
 	}
 	
