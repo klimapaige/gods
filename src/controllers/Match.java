@@ -45,7 +45,7 @@ public class Match {
 				playerTurn=2;
 				attacker = player2;
 			}
-			attack(attacker);
+			attack(playerTurn);
 			board.drawCard(playerTurn,attacker);
 		}
 	}
@@ -65,7 +65,13 @@ public class Match {
 
 	
 	
-	public void attack(Player player) {
+	public void attack(int playerTurn) {
+		int[] cardChoices = new int[2];
+		Card[] bF1 = board.getBattlefeild1();
+		Card[] bF2 = board.getBattlefeild1();
+		if(playerTurn==1) {
+			//bF1[cardChoices[0]].cardAbility(player, card);
+		}
 		
 	}
 	
