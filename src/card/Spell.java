@@ -19,11 +19,11 @@ public class Spell extends Card {
 		builder.append(", rank=");
 		builder.append(rank);
 		builder.append(", cost=");
-		builder.append(cost);
+		builder.append(getCost());
 		builder.append(", manaCost=");
 		builder.append(manaCost);
 		builder.append(", power=");
-		builder.append(power);
+		builder.append(getPower());
 		builder.append(", description=");
 		builder.append(description);
 		builder.append("]");

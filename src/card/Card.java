@@ -12,9 +12,10 @@ public abstract class Card implements Serializable {
 	private static final long serialVersionUID = 8241558901048926297L;
 	public final String name;
 	public final CardRank rank;
-	public final int cost;
+	private int cost;
+
 	public final int manaCost;
-	public int power;
+	private int power;
 	public final PowerID powerID;
 	public final String description;
 
@@ -72,6 +73,13 @@ public abstract class Card implements Serializable {
 		}else {
 			this.power = 0;
 		}
+	}
+	public int getCost() {
+		return cost;
+	}
+	
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 	
 	
