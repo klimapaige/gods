@@ -9,30 +9,29 @@ import traders.Trade;
 import viewer.View;
 
 public class Game {
-	
+
 	private View view;
 	private ArrayList<Player> players;
 	private String[] args;
 	
-	public Game(View view, String[] args)
-	{
+
+	public Game(View view, String[] args) {
 		this.view = view;
 		this.args = args;
 	}
-	
+
 	public void mainMenu() {
 		view.launchGUI(args);
-		String[] options = {"Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player"};
+		String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player" };
 		int choice = view.displayMenu(options);
-		switch(choice)
-		{
+		switch (choice) {
 		case 0:
 			login();
 			break;
 		case 1:
 			playGame();
 			break;
-		case 2: 
+		case 2:
 			shop();
 			break;
 		case 3:
@@ -49,12 +48,11 @@ public class Game {
 
 	public void login() {
 		String username = view.loginScreen();
-		
+
 	}
-	
+
 	public void playGame() {
-		if(players.size() > 1)
-		{
+		if (players.size() > 1) {
 			String[] options = new String[players.size()];
 			options = players.toArray(options);
 			int firstOption = view.displayMenu(options);
@@ -63,7 +61,7 @@ public class Game {
 			m.start();
 		}
 	}
-	
+
 	public void shop() {
 		String[] options = new String[players.size()];
 		options = players.toArray(options);
@@ -71,10 +69,9 @@ public class Game {
 		Shop s = new Shop(players.get(input));
 		s.shop();
 	}
-	
+
 	public void trade() {
-		if(players.size() > 1)
-		{
+		if (players.size() > 1) {
 			String[] options = new String[players.size()];
 			options = players.toArray(options);
 			int firstOptions = view.displayMenu(options);
@@ -83,18 +80,18 @@ public class Game {
 			t.beginTrade();
 		}
 	}
-	
+
 	public void delete() {
 		String[] options = new String[players.size()];
 		options = players.toArray(options);
 		int input = view.displayMenu(options);
 		players.remove(input);
 	}
-	
+
 	public void newPlayer() {
 		String[] info = view.getInformation();
 		Player p = new Player(info[0], info[1], GodType.valueOf(info[2]));
 		players.add(p);
 	}
-	
+
 }
