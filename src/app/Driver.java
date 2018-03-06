@@ -1,5 +1,6 @@
-package controllers;
+package app;
 
+import controllers.Game;
 import viewer.GuiView;
 
 public class Driver {
