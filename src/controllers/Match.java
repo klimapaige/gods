@@ -66,7 +66,8 @@ public class Match {
 				theirBattlefeild = board.getBattlefeild1();
 			}
 			attacker.setMana(mana);//sets mana for the card selection phase
-			//gui view is supposed to return 
+			//gui view is supposed to return an array of ints representing the 
+			//indices of hand
 			board.moveCards(playerTurn, new int[0]);
 			//sets up the class for the attack
 			Attack round = new Attack(attacker, attackie, myHand, myBattlefeild, theirBattlefeild);
@@ -121,10 +122,10 @@ public class Match {
 
 
 	public void end(Player win,Player lost) {
-		//win gets 5 credits added
-		win.setCredit(win.getCredit()+5);
-		//lost gets 1 credit added
-		lost.setCredit(lost.getCredit()+1);
+		//win gets 50 credits added
+		win.setCredit(win.getCredit()+50);
+		//lost gets 10 credit added
+		lost.setCredit(lost.getCredit()+10);
 		
 		//display the winner
 	}
