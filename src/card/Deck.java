@@ -1,15 +1,10 @@
 package card;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 import enums.GodType;
-import lib.ConsoleIO;
-import lib.Tool;
 import player.God;
 
 public class Deck implements Serializable {

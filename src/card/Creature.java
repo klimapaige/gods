@@ -7,19 +7,23 @@ public class Creature extends Card {
 
 	private static final long serialVersionUID = -1604270793646181661L;
 	private boolean sleep;
-	private final int MAX_HEALTH;
+	private int maxHealth;
 	private int health;
 
 	public Creature(String name, CardRank rank, int cost, int manaCost, int power, PowerID powerID, int health,
 			boolean sleep, String description) {
 		super(name, rank, cost, manaCost, power, powerID, description);
-		MAX_HEALTH = health;
+		setMaxHealth(health);
 		setHealth(health);
 		setSleep(sleep);
 	}
 
-	public int getMAX_HEALTH() {
-		return MAX_HEALTH;
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
 	}
 
 	public boolean getSleep() {
@@ -44,7 +48,7 @@ public class Creature extends Card {
 		builder.append("Creature [sleep=");
 		builder.append(sleep);
 		builder.append(", MAX_HEALTH=");
-		builder.append(MAX_HEALTH);
+		builder.append(maxHealth);
 		builder.append(", health=");
 		builder.append(health);
 		builder.append(", name=");
