@@ -102,6 +102,32 @@ public class Board {
 		}
 	}
 	
+	public void moveCards(int playerNumber,int[] cardChoices) {
+		if(cardChoices.length>0) {
+			if(playerNumber==1) {
+				for(int handIndex:cardChoices) {
+					boolean placed = false;
+					for(int i=0;i<battlefeild1.length&&!placed;i++) {
+						if(battlefeild1[i]==null) {
+							battlefeild1[i] = hand1[handIndex];
+							placed = true;
+						}
+					}
+				}
+			}else {
+				for(int handIndex:cardChoices) {
+					boolean placed = false;
+					for(int i=0;i<battlefeild2.length&&!placed;i++) {
+						if(battlefeild2[i]==null) {
+							battlefeild2[i] = hand2[handIndex];
+							placed = true;
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	
 
 }
