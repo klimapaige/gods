@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="gridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.InstructionsController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font name="Rockwell Extra Bold" size="32.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="30.0" />
+         </GridPane.margin>
+      </Text>
+      <TextArea fx:id="textArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="278.0" prefWidth="960.0" stylesheets="@style.css" text="Your Turn Consists of 2 Phases:&#10;&#10;Play Phase: You can play any creatures you have from your hand onto the battlefield.&#10;Attack Phase: You may play spells to buff, debuff, heal or damage characters.&#10;&#10;&#10;There are 2 types of cards:&#10;&#10;Creatures: These cards have a Damage Value and a Health Value&#10;Spells: These cards have different attrubutes that can affect the characters they specify.&#10;" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font name="Rockwell Extra Bold" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="120.0" />
+         </GridPane.margin>
+      </TextArea>
+      <Button fx:id="backButton" mnemonicParsing="false" text="Back" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font name="Rockwell Extra Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="380.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+</GridPane>
