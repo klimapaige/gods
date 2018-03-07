@@ -47,10 +47,10 @@ public class Cards {
 		Deck master = null;
 		try {
 			int edition = ConsoleIO.promptForInt("Which edition would you like to modify? ", 1, Integer.MAX_VALUE);
-			master = (Deck) Tool.deserialize("deck/" + edition + "/master.dc");
-			String[] allCards = Tool.toStrArr(master.getDeck());
 			boolean editAnotherCard = true;
 			while (editAnotherCard) {
+				master = (Deck) Tool.deserialize("deck/" + edition + "/master.dc");
+				String[] allCards = Tool.toStrArr(master.getDeck());
 				int cardNum = ConsoleIO.promptForMenuSelection(allCards, true);
 				if (cardNum == 0) {
 					editAnotherCard = false;
@@ -178,8 +178,9 @@ public class Cards {
 						}
 					}
 				}
+				Tool.serialize(master, "deck/" + edition + "/master.dc");
 			}
-			Tool.serialize(master, "deck/" + edition + "/master.dc");
+			System.out.println("Master Deck Serialized");
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
