@@ -2,6 +2,7 @@ package controllers;
 
 import card.Decks;
 import lib.ConsoleIO;
+import lib.Tool;
 
 public class DeckCreator {
 
@@ -23,6 +24,7 @@ public class DeckCreator {
 				break;
 			case 0:
 				done = true;
+				Tool.serialize(Players, "/deck/stuff.dc");
 				break;
 			default:
 				break;

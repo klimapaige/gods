@@ -1,27 +1,46 @@
 package player;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 
 import enums.GodType;
+import lib.Tool;
 
+@SuppressWarnings("serial")
 public class Players implements Serializable {
 
-	private static final long serialVersionUID = 877216857619279738L;
-	private static HashMap<String, Player> playerList = new HashMap<>();
-
-	public static void newPlayer(String username, String password, GodType godtype) {
+	private final long serialVersionUID = 877216857619279738L;
+	private HashMap<String, Player> playerList;
+	private String filePath;
+	
+	public Players(boolean newPlayerList, String filePath) {
+		if(newPlayerList) {
+			setPlayerList(new HashMap<String, Player>());
+			setFilePath(filePath);
+		}else {
+			try {
+				Players p = (Players) Tool.deserialize(filePath);
+				setPlayerList(p.getPlayerList());
+				setFilePath(p.getFilePath());
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void newPlayer(String username, String password, GodType godtype) {
 		Player newPlayer = new Player(username, password, godtype);
 		getPlayerList().put(username, newPlayer);
 	}
 
-	public static Player loadPlayer(String username) {
+	public Player loadPlayer(String username) {
 		Player loaded = null;
 		loaded = getPlayerList().get(username);
 		return loaded;
 	}
 
-	public static boolean checkPlayerLogin(String username, String password) {
+	public boolean checkPlayerLogin(String username, String password) {
 		boolean load = false;
 		String[] potentialUsernames = new String[getPlayerList().size()];
 		getPlayerList().keySet().toArray(potentialUsernames);
@@ -43,12 +62,28 @@ public class Players implements Serializable {
 		return load;
 	}
 
-	public static HashMap<String, Player> getPlayerList() {
+	public HashMap<String, Player> getPlayerList() {
 		return playerList;
 	}
+	
+	public void savePlayerList() {
+		try {
+			Tool.serialize(this, getFilePath());
+		} catch (IOException e) {
+			System.out.println("Unable to save player list.");
+		}
+	}
 
-	public static void setPlayerList(HashMap<String, Player> playerList) {
-		Players.playerList = playerList;
+	public void setPlayerList(HashMap<String, Player> playerList) {
+		this.playerList = playerList;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 }
