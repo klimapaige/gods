@@ -45,25 +45,25 @@ public class Creature extends Card {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Creature [sleep=");
-		builder.append(sleep);
-		builder.append(", MAX_HEALTH=");
-		builder.append(maxHealth);
-		builder.append(", health=");
-		builder.append(health);
-		builder.append(", name=");
+		builder.append("Creature:\tName: ");
 		builder.append(name);
-		builder.append(", rank=");
+		if(name.length() < 10) {
+			builder.append("\t");
+		}
+		builder.append("\tRank: ");
 		builder.append(rank);
-		builder.append(", cost=");
+		builder.append("\tCost: ");
 		builder.append(getCost());
-		builder.append(", manaCost=");
+		builder.append("\tMana Cost: ");
 		builder.append(manaCost);
-		builder.append(", power=");
+		builder.append("\tMax Health: ");
+		builder.append(maxHealth);
+		builder.append("\tPower: ");
 		builder.append(getPower());
-		builder.append(", description=");
+		builder.append("\tSleep: ");
+		builder.append(sleep);
+		builder.append("\tDescription: ");
 		builder.append(description);
-		builder.append("]");
 		return builder.toString();
 	}
 

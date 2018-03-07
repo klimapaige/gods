@@ -48,17 +48,16 @@ public class Cards {
 		try {
 			int edition = ConsoleIO.promptForInt("Which edition would you like to modify? ", 1, Integer.MAX_VALUE);
 			boolean editAnotherCard = true;
+			master = (Deck) Tool.deserialize("deck/" + edition + "/master.dc");
 			while (editAnotherCard) {
-				master = (Deck) Tool.deserialize("deck/" + edition + "/master.dc");
 				String[] allCards = Tool.toStrArr(master.getDeck());
 				int cardNum = ConsoleIO.promptForMenuSelection(allCards, true);
 				if (cardNum == 0) {
 					editAnotherCard = false;
 				} else {
-					c = master.getDeck().get(cardNum - 1);
-					master.getDeck().remove(cardNum - 1);
 					boolean done = false;
 					while (!done) {
+						c = master.getDeck().get(cardNum - 1);
 						try {
 							Creature creature = (Creature) c;
 							String[] attr = { "Name", "Rank", "Cost", "Mana Cost", "Power", "Power ID", "Description",
@@ -112,6 +111,7 @@ public class Cards {
 							case 8:
 								int health = ConsoleIO.promptForInt("How much health will this card have?", 0,
 										Integer.MAX_VALUE);
+								creature.setMaxHealth(health);
 								creature.setHealth(health);
 								break;
 							case 9:
@@ -120,6 +120,7 @@ public class Cards {
 								done = true;
 								break;
 							}
+							master.getDeck().remove(cardNum - 1);
 							master.addCard(creature);
 						} catch (ClassCastException e) {
 							Spell spell = (Spell) c;
@@ -174,12 +175,13 @@ public class Cards {
 								done = true;
 								break;
 							}
+							master.getDeck().remove(cardNum - 1);
 							master.addCard(spell);
 						}
 					}
 				}
-				Tool.serialize(master, "deck/" + edition + "/master.dc");
 			}
+			Tool.serialize(master, "deck/" + edition + "/master.dc");
 			System.out.println("Master Deck Serialized");
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
