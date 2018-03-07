@@ -66,6 +66,8 @@ public class Match {
 				theirBattlefeild = board.getBattlefeild1();
 			}
 			attacker.setMana(mana);//sets mana for the card selection phase
+			//gui view is supposed to return 
+			board.moveCards(playerTurn, new int[0]);
 			//sets up the class for the attack
 			Attack round = new Attack(attacker, attackie, myHand, myBattlefeild, theirBattlefeild);
 			attackPhase(round);
@@ -98,6 +100,7 @@ public class Match {
 		for (int j = 0; j < choices.length; j++) {
 			choices[j] = -1;
 		}
+		
 		boolean continueGame = false;
 		do {
 			continueGame = false;
