@@ -29,7 +29,7 @@ public class Cards {
 		String[] powerIds = Tool.toStrArr(PowerID.values());
 		PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
 		while (!done) {
-			description = ConsoleIO.promptForInput("Enter the card's description: ", true);
+			description += ConsoleIO.promptForInput("Enter the card's description: ", true);
 			done = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n", "y");
 		}
 		if (isSpell) {
@@ -171,7 +171,7 @@ public class Cards {
 							case 7:
 								String description = "";
 								while (!done) {
-									description = ConsoleIO.promptForInput("Enter the card's description: ", true);
+									description += ConsoleIO.promptForInput("Enter the card's description: ", true);
 									done = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n",
 											"y");
 								}
