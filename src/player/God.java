@@ -33,15 +33,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Egir";
 				break;
-//			case ROMAN:
-//				name = "Neptune";
-//				break;
+			// case ROMAN:
+			// name = "Neptune";
+			// break;
 			case HINDU:
 				name = "Varuna";
 				break;
-//			case NEUMONT:
-//				name = "Kohler";
-//				break;
+			// case NEUMONT:
+			// name = "Kohler";
+			// break;
 			}
 		case WAR:
 			switch (mythology) {
@@ -51,15 +51,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Tyr";
 				break;
-//			case ROMAN:
-//				name = "Mars";
-//				break;
+			// case ROMAN:
+			// name = "Mars";
+			// break;
 			case HINDU:
 				name = "Karttikeya";
 				break;
-//			case NEUMONT:
-//				name = "Beatty";
-//				break;
+			// case NEUMONT:
+			// name = "Beatty";
+			// break;
 			}
 		case LOVE:
 			switch (mythology) {
@@ -69,15 +69,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Freya";
 				break;
-//			case ROMAN:
-//				name = "Venus";
-//				break;
+			// case ROMAN:
+			// name = "Venus";
+			// break;
 			case HINDU:
 				name = "Rati";
 				break;
-//			case NEUMONT:
-//				name = "Harrison";
-//				break;
+			// case NEUMONT:
+			// name = "Harrison";
+			// break;
 			}
 		case KING:
 			switch (mythology) {
@@ -87,15 +87,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Odin";
 				break;
-//			case ROMAN:
-//				name = "Jupiter";
-//				break;
+			// case ROMAN:
+			// name = "Jupiter";
+			// break;
 			case HINDU:
 				name = "Indra";
 				break;
-//			case NEUMONT:
-//				name = "Krebs";
-//				break;
+			// case NEUMONT:
+			// name = "Krebs";
+			// break;
 			}
 		case DEATH:
 			switch (mythology) {
@@ -105,15 +105,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Hel";
 				break;
-//			case ROMAN:
-//				name = "Pluto";
-//				break;
+			// case ROMAN:
+			// name = "Pluto";
+			// break;
 			case HINDU:
 				name = "Yama";
 				break;
-//			case NEUMONT:
-//				name = "Fletcher";
-//				break;
+			// case NEUMONT:
+			// name = "Fletcher";
+			// break;
 			}
 		case MESSENGER:
 			switch (mythology) {
@@ -123,15 +123,15 @@ public class God implements Serializable {
 			case NORSE:
 				name = "Hermod";
 				break;
-//			case ROMAN:
-//				name = "Mercury";
-//				break;
+			// case ROMAN:
+			// name = "Mercury";
+			// break;
 			case HINDU:
 				name = "Agni";
 				break;
-//			case NEUMONT:
-//				name = "JP";
-//				break;
+			// case NEUMONT:
+			// name = "JP";
+			// break;
 			}
 
 		}

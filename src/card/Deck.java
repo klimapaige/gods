@@ -23,7 +23,7 @@ public class Deck implements Serializable {
 	}
 
 	public Deck(God god) {
-		String filePath = god.godName.toLowerCase() + ".dc";
+		String filePath = "deck/1/" + god.godName.toLowerCase() + ".dc";
 		Deck deck = null;
 		try {
 			deck = (Deck) Tool.deserialize(filePath);
