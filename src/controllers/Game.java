@@ -18,23 +18,23 @@ public class Game {
 	private static ArrayList<Player> players = new ArrayList<>();
 	private String[] args;
 	private static Players playersHash;
-	
+
 	public static View getView() {
 		return view;
 	}
-	
+
 	public static ArrayList<Player> getPlayers() {
 		return players;
 	}
-	
+
 	public static Players getPlayersHash() {
 		return playersHash;
 	}
-	
+
 	public static void setPlayerHashNew() {
 		playersHash = new Players(true, "C:\\Users\\Joe Hommel\\Desktop\\temp.pl");
 	}
-	
+
 	public static void setPlayerHashOld(String filePath) {
 		playersHash = new Players(false, filePath);
 		String[] playersHashArray = new String[playersHash.getPlayerList().keySet().size()];
@@ -52,31 +52,31 @@ public class Game {
 	}
 
 	public static void mainMenu() {
-//		view.launchGUI(args);
-//		String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player" };
-		
-		
-//		int choice = view.displayMenu(options);
-//		switch (choice) {
-//		case 0:
-//			login();
-//			break;
-//		case 1:
-//			playGame();
-//			break;
-//		case 2:
-//			shop();
-//			break;
-//		case 3:
-//			trade();
-//			break;
-//		case 4:
-//			delete();
-//			break;
-//		case 5:
-//			newPlayer();
-//			break;
-//		}
+		// view.launchGUI(args);
+		// String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a
+		// Player", "Make a new player" };
+
+		// int choice = view.displayMenu(options);
+		// switch (choice) {
+		// case 0:
+		// login();
+		// break;
+		// case 1:
+		// playGame();
+		// break;
+		// case 2:
+		// shop();
+		// break;
+		// case 3:
+		// trade();
+		// break;
+		// case 4:
+		// delete();
+		// break;
+		// case 5:
+		// newPlayer();
+		// break;
+		// }
 	}
 
 	public void login() {
@@ -88,10 +88,10 @@ public class Game {
 		if (players.size() > 1) {
 			String[] options = new String[players.size()];
 			options = players.toArray(options);
-//			int firstOption = view.displayMenu(options);
-//			int secondOptions = view.displayMenu(options);
-//			Match m = new Match(players.get(0), players.get(1), view);
-//			m.runGame();
+			// int firstOption = view.displayMenu(options);
+			// int secondOptions = view.displayMenu(options);
+			// Match m = new Match(players.get(0), players.get(1), view);
+			// m.runGame();
 		}
 	}
 

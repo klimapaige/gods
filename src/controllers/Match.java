@@ -23,71 +23,71 @@ public class Match {
 	}
 
 	public void runGame() {
-//		start();
-//		int turnCount = 0;
-//		int playerTurn = (int) (Math.random() * 2);//decides who goes first
-//		Player winner;
-//		//runs until there is a winner
-//		while ((winner = checkWin()) == null) {
-//			turnCount++;
-//			turn(playerTurn, turnCount);
-//		}
-//		Player lost = winner==player1?player2:player1;
-//		
-//	
-//		end(winner,lost);
+		// start();
+		// int turnCount = 0;
+		// int playerTurn = (int) (Math.random() * 2);//decides who goes first
+		// Player winner;
+		// //runs until there is a winner
+		// while ((winner = checkWin()) == null) {
+		// turnCount++;
+		// turn(playerTurn, turnCount);
+		// }
+		// Player lost = winner==player1?player2:player1;
+		//
+		//
+		// end(winner,lost);
 	}
 
 	public void start() {
-		//each player gets 5 cards drawn for each of their hands
-		//onto the board
+		// each player gets 5 cards drawn for each of their hands
+		// onto the board
 		board.drawFirstCards(player1, player2);
 	}
-	
-	//the code running a round 
+
+	// the code running a round
 	public Attack turn(int playerTurn, int turnCount) {
 		int mana = turnCount > 10 ? 10 : turnCount;
-		
-			Player attacker, attackie;
-			Card[] myHand, myBattlefeild, theirBattlefeild;
-			//decides who is the attacker and who is being attacked
-			if (playerTurn % 2 == 1) {
-				playerTurn = 1;
-				attacker = player1;
-				attackie = player2;
-				myHand = board.getHand1();
-				myBattlefeild = board.getBattlefeild1();
-				theirBattlefeild = board.getBattlefeild2();
-			} else {
-				playerTurn = 2;
-				attacker = player2;
-				attackie = player1;
-				myHand = board.getHand1();
-				myBattlefeild = board.getBattlefeild2();
-				theirBattlefeild = board.getBattlefeild1();
-			}
-			attacker.setMana(mana);//sets mana for the card selection phase
-			//gui view is supposed to return an array of ints representing the 
-			//indices of hand
-			
-			//sets up the class for the attack
-			Attack round = new Attack(player1, player2, myHand, myBattlefeild, theirBattlefeild);
-			return round;
-	}
-	
-	public void moveCards(int playerTurn) {
-		if(playerTurn==1) {
-			board.moveCards(playerTurn,player1Selections);
+
+		Player attacker, attackie;
+		Card[] myHand, myBattlefeild, theirBattlefeild;
+		// decides who is the attacker and who is being attacked
+		if (playerTurn % 2 == 1) {
+			playerTurn = 1;
+			attacker = player1;
+			attackie = player2;
+			myHand = board.getHand1();
+			myBattlefeild = board.getBattlefield1();
+			theirBattlefeild = board.getBattlefield2();
 		} else {
-			board.moveCards(playerTurn,player2Selections);
+			playerTurn = 2;
+			attacker = player2;
+			attackie = player1;
+			myHand = board.getHand1();
+			myBattlefeild = board.getBattlefield2();
+			theirBattlefeild = board.getBattlefield1();
+		}
+		attacker.setMana(mana);// sets mana for the card selection phase
+		// gui view is supposed to return an array of ints representing the
+		// indices of hand
+
+		// sets up the class for the attack
+		Attack round = new Attack(player1, player2, myHand, myBattlefeild, theirBattlefeild);
+		return round;
+	}
+
+	public void moveCards(int playerTurn) {
+		if (playerTurn == 1) {
+			board.moveCards(playerTurn, player1Selections);
+		} else {
+			board.moveCards(playerTurn, player2Selections);
 		}
 	}
 
 	public Player checkWin() {
 		Player win = null;
-		//decides if there is a winner based on health
-		//if tie, then the players' health gets set back to 10 and they 
-		//continue the round
+		// decides if there is a winner based on health
+		// if tie, then the players' health gets set back to 10 and they
+		// continue the round
 		if (player1.getHealth() <= 0 && player2.getHealth() > 0) {
 			win = player2;
 		} else if (player2.getHealth() <= 0 && player1.getHealth() > 0) {
@@ -102,18 +102,17 @@ public class Match {
 	public void attackPhase(Attack round, int playerTurn) {
 
 		int[] choices;
-		
-		
+
 		boolean continueGame = false;
 		do {
 			continueGame = false;
-			//sets the player's choices for attack
-			if(playerTurn==1) {
-				choices=player1Attack;
+			// sets the player's choices for attack
+			if (playerTurn == 1) {
+				choices = player1Attack;
 			} else {
-				choices=player2Attack;
+				choices = player2Attack;
 			}
-			//checks if there was any choices made, if not the rounds 
+			// checks if there was any choices made, if not the rounds
 			for (int k : choices) {
 				if (k > -1) {
 					continueGame = true;
@@ -126,12 +125,11 @@ public class Match {
 
 	}
 
-
-	public void end(Player win,Player lost) {
-		//win gets 50 credits added
-		win.setCredit(win.getCredit()+50);
-		//lost gets 10 credit added
-		lost.setCredit(lost.getCredit()+10);
+	public void end(Player win, Player lost) {
+		// win gets 50 credits added
+		win.setCredit(win.getCredit() + 50);
+		// lost gets 10 credit added
+		lost.setCredit(lost.getCredit() + 10);
 	}
 
 }

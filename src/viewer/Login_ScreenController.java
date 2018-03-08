@@ -34,26 +34,26 @@ public class Login_ScreenController {
 	private Button signUpButton;
 	@FXML
 	private Button loadButton;
-	
+
 	private String loadedFile;
 
 	@FXML
 	public void initialize() throws IOException {
-		signUpButton.setOnAction((event) -> {	
+		signUpButton.setOnAction((event) -> {
 			Parent signUpScreen;
 			try {
 				signUpScreen = FXMLLoader.load(getClass().getResource("Sign_Up.fxml"));
-				
+
 				Scene signUpScene = new Scene(signUpScreen, 960, 540);
-				
+
 				Stage signUpStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				
+
 				signUpStage.hide();
-				
+
 				signUpStage.setMaximized(true);
-				
+
 				signUpStage.setScene(signUpScene);
-				
+
 				signUpStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -62,35 +62,36 @@ public class Login_ScreenController {
 		loadButton.setOnAction((event) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setTitle("Open C:WotG");
-			fileChooser.getExtensionFilters().addAll( new ExtensionFilter("Player File", "*.pl"), new ExtensionFilter("Deck File", "*.dc"));
+			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Player File", "*.pl"),
+					new ExtensionFilter("Deck File", "*.dc"));
 			File selectedFile = fileChooser.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
-			
+
 			System.out.println(selectedFile);
-			
+
 			loadedFile = selectedFile.toString();
-			
+
 			Game.setPlayerHashOld(loadedFile);
-//			System.out.println(Game.getPlayersHash().getPlayerList().keySet().toString());
+			// System.out.println(Game.getPlayersHash().getPlayerList().keySet().toString());
 		});
 		loginButton.setOnAction((event) -> {
-			
+
 			if (!usernameBox.getText().isEmpty() && !passwordBox.getText().isEmpty()) {
 				if (Game.getPlayersHash().checkPlayerLogin(usernameBox.getText(), passwordBox.getText())) {
-					
+
 					Parent mainMenuScreen;
 					try {
 						mainMenuScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
-						
+
 						Scene mainMenuScene = new Scene(mainMenuScreen, 960, 540);
-						
+
 						Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						
+
 						mainMenuStage.hide();
-						
+
 						mainMenuStage.setFullScreen(true);
-						
+
 						mainMenuStage.setScene(mainMenuScene);
-						
+
 						mainMenuStage.show();
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -104,5 +105,5 @@ public class Login_ScreenController {
 
 		});
 	}
-	
+
 }

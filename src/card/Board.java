@@ -9,8 +9,8 @@ public class Board {
 	Deck discardDeck1, discardDeck2;
 	Card[] hand1 = new Card[8];
 	Card[] hand2 = new Card[8];
-	Card[] battlefeild1 = new Card[8];
-	Card[] battlefeild2 = new Card[8];
+	Card[] battlefield1 = new Card[8];
+	Card[] battlefield2 = new Card[8];
 
 	public Board() {
 		discardDeck1 = new Deck("Discard deck 1", false);
@@ -49,20 +49,20 @@ public class Board {
 		this.hand2 = hand2;
 	}
 
-	public Card[] getBattlefeild1() {
-		return battlefeild1;
+	public Card[] getBattlefield1() {
+		return battlefield1;
 	}
 
-	public void setBattlefeild1(Card[] battlefeild1) {
-		this.battlefeild1 = battlefeild1;
+	public void setBattlefield1(Card[] battlefeild1) {
+		this.battlefield1 = battlefeild1;
 	}
 
-	public Card[] getBattlefeild2() {
-		return battlefeild2;
+	public Card[] getBattlefield2() {
+		return battlefield2;
 	}
 
-	public void setBattlefeild2(Card[] battlefeild2) {
-		this.battlefeild2 = battlefeild2;
+	public void setBattlefield2(Card[] battlefeild2) {
+		this.battlefield2 = battlefeild2;
 	}
 
 	public void drawFirstCards(Player player1, Player player2) {
@@ -140,9 +140,9 @@ public class Board {
 			if (playerNumber == 1) {
 				for (int handIndex : cardChoices) {
 					boolean placed = false;
-					for (int i = 0; i < battlefeild1.length && !placed; i++) {
-						if (battlefeild1[i] == null) {
-							battlefeild1[i] = hand1[handIndex];
+					for (int i = 0; i < battlefield1.length && !placed; i++) {
+						if (battlefield1[i] == null) {
+							battlefield1[i] = hand1[handIndex];
 							placed = true;
 						}
 					}
@@ -150,9 +150,9 @@ public class Board {
 			} else {
 				for (int handIndex : cardChoices) {
 					boolean placed = false;
-					for (int i = 0; i < battlefeild2.length && !placed; i++) {
-						if (battlefeild2[i] == null) {
-							battlefeild2[i] = hand2[handIndex];
+					for (int i = 0; i < battlefield2.length && !placed; i++) {
+						if (battlefield2[i] == null) {
+							battlefield2[i] = hand2[handIndex];
 							placed = true;
 						}
 					}

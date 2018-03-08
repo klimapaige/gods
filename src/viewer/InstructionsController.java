@@ -27,22 +27,22 @@ public class InstructionsController {
 			Parent mainMenueScreen;
 			try {
 				mainMenueScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
-				
+
 				Scene mainMenuScene = new Scene(mainMenueScreen, 960, 540);
-				
+
 				Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				
+
 				mainMenuStage.hide();
-				
+
 				mainMenuStage.setMaximized(true);
-				
+
 				mainMenuStage.setScene(mainMenuScene);
-				
+
 				mainMenuStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		});
 	}
-	
+
 }

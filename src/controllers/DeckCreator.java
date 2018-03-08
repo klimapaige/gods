@@ -13,7 +13,8 @@ public class DeckCreator {
 	public static void run() {
 		System.out.println("Welcome to the deck creation tool.");
 		boolean done = false;
-		String[] prompt = { "Add new deck", "Remove deck", "Edit deck", "Edit Master Card (Requires Admin Code)", "Remove Master Card (Requires admin code)", };
+		String[] prompt = { "Add new deck", "Remove deck", "Edit deck", "Edit Master Card (Requires Admin Code)",
+				"Remove Master Card (Requires admin code)", };
 		while (!done) {
 			int selection = ConsoleIO.promptForMenuSelection(prompt, true);
 			switch (selection) {

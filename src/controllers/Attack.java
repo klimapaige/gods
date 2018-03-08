@@ -8,57 +8,57 @@ import player.Player;
 public class Attack {
 	Player attacker, attackie;
 	Card[] myHand;
-	Card[] myBattlefeild;
-	Card[] theirBattleFeild;
+	Card[] myBattlefield;
+	Card[] theirBattleField;
 
-	public Attack(Player attacker, Player attackie, Card[] myHand, Card[] myBattlefeild, Card[] theirBattleFeild) {
+	public Attack(Player attacker, Player attackie, Card[] myHand, Card[] myBattlefeild, Card[] theirBattleField) {
 		this.attacker = attacker;
 		this.attackie = attackie;
 		this.myHand = myHand;
-		this.myBattlefeild = myBattlefeild;
-		this.theirBattleFeild = theirBattleFeild;
+		this.myBattlefield = myBattlefeild;
+		this.theirBattleField = theirBattleField;
 	}
 
 	public void attackRound(int[] chooseCard) {
-		//if a player was chosen
+		// if a player was chosen
 		if (chooseCard[3] > -1) {
 			Player player = null;
 			Card card = null;
-			//decide the player that is affected by the card
+			// decide the player that is affected by the card
 			if (chooseCard[3] == 1) {
 				player = attacker;
 			} else if (chooseCard[3] == 2) {
 				player = attackie;
 			}
-			//choose which card is going to do the affecting
+			// choose which card is going to do the affecting
 			if (chooseCard[0] > -1) {
 				card = myHand[chooseCard[0]];
 			} else if (chooseCard[1] > -1) {
-				card = myBattlefeild[chooseCard[1]];
-			} 
+				card = myBattlefield[chooseCard[1]];
+			}
 			cardVsPlayer(player, card);
-			//removes the card from the the hand or battlefeild
+			// removes the card from the the hand or battlefield
 			if (chooseCard[0] > -1) {
 				myHand[chooseCard[0]] = null;
 			} else if (chooseCard[1] > -1) {
-				myBattlefeild[chooseCard[1]] = null;
-			} 
+				myBattlefield[chooseCard[1]] = null;
+			}
 
-		} else {//two cards are chosen
+		} else {// two cards are chosen
 			Card card1 = null, card2 = null;
-			//if a card from the hand was chosen
+			// if a card from the hand was chosen
 			if (chooseCard[0] > -1) {
 				card1 = myHand[chooseCard[0]];
 				if (chooseCard[1] > -1) {
-					card2 = myBattlefeild[chooseCard[1]];
+					card2 = myBattlefield[chooseCard[1]];
 				} else if (chooseCard[2] > -1) {
-					card2 = myBattlefeild[chooseCard[2]];
+					card2 = myBattlefield[chooseCard[2]];
 				}
-			} else if (chooseCard[1] > -1) { 
-				//a card from my battlefieild vs a card from their battlefieild
-				card1 = myBattlefeild[chooseCard[1]];
+			} else if (chooseCard[1] > -1) {
+				// a card from my battlefield vs a card from their battlefield
+				card1 = myBattlefield[chooseCard[1]];
 				if (chooseCard[2] > -1) {
-					card2 = myBattlefeild[chooseCard[2]];
+					card2 = myBattlefield[chooseCard[2]];
 				}
 			}
 			card2 = headToHead(card1, card2);
@@ -68,23 +68,24 @@ public class Attack {
 			if (chooseCard[0] > -1) {
 				myHand[chooseCard[0]] = null;
 				if (chooseCard[1] > -1) {
-					myBattlefeild[chooseCard[1]] = card2;
+					myBattlefield[chooseCard[1]] = card2;
 				} else if (chooseCard[2] > -1) {
-					myBattlefeild[chooseCard[2]] = card2;
+					myBattlefield[chooseCard[2]] = card2;
 				}
 			} else if (chooseCard[1] > -1) {
-				myBattlefeild[chooseCard[1]] = null;
+				myBattlefield[chooseCard[1]] = null;
 				if (chooseCard[2] > -1) {
-					myBattlefeild[chooseCard[2]] = card2;
+					myBattlefield[chooseCard[2]] = card2;
 				}
 			}
 
 		}
 	}
-	//pass in the two cards that go against each other and depending on 
-	//power id, the first card affects the second card
+
+	// pass in the two cards that go against each other and depending on
+	// power id, the first card affects the second card
 	private Card headToHead(Card card1, Card card2) {
-		PowerID powerID = card1.powerID;
+		PowerID powerID = card1.getPowerID();
 		int power = 0;
 		switch (powerID) {
 		case DAMAGE:
@@ -141,7 +142,7 @@ public class Attack {
 	}
 
 	private void cardVsPlayer(Player player, Card card) {
-		PowerID powerID = card.powerID;
+		PowerID powerID = card.getPowerID();
 		int health = 0;
 		switch (powerID) {
 		case DAMAGE:
