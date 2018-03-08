@@ -11,8 +11,8 @@ public class Cards {
 
 	public static Card newCard() {
 		Card c = null;
-		boolean isSpell = ConsoleIO.promptForBool("Is this a Spell or Creature (s/c)", "s", "c");
-		String name = ConsoleIO.promptForInput("Enter the card's name:", false);
+		boolean isSpell = ConsoleIO.promptForBool("Is this a Spell or Creature (s/c) ", "s", "c");
+		String name = ConsoleIO.promptForInput("Enter the card's name: ", false);
 		CardRank[] crArr = CardRank.values();
 		String[] options = new String[crArr.length];
 		int i = 0;
@@ -21,22 +21,22 @@ public class Cards {
 			i++;
 		}
 		int rank = ConsoleIO.promptForMenuSelection(options, false) - 1;
-		int cost = ConsoleIO.promptForInt("How much will this card cost in the store?", 0, Integer.MAX_VALUE);
-		int manaCost = ConsoleIO.promptForInt("How much mana will this card cost?", 0, Integer.MAX_VALUE);
+		int cost = ConsoleIO.promptForInt("How much will this card cost in the store? ", 0, Integer.MAX_VALUE);
+		int manaCost = ConsoleIO.promptForInt("How much mana will this card cost? ", 0, Integer.MAX_VALUE);
 		boolean done = false;
 		String description = "";
-		int power = ConsoleIO.promptForInt("How much damage will this card have?", 0, Integer.MAX_VALUE);
+		int power = ConsoleIO.promptForInt("How much damage will this card have? ", 0, Integer.MAX_VALUE);
 		String[] powerIds = Tool.toStrArr(PowerID.values());
 		PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
 		while (!done) {
-			description = ConsoleIO.promptForInput("Enter the card's description:", true);
-			done = ConsoleIO.promptForBool("Would you like to add another line? (y/n)", "n", "y");
+			description = ConsoleIO.promptForInput("Enter the card's description: ", true);
+			done = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n", "y");
 		}
 		if (isSpell) {
 			c = new Spell(name, crArr[rank], cost, manaCost, power, powerID, description);
 		} else {
-			int health = ConsoleIO.promptForInt("How much health will this card have?", 0, Integer.MAX_VALUE);
-			boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack?", "y", "n");
+			int health = ConsoleIO.promptForInt("How much health will this card have? ", 0, Integer.MAX_VALUE);
+			boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack? ", "y", "n");
 			c = new Creature(name, crArr[rank], cost, manaCost, power, powerID, health, sleep, description);
 		}
 		return c;
@@ -56,8 +56,9 @@ public class Cards {
 					editAnotherCard = false;
 				} else {
 					boolean done = false;
+					c = master.getDeck().get(cardNum - 1);
 					while (!done) {
-						c = master.getDeck().get(cardNum - 1);
+						System.out.println(c.getName() + ":");
 						try {
 							Creature creature = (Creature) c;
 							String[] attr = { "Name", "Rank", "Cost", "Mana Cost", "Power", "Power ID", "Description",
@@ -65,7 +66,7 @@ public class Cards {
 							int selection = ConsoleIO.promptForMenuSelection(attr, true);
 							switch (selection) {
 							case 1:
-								String name = ConsoleIO.promptForInput("Enter the card's name:", false);
+								String name = ConsoleIO.promptForInput("Enter the card's name: ", false);
 								creature.setName(name);
 								break;
 							case 2:
@@ -80,17 +81,17 @@ public class Cards {
 								creature.setRank(crArr[rank]);
 								break;
 							case 3:
-								int cost = ConsoleIO.promptForInt("How much will this card cost in the store?", 0,
+								int cost = ConsoleIO.promptForInt("How much will this card cost in the store? ", 0,
 										Integer.MAX_VALUE);
 								creature.setCost(cost);
 								break;
 							case 4:
-								int manaCost = ConsoleIO.promptForInt("How much mana will this card cost?", 0,
+								int manaCost = ConsoleIO.promptForInt("How much mana will this card cost? ", 0,
 										Integer.MAX_VALUE);
 								creature.setManaCost(manaCost);
 								break;
 							case 5:
-								int power = ConsoleIO.promptForInt("How much damage will this card have?", 0,
+								int power = ConsoleIO.promptForInt("How much damage will this card have? ", 0,
 										Integer.MAX_VALUE);
 								creature.setPower(power);
 								break;
@@ -101,34 +102,36 @@ public class Cards {
 								break;
 							case 7:
 								String description = "";
-								while (!done) {
-									description = ConsoleIO.promptForInput("Enter the card's description:", true);
-									done = ConsoleIO.promptForBool("Would you like to add another line? (y/n)", "n",
+								boolean more = true;
+								while (more) {
+									description = ConsoleIO.promptForInput("Enter the card's description: ", true);
+									more = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n",
 											"y");
 								}
 								creature.setDescription(description);
 								break;
 							case 8:
-								int health = ConsoleIO.promptForInt("How much health will this card have?", 0,
+								int health = ConsoleIO.promptForInt("How much health will this card have? ", 0,
 										Integer.MAX_VALUE);
 								creature.setMaxHealth(health);
 								creature.setHealth(health);
 								break;
 							case 9:
+								boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack? ", "y", "n");
+								creature.setSleep(sleep);
 								break;
 							case 0:
 								done = true;
 								break;
 							}
-							master.getDeck().remove(cardNum - 1);
-							master.addCard(creature);
+							c = creature;
 						} catch (ClassCastException e) {
 							Spell spell = (Spell) c;
 							String[] attr = { "Name", "Rank", "Cost", "Mana Cost", "Power", "Power ID", "Description" };
 							int selection = ConsoleIO.promptForMenuSelection(attr, true);
 							switch (selection) {
 							case 1:
-								String name = ConsoleIO.promptForInput("Enter the card's name:", false);
+								String name = ConsoleIO.promptForInput("Enter the card's name: ", false);
 								spell.setName(name);
 								break;
 							case 2:
@@ -143,17 +146,17 @@ public class Cards {
 								spell.setRank(crArr[rank]);
 								break;
 							case 3:
-								int cost = ConsoleIO.promptForInt("How much will this card cost in the store?", 0,
+								int cost = ConsoleIO.promptForInt("How much will this card cost in the store? ", 0,
 										Integer.MAX_VALUE);
 								spell.setCost(cost);
 								break;
 							case 4:
-								int manaCost = ConsoleIO.promptForInt("How much mana will this card cost?", 0,
+								int manaCost = ConsoleIO.promptForInt("How much mana will this card cost? ", 0,
 										Integer.MAX_VALUE);
 								spell.setManaCost(manaCost);
 								break;
 							case 5:
-								int power = ConsoleIO.promptForInt("How much damage will this card have?", 0,
+								int power = ConsoleIO.promptForInt("How much damage will this card have? ", 0,
 										Integer.MAX_VALUE);
 								spell.setPower(power);
 								break;
@@ -165,8 +168,8 @@ public class Cards {
 							case 7:
 								String description = "";
 								while (!done) {
-									description = ConsoleIO.promptForInput("Enter the card's description:", true);
-									done = ConsoleIO.promptForBool("Would you like to add another line? (y/n)", "n",
+									description = ConsoleIO.promptForInput("Enter the card's description: ", true);
+									done = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n",
 											"y");
 								}
 								spell.setDescription(description);
@@ -175,10 +178,11 @@ public class Cards {
 								done = true;
 								break;
 							}
-							master.getDeck().remove(cardNum - 1);
-							master.addCard(spell);
+							c = spell;
 						}
 					}
+					master.getDeck().remove(cardNum - 1);
+					master.addCard(c);
 				}
 			}
 			Tool.serialize(master, "deck/" + edition + "/master.dc");

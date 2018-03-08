@@ -113,8 +113,7 @@ public class Decks {
 				name = ConsoleIO.promptForInput("What is the name of your deck? ", false);
 				Deck newDeck = (Deck) Tool.deserialize("deck/" + edition + "/" + name + ".dc");
 				while (!done) {
-					String[] prompt = { "Add Card", "Remove Card", "Edit Master Card",
-							"Remove Master Card (Requires admin code)", "View Cards" };
+					String[] prompt = { "Add Card", "Remove Card", "View Cards" };
 					int selection = ConsoleIO.promptForMenuSelection(prompt, true);
 					switch (selection) {
 					case 1:
@@ -145,20 +144,6 @@ public class Decks {
 						newDeck.getDeck().remove(cardNum - 1);
 						break;
 					case 3:
-						Cards.editCard();
-						break;
-					case 4:
-						String isAdmin = ConsoleIO.promptForInput("Enter the code: ", true);
-						if (isAdmin.equals("PJMJ")) {
-							String[] masterDeck = Tool.toStrArr(newDeck.getDeck());
-							int masterCardNum = ConsoleIO.promptForMenuSelection(masterDeck, true);
-							newDeck.getDeck().remove(masterCardNum - 1);
-						} else {
-							System.out.println("You are not authorized to delete master card data.");
-						}
-
-						break;
-					case 5:
 						int i = 0;
 						for (Card card : newDeck.getDeck()) {
 							i++;
