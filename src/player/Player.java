@@ -13,6 +13,7 @@ public class Player implements Serializable {
 	private String username;
 	private String password;
 	private Deck deck;
+	private Deck matchDeck;
 	private int mana;
 	private int health;
 	private God god;
@@ -102,6 +103,14 @@ public class Player implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Deck getMatchDeck() {
+		return matchDeck;
+	}
+
+	public void setMatchDeck(Deck matchDeck) {
+		this.matchDeck = matchDeck;
 	}
 
 	

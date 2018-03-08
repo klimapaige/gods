@@ -64,63 +64,94 @@ public class Board {
 	public void setBattlefeild2(Card[] battlefeild2) {
 		this.battlefeild2 = battlefeild2;
 	}
-	
-	public void drawFirstCards(Player player1, Player player2) { 
-		for(int i =0;i<5;i++) {
-			hand1[i] = player1.getDeck().pullCard();
-			hand2[i] = player2.getDeck().pullCard();
+
+	public void drawFirstCards(Player player1, Player player2) {
+		for (int i = 0; i < 5; i++) {
+			hand1[i] = player1.getMatchDeck().pullCard();
+			hand2[i] = player2.getMatchDeck().pullCard();
 		}
-		
+
 	}
-	
+
 	public void drawCard(int playerNumber, Player player) {
-		if(playerNumber==1) {
-			int cards=8;
-			for(int i=0;i<8;i++) {
-				if(hand1[i]==null) {
-					cards--;
-				}
-			}
-			if(cards<5) {
-				for(int i=0;i<8&&cards<5;i++) {
-					if(hand1[i]==null) {
-						cards++;
-						hand1[i]=player.getDeck().pullCard();						
+		if (playerNumber == 1) {
+			if (!player.getMatchDeck().getDeck().isEmpty()) {
+				int cards = 8;
+				for (int i = 0; i < 8; i++) {
+					if (hand1[i] == null) {
+						cards--;
 					}
 				}
-			} else if(cards>=5&&cards<8) {
-				boolean addedCard=false;
-				for(int i=0;i<8&&!addedCard;i++) {
-					if(hand1[i]==null) {
-						addedCard=true;
-						hand1[i]=player.getDeck().pullCard();						
+				if (cards < 5) {
+					for (int i = 0; i < 8 && cards < 5; i++) {
+						if (hand1[i] == null) {
+							cards++;
+							hand1[i] = player.getMatchDeck().pullCard();
+						}
+					}
+				} else if (cards >= 5 && cards < 8) {
+					boolean addedCard = false;
+					for (int i = 0; i < 8 && !addedCard; i++) {
+						if (hand1[i] == null) {
+							addedCard = true;
+							hand1[i] = player.getMatchDeck().pullCard();
+						}
+					}
+				} else if (cards == 8) {
+					// Ask user if they want to switch a single card, else nothing
+					// if user says yes, ask which card to discard
+				}
+			}
+
+		} else {
+			if (!player.getMatchDeck().getDeck().isEmpty()) {
+				int cards = 8;
+				for (int i = 0; i < 8; i++) {
+					if (hand2[i] == null) {
+						cards--;
 					}
 				}
-			} else if(cards==8) {
-				//Ask user if they want to switch a single card, else nothing
-				//if user says yes, ask which card to discard
+				if (cards < 5) {
+					for (int i = 0; i < 8 && cards < 5; i++) {
+						if (hand2[i] == null) {
+							cards++;
+							hand2[i] = player.getMatchDeck().pullCard();
+						}
+					}
+				} else if (cards >= 5 && cards < 8) {
+					boolean addedCard = false;
+					for (int i = 0; i < 8 && !addedCard; i++) {
+						if (hand2[i] == null) {
+							addedCard = true;
+							hand2[i] = player.getMatchDeck().pullCard();
+						}
+					}
+				} else if (cards == 8) {
+					// Ask user if they want to switch a single card, else nothing
+					// if user says yes, ask which card to discard
+				}
 			}
-			
+
 		}
 	}
-	
-	public void moveCards(int playerNumber,ArrayList<Integer> cardChoices) {
-		if(cardChoices.size()>0) {
-			if(playerNumber==1) {
-				for(int handIndex:cardChoices) {
+
+	public void moveCards(int playerNumber, ArrayList<Integer> cardChoices) {
+		if (cardChoices.size() > 0) {
+			if (playerNumber == 1) {
+				for (int handIndex : cardChoices) {
 					boolean placed = false;
-					for(int i=0;i<battlefeild1.length&&!placed;i++) {
-						if(battlefeild1[i]==null) {
+					for (int i = 0; i < battlefeild1.length && !placed; i++) {
+						if (battlefeild1[i] == null) {
 							battlefeild1[i] = hand1[handIndex];
 							placed = true;
 						}
 					}
 				}
-			}else {
-				for(int handIndex:cardChoices) {
+			} else {
+				for (int handIndex : cardChoices) {
 					boolean placed = false;
-					for(int i=0;i<battlefeild2.length&&!placed;i++) {
-						if(battlefeild2[i]==null) {
+					for (int i = 0; i < battlefeild2.length && !placed; i++) {
+						if (battlefeild2[i] == null) {
 							battlefeild2[i] = hand2[handIndex];
 							placed = true;
 						}
@@ -129,7 +160,5 @@ public class Board {
 			}
 		}
 	}
-	
-	
 
 }

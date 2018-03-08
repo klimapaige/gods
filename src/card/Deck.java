@@ -21,6 +21,13 @@ public class Deck implements Serializable {
 		setName(name);
 		this.isStarter = isStarter;
 	}
+	
+	public Deck(Deck deck) {
+		this.isStarter=false;
+		for(Card card: deck.getDeck()) {
+			this.deck.add(card);
+		}
+	}
 
 	public Deck(God god) {
 		String filePath = "deck/1/" + god.godName.toLowerCase() + ".dc";
