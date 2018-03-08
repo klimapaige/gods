@@ -71,7 +71,7 @@ public class Match {
 			//indices of hand
 			
 			//sets up the class for the attack
-			Attack round = new Attack(attacker, attackie, myHand, myBattlefeild, theirBattlefeild);
+			Attack round = new Attack(player1, player2, myHand, myBattlefeild, theirBattlefeild);
 			return round;
 	}
 	
