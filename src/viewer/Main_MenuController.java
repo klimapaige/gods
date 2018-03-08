@@ -3,6 +3,7 @@ package viewer;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+import controllers.Game;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ import javafx.scene.media.MediaView;
 
 public class Main_MenuController {
 	@FXML
-	private Text loadedUserName;
+	private static Text loadedUserName;
 	@FXML
 	private Button storeButton;
 	@FXML
@@ -40,6 +41,12 @@ public class Main_MenuController {
 	private MediaView mediaView;
 	@FXML
 	private GridPane gridPane;
+	@FXML
+	private Button saveButton;
+	
+	public static void setLoadedUserName(String string) {
+		loadedUserName.setText(string);
+	}
 
 	Media md;
 	MediaPlayer mp;
@@ -47,9 +54,12 @@ public class Main_MenuController {
 	@FXML
 	public void initialize() throws IOException {
 		
-		md = new Media(Paths.get("src/app/Basically_hearthstone.mp4").toUri().toString());
+		md = new Media(Paths.get("src/viewer/Basically_hearthstone.mp4").toUri().toString());
 		mp = new MediaPlayer(md);
 		mediaView.setMediaPlayer(mp);
+		saveButton.setOnAction((event) -> {
+			Game.getPlayersHash().savePlayerList();
+		});
 		instructionButton.setOnAction((event) -> {
 			Parent instructionScreen;
 			try {

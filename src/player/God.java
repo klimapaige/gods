@@ -1,9 +1,12 @@
 package player;
 
+import java.io.Serializable;
+
 import enums.GodType;
 import enums.Mythology;
 
-public class God {
+public class God implements Serializable {
+	
 	public final String godName;
 	public final GodType type;
 	public final Mythology mythology;

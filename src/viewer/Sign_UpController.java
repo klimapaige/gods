@@ -2,6 +2,7 @@ package viewer;
 
 import java.io.IOException;
 
+import controllers.Game;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -17,12 +18,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import player.Players;
 
 public class Sign_UpController {
 	
 	@FXML 
 	private ComboBox<String> godChoices;
-	static ObservableList<String> godTypeChoices = FXCollections.observableArrayList("War", "Death", "Love", "Water", "Messenger");
+	public ObservableList<String> godTypeChoices = FXCollections.observableArrayList("Water", "War", "Love", "King", "Death", "Messenger");
 	
 	@FXML
 	private Button signUpButton;
@@ -47,14 +49,38 @@ public class Sign_UpController {
 	
 	@FXML
 	private Button backButton;
+	
+	private static String username;
+	private static String password;
+	private static String godtype;
+	
+	public static String getUserName() {
+		return username;
+	}
+	
+	public static String getPassword() {
+		return password;
+	}
+	
+	public static String getGodtype() {
+		return godtype;
+	}
+	
 
 	@FXML
 	public void initialize() throws IOException {
+		
+		Game.setPlayerHashNew();
 		
 		godChoices.getItems().clear();
 		godChoices.setItems(godTypeChoices);
 		
 		signUpButton.setOnAction((event) -> {
+//			System.out.println(usernamesBox.textProperty().toString());
+			username = usernameBox.getText();
+			password = passwordBox.getText();
+			godtype = godChoices.getValue().toUpperCase();
+			Game.newPlayer();
 			if (!godChoices.getSelectionModel().isEmpty() && (!usernameBox.getText().isEmpty() && !passwordBox.getText().isEmpty())) {
 				Parent loginScreen;
 				try {

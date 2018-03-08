@@ -4,46 +4,68 @@ import java.util.ArrayList;
 
 import enums.GodType;
 import player.Player;
+import player.Players;
 import traders.Shop;
 import traders.Trade;
+import viewer.Main_MenuController;
 import viewer.View;
 
 public class Game {
 
-	private View view;
-	private ArrayList<Player> players;
+	private static View view;
+	private static ArrayList<Player> players = new ArrayList<>();
 	private String[] args;
+	private static Players playersHash;
 	
+	public static View getView() {
+		return view;
+	}
+	
+	public static Players getPlayersHash() {
+		return playersHash;
+	}
+	
+	public static void setPlayerHashNew() {
+		playersHash = new Players(true, "C:\\Users\\Joe Hommel\\Desktop\\temp.pl");
+	}
+	
+	public static void setPlayerHashOld(String filePath) {
+		playersHash = new Players(false, filePath);
+	}
 
 	public Game(View view, String[] args) {
 		this.view = view;
 		this.args = args;
+		view.launchGUI(args);
 	}
 
 	public void mainMenu() {
-		view.launchGUI(args);
-		String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player" };
-		int choice = view.displayMenu(options);
-		switch (choice) {
-		case 0:
-			login();
-			break;
-		case 1:
-			playGame();
-			break;
-		case 2:
-			shop();
-			break;
-		case 3:
-			trade();
-			break;
-		case 4:
-			delete();
-			break;
-		case 5:
-			newPlayer();
-			break;
-		}
+//		view.launchGUI(args);
+//		String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player" };
+		
+		Main_MenuController.setLoadedUserName(players.get(0).getUsername());
+		
+//		int choice = view.displayMenu(options);
+//		switch (choice) {
+//		case 0:
+//			login();
+//			break;
+//		case 1:
+//			playGame();
+//			break;
+//		case 2:
+//			shop();
+//			break;
+//		case 3:
+//			trade();
+//			break;
+//		case 4:
+//			delete();
+//			break;
+//		case 5:
+//			newPlayer();
+//			break;
+//		}
 	}
 
 	public void login() {
@@ -88,9 +110,10 @@ public class Game {
 		players.remove(input);
 	}
 
-	public void newPlayer() {
-		String[] info = view.getInformation();
-		Player p = new Player(info[0], info[1], GodType.valueOf(info[2]));
+	public static void newPlayer() {
+		ArrayList<String> info = view.getInformation();
+		Player p = new Player((String) info.get(0), (String) info.get(1), GodType.valueOf((String) info.get(2)));
+		playersHash.addPlayer(p);
 		players.add(p);
 	}
 

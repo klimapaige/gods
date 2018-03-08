@@ -3,6 +3,7 @@ package viewer;
 import java.io.File;
 import java.io.IOException;
 
+import controllers.Game;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import player.Players;
 import javafx.scene.control.PasswordField;
 
 public class Login_ScreenController {
@@ -29,6 +31,8 @@ public class Login_ScreenController {
 	private Button signUpButton;
 	@FXML
 	private Button loadButton;
+	
+	private String loadedFile;
 
 	@FXML
 	public void initialize() throws IOException {
@@ -55,33 +59,47 @@ public class Login_ScreenController {
 		loadButton.setOnAction((event) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setTitle("Open C:WotG");
-			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Deck File", "*.dc"));
+			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Deck File", "*.dc"), new ExtensionFilter("Player File", "*.pl"));
 			File selectedFile = fileChooser.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
 			
 			System.out.println(selectedFile);
 			
+			loadedFile = selectedFile.toString();
+			
+			Game.setPlayerHashOld(loadedFile);
+//			System.out.println(Game.getPlayersHash().getPlayerList().keySet().toString());
 		});
 		loginButton.setOnAction((event) -> {
-//			if (playercheck == true) { 
-				Parent mainMenuScreen;
-				try {
-					mainMenuScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
+			
+			if (!usernameBox.getText().isEmpty() && !passwordBox.getText().isEmpty()) {
+				if (Game.getPlayersHash().checkPlayerLogin(usernameBox.getText(), passwordBox.getText())) {
 					
-					Scene mainMenuScene = new Scene(mainMenuScreen, 960, 540);
+					Parent mainMenuScreen;
+					try {
+						mainMenuScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
+						
+						Scene mainMenuScene = new Scene(mainMenuScreen, 960, 540);
+						
+						Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						
+						mainMenuStage.hide();
+						
+						mainMenuStage.setFullScreen(true);
+						
+						mainMenuStage.setScene(mainMenuScene);
+						
+						mainMenuStage.show();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					
-					Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					
-					mainMenuStage.hide();
-					
-					mainMenuStage.setFullScreen(true);
-					
-					mainMenuStage.setScene(mainMenuScene);
-					
-					mainMenuStage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
+				} else {
+					System.out.println("oops");
 				}
-//			}
+			} else {
+				System.out.println("original oops");
+			}
+
 		});
 	}
 	

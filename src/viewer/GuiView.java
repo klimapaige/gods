@@ -1,9 +1,13 @@
 package viewer;
 
+import java.util.ArrayList;
+
 import card.Card;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -34,9 +38,14 @@ public class GuiView extends Application implements View{
 	}
 
 	@Override
-	public String[] getInformation() {
+	public ArrayList<String> getInformation() {
 		
-		return null;
+		ArrayList<String> info = new ArrayList<>();
+		info.add(viewer.Sign_UpController.getUserName());
+		info.add(viewer.Sign_UpController.getPassword());
+		info.add(viewer.Sign_UpController.getGodtype());
+		
+		return info;
 	}
 
 	@Override
@@ -45,7 +54,6 @@ public class GuiView extends Application implements View{
 		return null;
 	}
 	
-	@Override
 	public void launchGUI(String[] args) {
 		launch(args);
 	}
@@ -53,20 +61,16 @@ public class GuiView extends Application implements View{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+		Parent loginScreen = FXMLLoader.load(getClass().getResource("Login_Screen.fxml"));
+
+		Scene loginScene = new Scene(loginScreen, 960, 540);
+		
+		primaryStage.setTitle("Cards: War of The Gods!");
+		
+		primaryStage.setMaximized(true);
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.setScene(loginScene);
+        
         primaryStage.show();
 		
 	}

@@ -2,8 +2,10 @@ package player;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashMap;
 
+import controllers.Game;
 import enums.GodType;
 import lib.Tool;
 
@@ -21,17 +23,16 @@ public class Players implements Serializable {
 		}else {
 			try {
 				Players p = (Players) Tool.deserialize(filePath);
-				setPlayerList(p.getPlayerList());
-				setFilePath(p.getFilePath());
+				this.setPlayerList(p.getPlayerList());
+				this.setFilePath(p.getFilePath());
 			} catch (ClassNotFoundException | IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 	
-	public void newPlayer(String username, String password, GodType godtype) {
-		Player newPlayer = new Player(username, password, godtype);
-		getPlayerList().put(username, newPlayer);
+	public void addPlayer(Player player) {
+		getPlayerList().put(player.getUsername(), player);
 	}
 
 	public Player loadPlayer(String username) {
@@ -44,10 +45,12 @@ public class Players implements Serializable {
 		boolean load = false;
 		String[] potentialUsernames = new String[getPlayerList().size()];
 		getPlayerList().keySet().toArray(potentialUsernames);
-		for (int i = 0; i < 0 && load == false; i++) {
+		
+		for (int i = 0; i < potentialUsernames.length && load == false; i++) {
 			if (username.equals(potentialUsernames[i])) {
 				if (password.equals(getPlayerList().get(username).getPassword())) {
 					// Both are valid
+					System.out.println("hello");
 					load = true;
 				} else {
 					// Password is invalid
@@ -76,6 +79,7 @@ public class Players implements Serializable {
 
 	public void setPlayerList(HashMap<String, Player> playerList) {
 		this.playerList = playerList;
+//		System.out.println("Added");
 	}
 
 	public String getFilePath() {
