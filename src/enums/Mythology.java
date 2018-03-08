@@ -3,7 +3,7 @@ package enums;
 public enum Mythology {
 	GREEK,
 	NORSE,
-	ROMAN,
+//	ROMAN,
 	HINDU,
-	NEUMONT
+//	NEUMONT
 }
