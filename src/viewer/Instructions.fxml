@@ -25,7 +25,7 @@
             <Insets top="30.0" />
          </GridPane.margin>
       </Text>
-      <TextArea fx:id="textArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="278.0" prefWidth="960.0" stylesheets="@style.css" text="1. Player chooses which creature cards from hand to go to the battlefeild&#10;2. Choose first card to be used on the second choice&#10;&#9;a) Creature Card from your battlefield (Second choice can only be a or b)&#10;&#9;b) Spell Card from your hand&#10;3. Make Second Choice&#10;&#9;a) Creature Card from Opponent's Battlefield&#10;&#9;b) Opponent&#10;&#9;c) Creature Card from Your Battlefield&#10;&#9;d) Yourself" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <TextArea fx:id="textArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="278.0" prefWidth="960.0" stylesheets="@style.css" text="I. Selection Phase&#10;1. Player chooses which creature cards from hand to go to battlefield&#10;II.  Action Phase&#10;1. Choose a Target&#10;&#9;a. Creature Card from Opponent's Battlefield&#10;&#9;b. Opponent&#10;&#9;c. Creature Card from Your Battlefield&#10;&#9;d. Yourself&#10;2. Choose an Action&#10;&#9;a. Spell Card from your hand&#10;&#9;b. Creature Card from your battlefield to attack the target" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <font>
             <Font name="Rockwell Extra Bold" size="16.0" />
          </font>

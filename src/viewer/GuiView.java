@@ -43,7 +43,7 @@ public class GuiView extends Application implements View{
 		ArrayList<String> info = new ArrayList<>();
 		info.add(viewer.Sign_UpController.getUserName());
 		info.add(viewer.Sign_UpController.getPassword());
-		info.add(viewer.Sign_UpController.getGodtype());
+		info.add(viewer.Sign_UpController.getGodtype().toUpperCase());
 		
 		return info;
 	}
