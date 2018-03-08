@@ -47,6 +47,17 @@ public class GuiView extends Application implements View{
 		
 		return info;
 	}
+	
+	@Override
+	public ArrayList<String> getNewInformation() {
+		
+		ArrayList<String> info = new ArrayList<>();
+		info.add(viewer.Add_PlayerController.getUserName());
+		info.add(viewer.Add_PlayerController.getPassword());
+		info.add(viewer.Add_PlayerController.getGodtype().toUpperCase());
+		
+		return info;
+	}
 
 	@Override
 	public String loginScreen() {

@@ -13,6 +13,7 @@ public interface View {
 	public void launchGUI(String[] args);
 	public int displayMenu(String[] options);
 	public String loginScreen();
-	public ArrayList<String> getInformation(); 
+	public ArrayList<String> getInformation();
+	public ArrayList<String> getNewInformation();
 	// 0: Username, 1: God Type
 }

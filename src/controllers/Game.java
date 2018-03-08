@@ -127,5 +127,12 @@ public class Game {
 		playersHash.addPlayer(p);
 		players.add(p);
 	}
+	
+	public static void addNewPlayer() {
+		ArrayList<String> info = view.getNewInformation();
+		Player p = new Player((String) info.get(0), (String) info.get(1), GodType.valueOf((String) info.get(2)));
+		playersHash.addPlayer(p);
+		players.add(p);
+	}
 
 }

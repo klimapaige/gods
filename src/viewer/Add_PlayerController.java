@@ -79,7 +79,7 @@ public class Add_PlayerController {
 			username = usernameBox.getText();
 			password = passwordBox.getText();
 			godtype = godChoices.getValue().toUpperCase();
-			Game.newPlayer();
+			Game.addNewPlayer();
 			if (!godChoices.getSelectionModel().isEmpty() && (!usernameBox.getText().isEmpty() && !passwordBox.getText().isEmpty())) {
 				Parent mainMenuScreen;
 				try {
