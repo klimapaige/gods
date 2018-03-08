@@ -67,7 +67,7 @@ public class Deck implements Serializable {
 	}
 
 	public Card pullCard() {
-		int index = getDeck().size();
+		int index = getDeck().size() - 1;
 		Card c = getDeck().get(index);
 		getDeck().remove(index);
 		return c;
