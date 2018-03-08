@@ -37,7 +37,7 @@ public class Attack {
 				card = myBattlefield[chooseCard[1]];
 			}
 			cardVsPlayer(player, card);
-			// removes the card from the the hand or battlefeild
+			// removes the card from the the hand or battlefield
 			if (chooseCard[0] > -1) {
 				myHand[chooseCard[0]] = null;
 			} else if (chooseCard[1] > -1) {
