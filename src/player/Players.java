@@ -15,12 +15,12 @@ public class Players implements Serializable {
 	private final long serialVersionUID = 877216857619279738L;
 	private HashMap<String, Player> playerList;
 	private String filePath;
-	
+
 	public Players(boolean newPlayerList, String filePath) {
-		if(newPlayerList) {
+		if (newPlayerList) {
 			setPlayerList(new HashMap<String, Player>());
 			setFilePath(filePath);
-		}else {
+		} else {
 			try {
 				Players p = (Players) Tool.deserialize(filePath);
 				this.setPlayerList(p.getPlayerList());
@@ -30,7 +30,7 @@ public class Players implements Serializable {
 			}
 		}
 	}
-	
+
 	public void addPlayer(Player player) {
 		getPlayerList().put(player.getUsername(), player);
 	}
@@ -45,7 +45,7 @@ public class Players implements Serializable {
 		boolean load = false;
 		String[] potentialUsernames = new String[getPlayerList().size()];
 		getPlayerList().keySet().toArray(potentialUsernames);
-		
+
 		for (int i = 0; i < potentialUsernames.length && load == false; i++) {
 			if (username.equals(potentialUsernames[i])) {
 				if (password.equals(getPlayerList().get(username).getPassword())) {
@@ -68,7 +68,7 @@ public class Players implements Serializable {
 	public HashMap<String, Player> getPlayerList() {
 		return playerList;
 	}
-	
+
 	public void savePlayerList() {
 		try {
 			Tool.serialize(this, getFilePath());
@@ -79,7 +79,7 @@ public class Players implements Serializable {
 
 	public void setPlayerList(HashMap<String, Player> playerList) {
 		this.playerList = playerList;
-//		System.out.println("Added");
+		// System.out.println("Added");
 	}
 
 	public String getFilePath() {

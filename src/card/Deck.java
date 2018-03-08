@@ -21,10 +21,10 @@ public class Deck implements Serializable {
 		setName(name);
 		this.isStarter = isStarter;
 	}
-	
+
 	public Deck(Deck deck) {
-		this.isStarter=false;
-		for(Card card: deck.getDeck()) {
+		this.isStarter = false;
+		for (Card card : deck.getDeck()) {
 			this.deck.add(card);
 		}
 	}
@@ -35,7 +35,7 @@ public class Deck implements Serializable {
 		try {
 			deck = (Deck) Tool.deserialize(filePath);
 			setDeck(deck.getDeck());
-			
+
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}

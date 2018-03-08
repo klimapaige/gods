@@ -47,7 +47,7 @@ public class Creature extends Card {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Creature:\tName: ");
 		builder.append(name);
-		if(name.length() < 10) {
+		if (name.length() < 10) {
 			builder.append("\t");
 		}
 		builder.append("\tRank: ");

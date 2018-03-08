@@ -48,14 +48,14 @@ public class Main_MenuController {
 
 	Media md;
 	MediaPlayer mp;
-	
+
 	public Text getLoadedUserName() {
 		return loadedUserName;
 	}
-	
+
 	@FXML
 	public void initialize() throws IOException {
-		
+
 		loadedUserName.setText(Game.getPlayers().get(0).getUsername());
 
 		md = new Media(Paths.get("src/viewer/Basically_hearthstone.mp4").toUri().toString());
@@ -68,17 +68,17 @@ public class Main_MenuController {
 			Parent addPlayerScreen;
 			try {
 				addPlayerScreen = FXMLLoader.load(getClass().getResource("Add_Player.fxml"));
-				
+
 				Scene addPlayerScene = new Scene(addPlayerScreen, 960, 540);
-				
+
 				Stage addPlayerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				
+
 				addPlayerStage.hide();
-				
+
 				addPlayerStage.setMaximized(true);
-				
+
 				addPlayerStage.setScene(addPlayerScene);
-				
+
 				addPlayerStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -88,17 +88,17 @@ public class Main_MenuController {
 			Parent playGameScreen;
 			try {
 				playGameScreen = FXMLLoader.load(getClass().getResource("Board_Demo.fxml"));
-				
+
 				Scene playGameScene = new Scene(playGameScreen, 960, 540);
-				
+
 				Stage playGameStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				
+
 				playGameStage.hide();
-				
+
 				playGameStage.setMaximized(true);
-				
+
 				playGameStage.setScene(playGameScene);
-				
+
 				playGameStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -108,17 +108,17 @@ public class Main_MenuController {
 			Parent instructionScreen;
 			try {
 				instructionScreen = FXMLLoader.load(getClass().getResource("Instructions.fxml"));
-				
+
 				Scene instructionScene = new Scene(instructionScreen, 960, 540);
-				
+
 				Stage instructionStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				
+
 				instructionStage.hide();
-				
+
 				instructionStage.setMaximized(true);
-				
+
 				instructionStage.setScene(instructionScene);
-				
+
 				instructionStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -127,14 +127,17 @@ public class Main_MenuController {
 		quitButton.setOnAction((event) -> {
 			Platform.exit();
 		});
-		
+
 	}
+
 	public void play(ActionEvent event) {
 		mp.play();
 	}
+
 	public void pause(ActionEvent event) {
 		mp.pause();
 	}
+
 	public void reload(ActionEvent event) {
 		mp.seek(mp.getStartTime());
 		mp.pause();

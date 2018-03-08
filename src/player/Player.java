@@ -9,7 +9,7 @@ import enums.Mythology;
 
 @SuppressWarnings("serial")
 public class Player implements Serializable {
-	
+
 	private String username;
 	private String password;
 	private Deck deck;
@@ -43,7 +43,7 @@ public class Player implements Serializable {
 		setHealth(BASE_HEALTH);
 		setMana(BASE_MANA);
 	}
-	
+
 	public int getHealth() {
 		return health;
 	}
@@ -94,7 +94,7 @@ public class Player implements Serializable {
 	}
 
 	public void setGod(God god) {
-		if(god != null) {
+		if (god != null) {
 			this.god = god;
 		}
 	}
@@ -115,6 +115,4 @@ public class Player implements Serializable {
 		this.matchDeck = matchDeck;
 	}
 
-	
 }
-
