@@ -88,10 +88,10 @@ public class Game {
 		if (players.size() > 1) {
 			String[] options = new String[players.size()];
 			options = players.toArray(options);
-			int firstOption = view.displayMenu(options);
-			int secondOptions = view.displayMenu(options);
-			Match m = new Match(players.get(firstOption), players.get(secondOptions), view);
-			m.start();
+//			int firstOption = view.displayMenu(options);
+//			int secondOptions = view.displayMenu(options);
+//			Match m = new Match(players.get(0), players.get(1), view);
+//			m.runGame();
 		}
 	}
 

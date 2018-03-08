@@ -1,5 +1,7 @@
 package card;
 
+import java.util.ArrayList;
+
 import player.Player;
 
 public class Board {
@@ -102,8 +104,8 @@ public class Board {
 		}
 	}
 	
-	public void moveCards(int playerNumber,int[] cardChoices) {
-		if(cardChoices.length>0) {
+	public void moveCards(int playerNumber,ArrayList<Integer> cardChoices) {
+		if(cardChoices.size()>0) {
 			if(playerNumber==1) {
 				for(int handIndex:cardChoices) {
 					boolean placed = false;

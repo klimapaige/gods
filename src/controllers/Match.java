@@ -9,31 +9,33 @@ import player.Player;
 import viewer.View;
 
 public class Match {
-	private Player player1;
-	private Player player2;
-	private Board board = new Board();
-	View view;
+	public Player player1;
+	public Player player2;
+	public Board board = new Board();
+	public ArrayList<Integer> player1Selections = new ArrayList<>();
+	public ArrayList<Integer> player2Selections = new ArrayList<>();
+	public int[] player1Attack = new int[4];
+	public int[] player2Attack = new int[4];
 
-	public Match(Player player1, Player player2, View view) {
+	public Match(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
-		this.view = view;
 	}
 
 	public void runGame() {
-		start();
-		int turnCount = 0;
-		int playerTurn = (int) (Math.random() * 2);//decides who goes first
-		Player winner;
-		//runs until there is a winner
-		while ((winner = checkWin()) == null) {
-			turnCount++;
-			turn(playerTurn, turnCount);
-		}
-		Player lost = winner==player1?player2:player1;
-		
-	
-		end(winner,lost);
+//		start();
+//		int turnCount = 0;
+//		int playerTurn = (int) (Math.random() * 2);//decides who goes first
+//		Player winner;
+//		//runs until there is a winner
+//		while ((winner = checkWin()) == null) {
+//			turnCount++;
+//			turn(playerTurn, turnCount);
+//		}
+//		Player lost = winner==player1?player2:player1;
+//		
+//	
+//		end(winner,lost);
 	}
 
 	public void start() {
@@ -43,10 +45,9 @@ public class Match {
 	}
 	
 	//the code running a round 
-	public void turn(int playerTurn, int turnCount) {
+	public Attack turn(int playerTurn, int turnCount) {
 		int mana = turnCount > 10 ? 10 : turnCount;
-		//code for each person's turn
-		for (int i = 0; i < 2; i++) {
+		
 			Player attacker, attackie;
 			Card[] myHand, myBattlefeild, theirBattlefeild;
 			//decides who is the attacker and who is being attacked
@@ -68,13 +69,17 @@ public class Match {
 			attacker.setMana(mana);//sets mana for the card selection phase
 			//gui view is supposed to return an array of ints representing the 
 			//indices of hand
-			board.moveCards(playerTurn, new int[0]);
+			
 			//sets up the class for the attack
 			Attack round = new Attack(attacker, attackie, myHand, myBattlefeild, theirBattlefeild);
-			attackPhase(round);
-			//draws cards based on the current cards in the hand
-			board.drawCard(playerTurn, attacker);
-			playerTurn++;
+			return round;
+	}
+	
+	public void moveCards(int playerTurn) {
+		if(playerTurn==1) {
+			board.moveCards(playerTurn,player1Selections);
+		} else {
+			board.moveCards(playerTurn,player2Selections);
 		}
 	}
 
@@ -94,19 +99,20 @@ public class Match {
 		return win;
 	}
 
-	public void attackPhase(Attack round) {
+	public void attackPhase(Attack round, int playerTurn) {
 
-		int[] choices = new int[4];
-		// this is temporary until we get a choices from the gui application
-		for (int j = 0; j < choices.length; j++) {
-			choices[j] = -1;
-		}
+		int[] choices;
+		
 		
 		boolean continueGame = false;
 		do {
 			continueGame = false;
-			// getChoices from view
-			
+			//sets the player's choices for attack
+			if(playerTurn==1) {
+				choices=player1Attack;
+			} else {
+				choices=player2Attack;
+			}
 			//checks if there was any choices made, if not the rounds 
 			for (int k : choices) {
 				if (k > -1) {
@@ -126,8 +132,6 @@ public class Match {
 		win.setCredit(win.getCredit()+50);
 		//lost gets 10 credit added
 		lost.setCredit(lost.getCredit()+10);
-		
-		//display the winner
 	}
 
 }

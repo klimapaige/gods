@@ -84,6 +84,26 @@ public class Main_MenuController {
 				e.printStackTrace();
 			}
 		});
+		playGameButton.setOnAction((event) -> {
+			Parent playGameScreen;
+			try {
+				playGameScreen = FXMLLoader.load(getClass().getResource("Board_Demo.fxml"));
+				
+				Scene playGameScene = new Scene(playGameScreen, 960, 540);
+				
+				Stage playGameStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				
+				playGameStage.hide();
+				
+				playGameStage.setMaximized(true);
+				
+				playGameStage.setScene(playGameScene);
+				
+				playGameStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
 		instructionButton.setOnAction((event) -> {
 			Parent instructionScreen;
 			try {

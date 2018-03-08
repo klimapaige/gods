@@ -7,35 +7,33 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="viewer.Board_DemoController">
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewer.Board_DemoController">
   <columnConstraints>
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="760.0" />
-      <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="760.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="200.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="935.0" minWidth="10.0" prefWidth="870.39990234375" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="935.0" minWidth="10.0" prefWidth="828.0000976562501" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="222.39990234375" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <ImageView fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
-            <HBox alignment="TOP_CENTER" prefHeight="207.0" prefWidth="410.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="502.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-               </children>
-            </HBox>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="206.0" prefWidth="410.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="281.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-               </children>
-            </HBox>
+            <ImageView fx:id="imageBox1" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox fx:id="hboxField1" alignment="CENTER" maxHeight="-Infinity" prefHeight="508.0" prefWidth="410.0" />
+            <HBox fx:id="hboxHand1" alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="273.0" prefWidth="410.0" />
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+         <children>
+            <ImageView fx:id="imageBox2" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox fx:id="hboxField2" alignment="CENTER" maxHeight="-Infinity" prefHeight="508.0" prefWidth="410.0" />
+            <HBox fx:id="hboxHand2" alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="273.0" prefWidth="410.0" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="1080.0" prefWidth="349.0" GridPane.columnIndex="2">
          <children>
             <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="130.0" text="Next Turn">
                <font>
@@ -44,20 +42,5 @@
             </Button>
          </children>
       </HBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <ImageView fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
-            <HBox alignment="TOP_CENTER" prefHeight="207.0" prefWidth="410.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="502.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-               </children>
-            </HBox>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="206.0" prefWidth="410.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="281.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
    </children>
 </GridPane>
