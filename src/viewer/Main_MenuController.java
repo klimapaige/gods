@@ -26,7 +26,7 @@ import javafx.scene.media.MediaView;
 
 public class Main_MenuController {
 	@FXML
-	private static Text loadedUserName;
+	private Text loadedUserName;
 	@FXML
 	private Button storeButton;
 	@FXML
@@ -43,22 +43,46 @@ public class Main_MenuController {
 	private GridPane gridPane;
 	@FXML
 	private Button saveButton;
-	
-	public static void setLoadedUserName(String string) {
-		loadedUserName.setText(string);
-	}
+	@FXML
+	private Button newPlayerButton;
 
 	Media md;
 	MediaPlayer mp;
 	
+	public Text getLoadedUserName() {
+		return loadedUserName;
+	}
+	
 	@FXML
 	public void initialize() throws IOException {
 		
+		loadedUserName.setText(Game.getPlayers().get(0).getUsername());
+
 		md = new Media(Paths.get("src/viewer/Basically_hearthstone.mp4").toUri().toString());
 		mp = new MediaPlayer(md);
 		mediaView.setMediaPlayer(mp);
 		saveButton.setOnAction((event) -> {
 			Game.getPlayersHash().savePlayerList();
+		});
+		newPlayerButton.setOnAction((event) -> {
+			Parent addPlayerScreen;
+			try {
+				addPlayerScreen = FXMLLoader.load(getClass().getResource("Add_Player.fxml"));
+				
+				Scene addPlayerScene = new Scene(addPlayerScreen, 960, 540);
+				
+				Stage addPlayerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				
+				addPlayerStage.hide();
+				
+				addPlayerStage.setMaximized(true);
+				
+				addPlayerStage.setScene(addPlayerScene);
+				
+				addPlayerStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		});
 		instructionButton.setOnAction((event) -> {
 			Parent instructionScreen;

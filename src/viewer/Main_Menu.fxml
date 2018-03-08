@@ -52,7 +52,7 @@
             <RowConstraints maxHeight="262.0" minHeight="10.0" prefHeight="262.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Text fx:id="loadedUserName" strokeType="OUTSIDE" strokeWidth="0.0" text="loadedUserName" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Text fx:id="loadedUserName" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <font>
                   <Font name="Rockwell Extra Bold" size="20.0" />
                </font>
@@ -65,7 +65,7 @@
                   <Font name="Rockwell Extra Bold" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="165.0" left="108.0" />
+                  <Insets bottom="215.0" left="108.0" />
                </GridPane.margin>
             </Text>
             <Text fx:id="WIP" strokeType="OUTSIDE" strokeWidth="0.0" text="WIP" wrappingWidth="49.049591064453125" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -73,7 +73,7 @@
                   <Font name="Rockwell Extra Bold" size="20.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="215.0" left="100.0" />
+                  <Insets bottom="265.0" left="100.0" />
                </GridPane.margin>
             </Text>
             <Button fx:id="storeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="80.0" text="Store" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -81,7 +81,7 @@
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="209.0" left="10.0" />
+                  <Insets bottom="259.0" left="10.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="tradeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="Trade" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -89,7 +89,7 @@
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="159.0" left="10.0" />
+                  <Insets bottom="209.0" left="10.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="playGameButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="140.0" text="Play Game" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -97,7 +97,7 @@
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="109.0" left="10.0" />
+                  <Insets bottom="159.0" left="10.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="instructionButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="158.0" text="Instructions" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -117,13 +117,21 @@
                </GridPane.margin>
             </Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="5.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="248.0" />
-            <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Save" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" text="Save" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="259.0" left="10.0" />
+                  <Insets bottom="303.0" left="10.0" />
                </GridPane.margin>
+            </Button>
+            <Button fx:id="newPlayerButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" text="New Player" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="108.0" left="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Rockwell Extra Bold" size="18.0" />
+               </font>
             </Button>
          </children>
       </GridPane>

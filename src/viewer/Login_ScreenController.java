@@ -2,6 +2,8 @@ package viewer;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import controllers.Game;
 import javafx.event.ActionEvent;
@@ -17,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import player.Player;
 import player.Players;
 import javafx.scene.control.PasswordField;
 
@@ -59,7 +62,7 @@ public class Login_ScreenController {
 		loadButton.setOnAction((event) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setTitle("Open C:WotG");
-			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Deck File", "*.dc"), new ExtensionFilter("Player File", "*.pl"));
+			fileChooser.getExtensionFilters().addAll( new ExtensionFilter("Player File", "*.pl"), new ExtensionFilter("Deck File", "*.dc"));
 			File selectedFile = fileChooser.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
 			
 			System.out.println(selectedFile);
@@ -92,7 +95,6 @@ public class Login_ScreenController {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-					
 				} else {
 					System.out.println("oops");
 				}

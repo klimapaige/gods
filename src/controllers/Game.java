@@ -1,6 +1,8 @@
 package controllers;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import enums.GodType;
 import player.Player;
@@ -21,6 +23,10 @@ public class Game {
 		return view;
 	}
 	
+	public static ArrayList<Player> getPlayers() {
+		return players;
+	}
+	
 	public static Players getPlayersHash() {
 		return playersHash;
 	}
@@ -31,6 +37,12 @@ public class Game {
 	
 	public static void setPlayerHashOld(String filePath) {
 		playersHash = new Players(false, filePath);
+		String[] playersHashArray = new String[playersHash.getPlayerList().keySet().size()];
+		playersHash.getPlayerList().keySet().toArray(playersHashArray);
+		for (int i = 0; i < playersHash.getPlayerList().keySet().size(); i++) {
+			String key = playersHashArray[i];
+			players.add(playersHash.getPlayerList().get(key));
+		}
 	}
 
 	public Game(View view, String[] args) {
@@ -39,11 +51,10 @@ public class Game {
 		view.launchGUI(args);
 	}
 
-	public void mainMenu() {
+	public static void mainMenu() {
 //		view.launchGUI(args);
 //		String[] options = { "Log in", "PlayGame", "Shop", "Trade", "Delete a Player", "Make a new player" };
 		
-		Main_MenuController.setLoadedUserName(players.get(0).getUsername());
 		
 //		int choice = view.displayMenu(options);
 //		switch (choice) {
