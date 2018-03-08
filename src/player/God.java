@@ -27,111 +27,111 @@ public class God implements Serializable {
 		switch (type) {
 		case WATER:
 			switch (mythology) {
-			case GREEK:
-				name = "Poseidon";
+//			case GREEK:
+//				name = "Poseidon";
+//				break;
+//			case NORSE:
+//				name = "Egir";
+//				break;
+//			case ROMAN:
+//				name = "Neptune";
+//				break;
+//			case HINDU:
+//				name = "Varuna";
+//				break;
+			case NEUMONT:
+				name = "Kohler";
 				break;
-			case NORSE:
-				name = "Egir";
-				break;
-			// case ROMAN:
-			// name = "Neptune";
-			// break;
-			case HINDU:
-				name = "Varuna";
-				break;
-			// case NEUMONT:
-			// name = "Kohler";
-			// break;
 			}
 		case WAR:
 			switch (mythology) {
-			case GREEK:
-				name = "Ares";
+//			case GREEK:
+//				name = "Ares";
+//				break;
+//			case NORSE:
+//				name = "Tyr";
+//				break;
+//			case ROMAN:
+//				name = "Mars";
+//				break;
+//			case HINDU:
+//				name = "Karttikeya";
+//				break;
+			case NEUMONT:
+				name = "Beatty";
 				break;
-			case NORSE:
-				name = "Tyr";
-				break;
-			// case ROMAN:
-			// name = "Mars";
-			// break;
-			case HINDU:
-				name = "Karttikeya";
-				break;
-			// case NEUMONT:
-			// name = "Beatty";
-			// break;
 			}
 		case LOVE:
 			switch (mythology) {
-			case GREEK:
-				name = "Aphrodite";
+//			case GREEK:
+//				name = "Aphrodite";
+//				break;
+//			case NORSE:
+//				name = "Freya";
+//				break;
+//			case ROMAN:
+//				name = "Venus";
+//				break;
+//			case HINDU:
+//				name = "Rati";
+//				break;
+			case NEUMONT:
+				name = "Harrison";
 				break;
-			case NORSE:
-				name = "Freya";
-				break;
-			// case ROMAN:
-			// name = "Venus";
-			// break;
-			case HINDU:
-				name = "Rati";
-				break;
-			// case NEUMONT:
-			// name = "Harrison";
-			// break;
 			}
 		case KING:
 			switch (mythology) {
-			case GREEK:
-				name = "Zeus";
+//			case GREEK:
+//				name = "Zeus";
+//				break;
+//			case NORSE:
+//				name = "Odin";
+//				break;
+//			case ROMAN:
+//				name = "Jupiter";
+//				break;
+//			case HINDU:
+//				name = "Indra";
+//				break;
+			case NEUMONT:
+				name = "Krebs";
 				break;
-			case NORSE:
-				name = "Odin";
-				break;
-			// case ROMAN:
-			// name = "Jupiter";
-			// break;
-			case HINDU:
-				name = "Indra";
-				break;
-			// case NEUMONT:
-			// name = "Krebs";
-			// break;
 			}
 		case DEATH:
 			switch (mythology) {
-			case GREEK:
-				name = "Hades";
+//			case GREEK:
+//				name = "Hades";
+//				break;
+//			case NORSE:
+//				name = "Hel";
+//				break;
+//			case ROMAN:
+//				name = "Pluto";
+//				break;
+//			case HINDU:
+//				name = "Yama";
+//				break;
+			case NEUMONT:
+				name = "Fletcher";
 				break;
-			case NORSE:
-				name = "Hel";
-				break;
-			// case ROMAN:
-			// name = "Pluto";
-			// break;
-			case HINDU:
-				name = "Yama";
-				break;
-			// case NEUMONT:
-			// name = "Fletcher";
-			// break;
 			}
 		case MESSENGER:
 			switch (mythology) {
-			case GREEK:
-				name = "Hermes";
+//			case GREEK:
+//				name = "Hermes";
+//				break;
+//			case NORSE:
+//				name = "Hermod";
+//				break;
+//			case ROMAN:
+//				name = "Mercury";
+//				break;
+//			case HINDU:
+//				name = "Agni";
+//				break;
+			case NEUMONT:
+				name = "JP";
 				break;
-			case NORSE:
-				name = "Hermod";
-				break;
-			// case ROMAN:
-			// name = "Mercury";
-			// break;
-			case HINDU:
-				name = "Agni";
-				break;
-			// case NEUMONT:
-			// name = "JP";
-			// break;
 			}
 
 		}
