@@ -7,6 +7,7 @@ import enums.Mythology;
 
 public class God implements Serializable {
 
+	private static final long serialVersionUID = -539128161609383270L;
 	public final String godName;
 	public final GodType type;
 	public final Mythology mythology;
@@ -28,79 +29,109 @@ public class God implements Serializable {
 			switch (mythology) {
 			case GREEK:
 				name = "Poseidon";
+				break;
 			case NORSE:
 				name = "Egir";
-			case ROMAN:
-				name = "Neptune";
+				break;
+//			case ROMAN:
+//				name = "Neptune";
+//				break;
 			case HINDU:
 				name = "Varuna";
-			case NEUMONT:
-				name = "Kohler";
+				break;
+//			case NEUMONT:
+//				name = "Kohler";
+//				break;
 			}
 		case WAR:
 			switch (mythology) {
 			case GREEK:
 				name = "Ares";
+				break;
 			case NORSE:
 				name = "Tyr";
-			case ROMAN:
-				name = "Mars";
+				break;
+//			case ROMAN:
+//				name = "Mars";
+//				break;
 			case HINDU:
 				name = "Karttikeya";
-			case NEUMONT:
-				name = "Beatty";
+				break;
+//			case NEUMONT:
+//				name = "Beatty";
+//				break;
 			}
 		case LOVE:
 			switch (mythology) {
 			case GREEK:
 				name = "Aphrodite";
+				break;
 			case NORSE:
 				name = "Freya";
-			case ROMAN:
-				name = "Venus";
+				break;
+//			case ROMAN:
+//				name = "Venus";
+//				break;
 			case HINDU:
 				name = "Rati";
-			case NEUMONT:
-				name = "Harrison";
+				break;
+//			case NEUMONT:
+//				name = "Harrison";
+//				break;
 			}
 		case KING:
 			switch (mythology) {
 			case GREEK:
 				name = "Zeus";
+				break;
 			case NORSE:
 				name = "Odin";
-			case ROMAN:
-				name = "Jupiter";
+				break;
+//			case ROMAN:
+//				name = "Jupiter";
+//				break;
 			case HINDU:
 				name = "Indra";
-			case NEUMONT:
-				name = "Krebs";
+				break;
+//			case NEUMONT:
+//				name = "Krebs";
+//				break;
 			}
 		case DEATH:
 			switch (mythology) {
 			case GREEK:
 				name = "Hades";
+				break;
 			case NORSE:
 				name = "Hel";
-			case ROMAN:
-				name = "Pluto";
+				break;
+//			case ROMAN:
+//				name = "Pluto";
+//				break;
 			case HINDU:
 				name = "Yama";
-			case NEUMONT:
-				name = "Fletcher";
+				break;
+//			case NEUMONT:
+//				name = "Fletcher";
+//				break;
 			}
 		case MESSENGER:
 			switch (mythology) {
 			case GREEK:
 				name = "Hermes";
+				break;
 			case NORSE:
 				name = "Hermod";
-			case ROMAN:
-				name = "Mercury";
+				break;
+//			case ROMAN:
+//				name = "Mercury";
+//				break;
 			case HINDU:
 				name = "Agni";
-			case NEUMONT:
-				name = "JP";
+				break;
+//			case NEUMONT:
+//				name = "JP";
+//				break;
 			}
 
 		}

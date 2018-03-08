@@ -5,5 +5,5 @@ public enum Mythology {
 	NORSE,
 //	ROMAN,
 	HINDU
-	//	NEUMONT
+//	NEUMONT
 }
