@@ -61,7 +61,9 @@ public class Decks {
 				case 2:
 					String[] cardDeck = Tool.toStrArr(newDeck.getDeck());
 					int cardNum = ConsoleIO.promptForMenuSelection(cardDeck, true);
-					newDeck.getDeck().remove(cardNum - 1);
+					if (cardNum != 0) {
+						newDeck.getDeck().remove(cardNum - 1);
+					}
 					break;
 				case 3:
 					String isAdmin = ConsoleIO.promptForInput("Enter the code: ", true);
