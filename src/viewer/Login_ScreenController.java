@@ -50,7 +50,7 @@ public class Login_ScreenController {
 
 				signUpStage.hide();
 
-				signUpStage.setMaximized(true);
+				signUpStage.setMaximized(false);
 
 				signUpStage.setScene(signUpScene);
 
@@ -88,7 +88,7 @@ public class Login_ScreenController {
 
 						mainMenuStage.hide();
 
-						mainMenuStage.setFullScreen(true);
+						mainMenuStage.setFullScreen(false);
 
 						mainMenuStage.setScene(mainMenuScene);
 

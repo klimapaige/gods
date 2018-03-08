@@ -34,7 +34,7 @@ public class InstructionsController {
 
 				mainMenuStage.hide();
 
-				mainMenuStage.setMaximized(true);
+				mainMenuStage.setMaximized(false);
 
 				mainMenuStage.setScene(mainMenuScene);
 
