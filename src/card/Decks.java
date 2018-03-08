@@ -53,8 +53,8 @@ public class Decks {
 								addAnotherCard = false;
 							} else {
 								c = master.getDeck().get(cardNum - 1);
+								newDeck.addCard(c);
 							}
-							newDeck.addCard(c);
 						}
 					}
 					break;

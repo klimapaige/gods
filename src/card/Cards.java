@@ -78,7 +78,9 @@ public class Cards {
 									i++;
 								}
 								int rank = ConsoleIO.promptForMenuSelection(options, false) - 1;
-								creature.setRank(crArr[rank]);
+								if (rank != 0) {
+									creature.setRank(crArr[rank]);
+								}
 								break;
 							case 3:
 								int cost = ConsoleIO.promptForInt("How much will this card cost in the store? ", 0,
@@ -117,7 +119,8 @@ public class Cards {
 								creature.setHealth(health);
 								break;
 							case 9:
-								boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack? ", "y", "n");
+								boolean sleep = ConsoleIO.promptForBool("Will this card sleep before attack? ", "y",
+										"n");
 								creature.setSleep(sleep);
 								break;
 							case 0:
