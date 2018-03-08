@@ -6,7 +6,7 @@ import enums.GodType;
 import enums.Mythology;
 
 public class God implements Serializable {
-	
+
 	public final String godName;
 	public final GodType type;
 	public final Mythology mythology;
@@ -14,13 +14,12 @@ public class God implements Serializable {
 	public God(GodType god, Mythology mythology) {
 		type = god;
 		this.mythology = mythology;
-		godName=findName();
+		godName = findName();
 	}
 
 	public int ability() {
 		return 0;
 	}
-	
 
 	private String findName() {
 		String name = "";
@@ -107,4 +106,5 @@ public class God implements Serializable {
 		}
 		return name;
 	}
+
 }

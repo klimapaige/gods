@@ -1,10 +1,12 @@
 package card;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 import enums.GodType;
+import lib.Tool;
 import player.God;
 
 public class Deck implements Serializable {
@@ -21,8 +23,22 @@ public class Deck implements Serializable {
 	}
 
 	public Deck(God god) {
-		this.isStarter = true;
-
+		String filePath = god.godName.toLowerCase() + ".dc";
+		Deck deck = null;
+		try {
+			deck = (Deck) Tool.deserialize(filePath);
+			setDeck(deck.getDeck());
+			
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		}
+		setGodType(god.type);
+		setName(god.godName);
+		if (deck != null) {
+			this.isStarter = deck.isStarter;
+		} else {
+			this.isStarter = false;
+		}
 	}
 
 	public ArrayList<Card> getDeck() {
