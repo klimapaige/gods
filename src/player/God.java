@@ -43,6 +43,7 @@ public class God implements Serializable {
 				name = "Kohler";
 				break;
 			}
+			break;
 		case WAR:
 			switch (mythology) {
 //			case GREEK:
@@ -61,6 +62,7 @@ public class God implements Serializable {
 				name = "Beatty";
 				break;
 			}
+			break;
 		case LOVE:
 			switch (mythology) {
 //			case GREEK:
@@ -79,6 +81,7 @@ public class God implements Serializable {
 				name = "Harrison";
 				break;
 			}
+			break;
 		case KING:
 			switch (mythology) {
 //			case GREEK:
@@ -97,6 +100,7 @@ public class God implements Serializable {
 				name = "Krebs";
 				break;
 			}
+			break;
 		case DEATH:
 			switch (mythology) {
 //			case GREEK:
@@ -115,6 +119,7 @@ public class God implements Serializable {
 				name = "Fletcher";
 				break;
 			}
+			break;
 		case MESSENGER:
 			switch (mythology) {
 //			case GREEK:
@@ -133,6 +138,7 @@ public class God implements Serializable {
 				name = "JP";
 				break;
 			}
+			break;
 
 		}
 		return name;

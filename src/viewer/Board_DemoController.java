@@ -49,7 +49,7 @@ public class Board_DemoController {
 				for(int i = 0; i < m.board.getHand1().length; ++i) {
 					int temp = i;
 					TextArea card = new TextArea();
-					card.setText(m.player1.getDeck().getCard(i).getDescription());
+					card.setText(m.player1.getMatchDeck().getCard(temp-1).getDescription());
 					card.setOnMouseClicked((event) -> {
 						m.player2Selections.add(temp);
 					});
@@ -59,7 +59,7 @@ public class Board_DemoController {
 				for(int i = 0; i < m.board.getHand2().length; ++i) {
 					int temp = i;
 					TextArea card = new TextArea();
-					card.setText(m.player2.getDeck().getCard(i).getDescription());
+					card.setText(m.player2.getMatchDeck().getCard(temp-1).getDescription());
 					card.setOnMouseClicked((event) -> {
 						m.player2Selections.add(temp);
 					});

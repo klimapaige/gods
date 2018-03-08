@@ -26,6 +26,7 @@ public class Player implements Serializable {
 		setUsername(username);
 		setPassword(password);
 		Random rand = new Random();
+		System.out.println(godtype);
 		Mythology[] mythos = Mythology.values();
 		Mythology mythology = mythos[rand.nextInt(mythos.length)];
 		God playerGod = new God(godtype, mythology);
@@ -35,6 +36,7 @@ public class Player implements Serializable {
 		setCredit(0);
 		Deck d = new Deck(playerGod);
 		setDeck(d);
+		setMatchDeck(d);
 	}
 
 	public void newGame() {
