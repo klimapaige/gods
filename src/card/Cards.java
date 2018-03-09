@@ -27,7 +27,7 @@ public class Cards {
 		String description = "";
 		int power = ConsoleIO.promptForInt("How much damage will this card have? ", 0, Integer.MAX_VALUE);
 		String[] powerIds = Tool.toStrArr(PowerID.values());
-		PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
+		PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false) - 1];
 		while (!done) {
 			description += ConsoleIO.promptForInput("Enter the card's description: ", true);
 			done = ConsoleIO.promptForBool("Would you like to add another line? (y/n) ", "n", "y");
