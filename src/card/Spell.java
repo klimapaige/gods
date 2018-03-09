@@ -16,19 +16,24 @@ public class Spell extends Card {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Spell:\tName: ");
 		builder.append(name);
-		if (name.length() < 10) {
+		if (name.length() < 18) {
+			if (name.length() < 10) {
+				builder.append("\t");
+			}
 			builder.append("\t");
 		}
 		builder.append("\tRank: ");
-		builder.append(rank);
+		builder.append(getRank());
 		builder.append("\tCost: ");
 		builder.append(getCost());
 		builder.append("\tMana Cost: ");
 		builder.append(manaCost);
 		builder.append("\tPower: ");
 		builder.append(getPower());
+		builder.append("\tPower ID: ");
+		builder.append(getPowerID());
 		builder.append("\tDescription: ");
-		builder.append(description);
+		builder.append(getDescription());
 		return builder.toString();
 	}
 

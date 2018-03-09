@@ -47,7 +47,10 @@ public class Creature extends Card {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Creature:\tName: ");
 		builder.append(name);
-		if (name.length() < 10) {
+		if (name.length() < 20) {
+			if (name.length() < 10) {
+				builder.append("\t");
+			}
 			builder.append("\t");
 		}
 		builder.append("\tRank: ");
@@ -62,6 +65,8 @@ public class Creature extends Card {
 		builder.append(getPower());
 		builder.append("\tSleep: ");
 		builder.append(sleep);
+		builder.append("\tPower ID: ");
+		builder.append(getPowerID());
 		builder.append("\tDescription: ");
 		builder.append(description);
 		return builder.toString();
