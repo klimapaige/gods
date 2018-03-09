@@ -30,6 +30,31 @@
     -fx-background-color: transparent;
 }
 
-.text-area {
-	
+.text-area #card {
+	-fx-border-style: solid;
+	-fx-border-color: #000;
+	-fx-border-width: 2px;
+    -fx-background-color: rgba(53,89,119,0);
+}
+
+.text-area .scroll-pane #card {
+	-fx-border-style: solid;
+	-fx-border-color: #000;
+	-fx-border-width: 2px;
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport #card {
+	-fx-border-style: solid;
+	-fx-border-color: #000;
+	-fx-border-width: 2px;
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content #card {
+	-fx-border-style: solid;
+	-fx-border-color: #000;
+	-fx-border-width: 2px;
+    -fx-background-color: transparent;
 }

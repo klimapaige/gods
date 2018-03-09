@@ -65,6 +65,7 @@ public class Board_DemoController {
 				if (m.board.getHand1()[i] != null) {
 					TextArea card = new TextArea();
 					card.setWrapText(true);
+					card.setId("card");
 					card.setText(m.board.getHand1()[i].getDescription() + "\n" + m.board.getHand1()[i].getClass().getSimpleName());
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
@@ -80,6 +81,7 @@ public class Board_DemoController {
 				if(m.board.getHand2()[i] != null) {
 					TextArea card = new TextArea();
 					card.setWrapText(true);
+					card.setId("card");
 					card.setText(m.board.getHand2()[i].getDescription() + "\n" + m.board.getHand2()[i].getClass().getSimpleName());
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
@@ -176,9 +178,10 @@ public class Board_DemoController {
 				hboxField1.getChildren().removeAll(hboxField1.getChildren());
 				for (int i = 0; i < m.board.getBattlefield1().length; ++i) {
 					int temp = i;
-					if (m.board.getBattlefield1()[i] != null) {
+					if (m.board.getBattlefield1()[i] != null  && (m.board.getBattlefield1()[i] instanceof Creature)) {
 						TextArea card = new TextArea();
 						card.setWrapText(true);
+						card.setId("card");
 						card.setText(m.board.getBattlefield1()[i].getName() + "\n" + ((Creature) m.board.getBattlefield1()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield1()[i]).getHealth() + "\n" + m.board.getBattlefield1()[i].getDescription());
 						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent event) {
@@ -193,9 +196,11 @@ public class Board_DemoController {
 				hboxField2.getChildren().removeAll(hboxField2.getChildren());
 				for (int i = 0; i < m.board.getBattlefield2().length; ++i) {
 					int temp = i;
-					if(m.board.getBattlefield2()[i] != null) {
+					if(m.board.getBattlefield2()[i] != null && (m.board.getBattlefield2()[i] instanceof Creature)) {
 						TextArea card = new TextArea();
 						card.setWrapText(true);
+						card.setId("card");
+						
 						card.setText(m.board.getBattlefield2()[i].getName() + "\n" + ((Creature) m.board.getBattlefield2()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield2()[i]).getHealth() + "\n" + m.board.getBattlefield2()[i].getDescription());
 						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 							public void handle(MouseEvent event) {

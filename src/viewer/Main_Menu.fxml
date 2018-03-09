@@ -17,9 +17,9 @@
    <children>
       <GridPane layoutX="250.0" prefHeight="607.0" prefWidth="710.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="0.0" prefWidth="0.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="593.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="186.0" minHeight="0.0" prefHeight="4.0" vgrow="SOMETIMES" />
@@ -35,9 +35,9 @@
                      </image>
                   </ImageView>
                   <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="112.0" layoutY="134.0" />
-                  <Button layoutX="112.0" layoutY="404.0" mnemonicParsing="false" onAction="#play" text="Play" />
-                  <Button layoutX="150.0" layoutY="404.0" mnemonicParsing="false" onAction="#pause" text="Pause" />
-                  <Button layoutX="197.0" layoutY="404.0" mnemonicParsing="false" onAction="#reload" text="Restart" />
+                  <Button disable="true" layoutX="112.0" layoutY="404.0" mnemonicParsing="false" onAction="#play" text="Play" visible="false" />
+                  <Button disable="true" layoutX="150.0" layoutY="404.0" mnemonicParsing="false" onAction="#pause" text="Pause" visible="false" />
+                  <Button disable="true" layoutX="197.0" layoutY="404.0" mnemonicParsing="false" onAction="#reload" text="Restart" visible="false" />
                </children>
             </AnchorPane>
          </children>
@@ -60,7 +60,7 @@
                   <Insets top="50.0" />
                </GridPane.margin>
             </Text>
-            <Text fx:id="WIP" strokeType="OUTSIDE" strokeWidth="0.0" text="WIP" wrappingWidth="49.049591064453125" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Text fx:id="WIP" disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="WIP" visible="false" wrappingWidth="49.049591064453125" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="20.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Insets bottom="215.0" left="108.0" />
                </GridPane.margin>
             </Text>
-            <Text fx:id="WIP" strokeType="OUTSIDE" strokeWidth="0.0" text="WIP" wrappingWidth="49.049591064453125" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Text fx:id="WIP" disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="WIP" visible="false" wrappingWidth="49.049591064453125" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="20.0" />
                </font>
@@ -76,7 +76,7 @@
                   <Insets bottom="265.0" left="100.0" />
                </GridPane.margin>
             </Text>
-            <Button fx:id="storeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="80.0" text="Store" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="storeButton" disable="true" mnemonicParsing="false" prefHeight="39.0" prefWidth="80.0" text="Store" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
@@ -84,7 +84,7 @@
                   <Insets bottom="259.0" left="10.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="tradeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="Trade" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="tradeButton" disable="true" mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="Trade" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
@@ -117,12 +117,12 @@
                </GridPane.margin>
             </Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="5.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="248.0" />
-            <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" text="Save" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" text="Save" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Rockwell Extra Bold" size="18.0" />
                </font>
                <GridPane.margin>
-                  <Insets bottom="303.0" left="10.0" />
+                  <Insets bottom="208.0" left="10.0" />
                </GridPane.margin>
             </Button>
             <Button fx:id="newPlayerButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" text="New Player" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">

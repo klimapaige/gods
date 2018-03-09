@@ -58,9 +58,9 @@ public class Main_MenuController {
 
 		loadedUserName.setText(Game.getPlayers().get(0).getUsername());
 
-		md = new Media(Paths.get("src/viewer/Basically_hearthstone.mp4").toUri().toString());
-		mp = new MediaPlayer(md);
-		mediaView.setMediaPlayer(mp);
+//		md = new Media(Paths.get("src/viewer/Basically_hearthstone.mp4").toUri().toString());
+//		mp = new MediaPlayer(md);
+//		mediaView.setMediaPlayer(mp);
 		saveButton.setOnAction((event) -> {
 			Game.getPlayersHash().savePlayerList();
 		});
