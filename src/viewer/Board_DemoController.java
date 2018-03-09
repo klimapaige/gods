@@ -71,7 +71,7 @@ public class Board_DemoController {
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player1Attack[1] = temp;
-							System.out.println(Arrays.toString(m.player1Attack));
+							System.out.println("UpDate P1Attack"+Arrays.toString(m.player1Attack));
 						}
 					});
 					hboxField1.getChildren().add(card);
@@ -90,7 +90,7 @@ public class Board_DemoController {
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player2Attack[1] = temp;
-							System.out.println(Arrays.toString(m.player2Attack));
+							System.out.println("UpDate P2Attack"+Arrays.toString(m.player2Attack));
 						}
 					});
 				hboxField2.getChildren().add(card);
@@ -101,6 +101,7 @@ public class Board_DemoController {
 	
 	public void updateHand(int playerTurn, Match m) {
 		if (playerTurn % 2 == 1) {
+			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
 			for (int i = 0; i < m.board.getHand1().length; ++i) {
 				int temp = i;
 				if (m.board.getHand1()[i] != null) {
@@ -117,6 +118,7 @@ public class Board_DemoController {
 				}
 			}
 		} else {
+			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
 			for (int i = 0; i < m.board.getHand2().length; ++i) {
 				int temp = i;
 				if(m.board.getHand2()[i] != null) {
@@ -185,19 +187,19 @@ public class Board_DemoController {
 		imageBox1.setOnMouseClicked((event) -> {
 			m.player1Attack[3] = 1;
 			m.player2Attack[3] = 1;
-			System.out.println(Arrays.toString(m.player1Attack));
-			System.out.println(Arrays.toString(m.player2Attack));
+			System.out.println("SOMC1 P1Attack"+Arrays.toString(m.player1Attack));
+			System.out.println("SOMC1 P2Attack"+Arrays.toString(m.player2Attack));
 		});
 		imageBox2.setOnMouseClicked((event) -> {
 			m.player1Attack[3] = 2;
 			m.player2Attack[3] = 2;
-			System.out.println(Arrays.toString(m.player1Attack));
-			System.out.println(Arrays.toString(m.player2Attack));
+			System.out.println("SOMC2 P1Attack"+Arrays.toString(m.player1Attack));
+			System.out.println("SOMC2 P1Attack"+Arrays.toString(m.player2Attack));
 		});
 
 		m.start();
 		int playerStartTurn = (int) (Math.random() * 2);// decides who goes first
-		playerTurn = playerStartTurn;
+		playerTurn = 1;
 		
 		startTurnButton.setOnAction((event) -> {
 			System.out.println(m.player1Selections.toString());
@@ -218,14 +220,13 @@ public class Board_DemoController {
 		
 		placeCardsButton.setOnAction((event) -> {
 			m.moveCards(playerTurn);
-			System.out.println(m.player1Selections.toString());
-			System.out.println(m.player2Selections.toString());
-			System.out.println(Arrays.toString(m.board.getHand1()));
-			System.out.println(Arrays.toString(m.board.getHand2()));
-			System.out.println(Arrays.toString(m.board.getBattlefield1()));
-			System.out.println(Arrays.toString(m.board.getBattlefield2()));
-			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
-			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
+			System.out.println("ETB P1Select"+ m.player1Selections.toString());
+			System.out.println("ETB P2Select"+ m.player2Selections.toString());
+			System.out.println("ETB Hand1"+ Arrays.toString(m.board.getHand1()));
+			System.out.println("ETB Hand2"+ Arrays.toString(m.board.getHand2()));
+			System.out.println("ETB Battle1"+ Arrays.toString(m.board.getBattlefield1()));
+			System.out.println("ETB Battle2"+ Arrays.toString(m.board.getBattlefield2()));
+			
 			updateHand(playerTurn, m);
 			updateField(m);
 			declareAttackButton.setVisible(true);
@@ -233,15 +234,13 @@ public class Board_DemoController {
 		});
 		
 		declareAttackButton.setOnAction((event) -> {
-			System.out.println(m.player1Selections.toString());
-			System.out.println(m.player2Selections.toString());
-			System.out.println(Arrays.toString(m.board.getHand1()));
-			System.out.println(Arrays.toString(m.board.getHand2()));
-			System.out.println(Arrays.toString(m.board.getBattlefield1()));
-			System.out.println(Arrays.toString(m.board.getBattlefield2()));
-			Attack round;
-			
-			round = m.turn(playerTurn, turnCount);
+			System.out.println("ETB P1Select"+ m.player1Selections.toString());
+			System.out.println("ETB P2Select"+ m.player2Selections.toString());
+			System.out.println("ETB Hand1"+ Arrays.toString(m.board.getHand1()));
+			System.out.println("ETB Hand2"+ Arrays.toString(m.board.getHand2()));
+			System.out.println("ETB Battle1"+ Arrays.toString(m.board.getBattlefield1()));
+			System.out.println("ETB Battle2"+ Arrays.toString(m.board.getBattlefield2()));
+			Attack round = m.turn(playerTurn, turnCount);
 			// set the attack int arrays
 	
 			m.attackPhase(round, playerTurn);
@@ -250,9 +249,9 @@ public class Board_DemoController {
 			player1Health.setText(m.player1.getHealth()+"");
 			player2Health.setText(m.player2.getHealth()+"");
 			if (playerTurn % 2 == 1) {
-				m.board.drawCard(playerTurn, m.player1);
+				m.board.drawCard(1, m.player1);
 			} else {
-				m.board.drawCard(playerTurn, m.player2);
+				m.board.drawCard(2, m.player2);
 			}
 			playerTurn++;
 			
@@ -261,14 +260,14 @@ public class Board_DemoController {
 		});
 		
 		endTurnButton.setOnAction((event) -> {
-			System.out.println(m.player1Selections.toString());
-			System.out.println(m.player2Selections.toString());
-			System.out.println(Arrays.toString(m.board.getHand1()));
-			System.out.println(Arrays.toString(m.board.getHand2()));
-			System.out.println(Arrays.toString(m.board.getBattlefield1()));
-			System.out.println(Arrays.toString(m.board.getBattlefield2()));
+			System.out.println("ETB P1Select"+m.player1Selections.toString());
+			System.out.println("ETB P2Select"+m.player2Selections.toString());
+			System.out.println("ETB Hand1"+Arrays.toString(m.board.getHand1()));
+			System.out.println("ETB Hand2"+Arrays.toString(m.board.getHand2()));
+			System.out.println("ETB Battle1"+Arrays.toString(m.board.getBattlefield1()));
+			System.out.println("ETB Battle2"+Arrays.toString(m.board.getBattlefield2()));
 			if((winner = m.checkWin()) != null) {
-				Player lost = winner == m.player1 ? m.player2 : m.player1;
+				Player lost = (winner == m.player1)? m.player2 : m.player1;
 				m.end(winner, lost);
 			}
 			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());

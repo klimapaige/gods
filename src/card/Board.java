@@ -155,7 +155,7 @@ public class Board {
 					boolean placed = false;
 					for (int i = 0; i < battlefield2.length && !placed; i++) {
 						if (battlefield2[i] == null) {
-							if(hand1[handIndex] instanceof Creature) {
+							if(hand2[handIndex] instanceof Creature) {
 								battlefield2[i] = hand2[handIndex];
 								hand2[handIndex]=null;
 							}
