@@ -39,9 +39,8 @@ public class Game {
 		playersHash = new Players(false, filePath);
 		String[] playersHashArray = new String[playersHash.getPlayerList().keySet().size()];
 		playersHash.getPlayerList().keySet().toArray(playersHashArray);
-		for (int i = 0; i < playersHash.getPlayerList().keySet().size(); i++) {
-			String key = playersHashArray[i];
-			players.add(playersHash.getPlayerList().get(key));
+		for (String p : getPlayersHash().getPlayerList().keySet()) {
+			players.add(playersHash.getPlayerList().get(p));
 		}
 	}
 

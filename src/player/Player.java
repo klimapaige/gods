@@ -112,7 +112,7 @@ public class Player implements Serializable {
 	}
 
 	public void setMatchDeck(Deck matchDeck) {
-		this.matchDeck = matchDeck;
+		this.matchDeck = new Deck(matchDeck);
 	}
 
 }
