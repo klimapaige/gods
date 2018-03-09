@@ -142,8 +142,10 @@ public class Board {
 					boolean placed = false;
 					for (int i = 0; i < battlefield1.length && !placed; i++) {
 						if (battlefield1[i] == null) {
-							battlefield1[i] = hand1[handIndex];
-							hand1[handIndex]=null;
+							if(hand1[handIndex] instanceof Creature) {
+								battlefield1[i] = hand1[handIndex];
+								hand1[handIndex]=null;								
+							}
 							placed = true;
 						}
 					}
@@ -153,8 +155,10 @@ public class Board {
 					boolean placed = false;
 					for (int i = 0; i < battlefield2.length && !placed; i++) {
 						if (battlefield2[i] == null) {
-							battlefield2[i] = hand2[handIndex];
-							hand2[handIndex]=null;
+							if(hand1[handIndex] instanceof Creature) {
+								battlefield2[i] = hand2[handIndex];
+								hand2[handIndex]=null;
+							}
 							placed = true;
 						}
 					}
