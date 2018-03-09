@@ -133,10 +133,6 @@ public class Board_DemoController {
 				}
 			}
 		}
-		for(int i = 0; i < 4; ++i) {
-			m.player1Attack[i] = -1;
-			m.player2Attack[i] = -1;
-		}
 	}
 	
 	public String location(Player p) {
@@ -210,7 +206,10 @@ public class Board_DemoController {
 			System.out.println(Arrays.toString(m.board.getHand2()));
 			System.out.println(Arrays.toString(m.board.getBattlefield1()));
 			System.out.println(Arrays.toString(m.board.getBattlefield2()));
-			
+			for(int i = 0; i < 4; ++i) {
+				m.player1Attack[i] = -1;
+				m.player2Attack[i] = -1;
+			}
 			turnCount++;
 			updateHand(playerTurn, m);
 			placeCardsButton.setVisible(true);
