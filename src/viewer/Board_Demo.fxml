@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,7 +14,7 @@
   <columnConstraints>
     <ColumnConstraints hgrow="ALWAYS" maxWidth="935.0" minWidth="10.0" prefWidth="870.39990234375" />
       <ColumnConstraints hgrow="ALWAYS" maxWidth="935.0" minWidth="10.0" prefWidth="828.0000976562501" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="222.39990234375" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="222.39990234375" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -33,14 +34,28 @@
             <HBox fx:id="hboxHand2" alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="273.0" prefWidth="410.0" />
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="1080.0" prefWidth="349.0" GridPane.columnIndex="2">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="130.0" text="Next Turn">
-               <font>
-                  <Font name="Rockwell Extra Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      <Button fx:id="startTurnButton" mnemonicParsing="false" text="Start Turn" GridPane.columnSpan="2">
+         <font>
+            <Font name="Rockwell Extra Bold" size="96.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="635.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="declareAttackButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="182.0" text="Declare Attack" visible="false" GridPane.columnIndex="2">
+         <font>
+            <Font name="Rockwell Extra Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="placeCardsButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="Place Cards" visible="false" GridPane.columnIndex="2">
+         <font>
+            <Font name="Rockwell Extra Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="endTurnButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="End Turn" visible="false" GridPane.columnIndex="2">
+         <font>
+            <Font name="Rockwell Extra Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </GridPane>

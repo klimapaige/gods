@@ -60,8 +60,9 @@ public class Attack {
 				if (chooseCard[2] > -1) {
 					card2 = myBattlefield[chooseCard[2]];
 				}
+			}if(card1!=null&&card2!=null) {
+				card2 = headToHead(card1, card2);				
 			}
-			card2 = headToHead(card1, card2);
 			if (card2 instanceof Creature) {
 				card2 = ((Creature) card2).getHealth() == 0 ? null : card2;
 			}
