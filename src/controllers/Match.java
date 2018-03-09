@@ -104,7 +104,7 @@ public class Match {
 		int[] choices;
 
 		boolean continueGame = false;
-		do {
+		
 			continueGame = false;
 			// sets the player's choices for attack
 			if (playerTurn == 1) {
@@ -121,7 +121,6 @@ public class Match {
 			if (continueGame) {
 				round.attackRound(choices);
 			}
-		} while (continueGame);
 
 	}
 

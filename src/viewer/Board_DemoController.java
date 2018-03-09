@@ -1,5 +1,7 @@
 package viewer;
 
+import java.util.Arrays;
+
 import controllers.Attack;
 import controllers.Game;
 import controllers.Match;
@@ -46,9 +48,15 @@ public class Board_DemoController {
 
 		imageBox1.setOnMouseClicked((event) -> {
 			m.player1Attack[3] = 1;
+			m.player2Attack[3] = 1;
+			System.out.println(Arrays.toString(m.player1Attack));
+			System.out.println(Arrays.toString(m.player2Attack));
 		});
 		imageBox2.setOnMouseClicked((event) -> {
 			m.player1Attack[3] = 2;
+			m.player2Attack[3] = 2;
+			System.out.println(Arrays.toString(m.player1Attack));
+			System.out.println(Arrays.toString(m.player2Attack));
 		});
 
 		m.start();
@@ -65,7 +73,7 @@ public class Board_DemoController {
 				for (int i = 0; i < m.board.getHand1().length && m.board.getHand1()[i] != null; ++i) {
 					int temp = i;
 					TextArea card = new TextArea();
-					card.setText(m.board.getHand1()[i].getDescription());
+					card.setText(m.board.getHand1()[i].getDescription() + "\n" + m.board.getHand1()[i].getClass());
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player1Selections.add(temp);							
@@ -77,7 +85,7 @@ public class Board_DemoController {
 				for (int i = 0; i < m.board.getHand2().length && m.board.getHand2()[i] != null; ++i) {
 					int temp = i;
 					TextArea card = new TextArea();
-					card.setText(m.board.getHand2()[i].getDescription());
+					card.setText(m.board.getHand2()[i].getDescription() + "\n" + m.board.getHand2()[i].getClass());
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player2Selections.add(temp);							
@@ -100,6 +108,7 @@ public class Board_DemoController {
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player1Attack[1] = temp;
+							System.out.println(Arrays.toString(m.player1Attack));
 						}
 					});
 					hboxField1.getChildren().add(card);
@@ -112,6 +121,7 @@ public class Board_DemoController {
 					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent event) {
 							m.player2Attack[1] = temp;
+							System.out.println(Arrays.toString(m.player2Attack));
 						}
 					});
 					hboxField2.getChildren().add(card);
@@ -126,6 +136,7 @@ public class Board_DemoController {
 			
 			round = m.turn(playerTurn, turnCount);
 			// set the attack int arrays
+	
 			m.attackPhase(round, playerTurn);
 			// draws cards based on the current cards in the hand
 			if (playerTurn % 2 == 1) {

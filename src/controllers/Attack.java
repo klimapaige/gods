@@ -36,7 +36,9 @@ public class Attack {
 			} else if (chooseCard[1] > -1) {
 				card = myBattlefield[chooseCard[1]];
 			}
+			if(player!=null&&card!=null) {
 			cardVsPlayer(player, card);
+			}
 			// removes the card from the the hand or battlefield
 			if (chooseCard[0] > -1) {
 				myHand[chooseCard[0]] = null;
