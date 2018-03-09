@@ -99,7 +99,7 @@ public class Cards {
 								break;
 							case 6:
 								String[] powerIds = Tool.toStrArr(PowerID.values());
-								PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
+								PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)-1];
 								creature.setPowerID(powerID);
 								break;
 							case 7:
@@ -165,7 +165,7 @@ public class Cards {
 								break;
 							case 6:
 								String[] powerIds = Tool.toStrArr(PowerID.values());
-								PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)];
+								PowerID powerID = PowerID.values()[ConsoleIO.promptForMenuSelection(powerIds, false)-1];
 								spell.setPowerID(powerID);
 								break;
 							case 7:
