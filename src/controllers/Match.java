@@ -77,9 +77,9 @@ public class Match {
 
 	public void moveCards(int playerTurn) {
 		if (playerTurn == 1) {
-			board.moveCards(playerTurn, player1Selections);
+			board.moveCards(1, player1Selections);
 		} else {
-			board.moveCards(playerTurn, player2Selections);
+			board.moveCards(2, player2Selections);
 		}
 	}
 

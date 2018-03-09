@@ -58,6 +58,47 @@ public class Board_DemoController {
 	public int turnCount = 0;
 	Player winner;
 	
+	public void updateField(Match m) {
+		if (playerTurn % 2 == 1) {
+			hboxField1.getChildren().removeAll(hboxField1.getChildren());
+			for (int i = 0; i < m.board.getBattlefield1().length; ++i) {
+				int temp = i;
+				if (m.board.getBattlefield1()[i] != null  && (m.board.getBattlefield1()[i] instanceof Creature)) {
+					TextArea card = new TextArea();
+					card.setWrapText(true);
+					card.setId("card");
+					card.setText(m.board.getBattlefield1()[i].getName() + "\n" + ((Creature) m.board.getBattlefield1()[i]).getPower() + "\n" + m.board.getBattlefield1()[i].getDescription());
+					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent event) {
+							m.player1Attack[1] = temp;
+							System.out.println(Arrays.toString(m.player1Attack));
+						}
+					});
+					hboxField1.getChildren().add(card);
+				}
+			}
+		} else {
+			hboxField2.getChildren().removeAll(hboxField2.getChildren());
+			for (int i = 0; i < m.board.getBattlefield2().length; ++i) {
+				int temp = i;
+				if(m.board.getBattlefield2()[i] != null && (m.board.getBattlefield2()[i] instanceof Creature)) {
+					TextArea card = new TextArea();
+					card.setWrapText(true);
+					card.setId("card");
+					
+					card.setText(m.board.getBattlefield2()[i].getName() + "\n" + ((Creature) m.board.getBattlefield2()[i]).getPower() + "\n" + m.board.getBattlefield2()[i].getDescription());
+					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
+						public void handle(MouseEvent event) {
+							m.player2Attack[1] = temp;
+							System.out.println(Arrays.toString(m.player2Attack));
+						}
+					});
+				hboxField2.getChildren().add(card);
+				}
+			}
+		}
+	}
+	
 	public void updateHand(int playerTurn, Match m) {
 		if (playerTurn % 2 == 1) {
 			for (int i = 0; i < m.board.getHand1().length; ++i) {
@@ -91,6 +132,10 @@ public class Board_DemoController {
 					hboxHand2.getChildren().add(card);
 				}
 			}
+		}
+		for(int i = 0; i < 4; ++i) {
+			m.player1Attack[i] = -1;
+			m.player2Attack[i] = -1;
 		}
 	}
 	
@@ -159,10 +204,13 @@ public class Board_DemoController {
 		playerTurn = playerStartTurn;
 		
 		startTurnButton.setOnAction((event) -> {
-			for(int i = 0; i < 4; ++i) {
-				m.player1Attack[i] = -1;
-				m.player2Attack[i] = -1;
-			}
+			System.out.println(m.player1Selections.toString());
+			System.out.println(m.player2Selections.toString());
+			System.out.println(Arrays.toString(m.board.getHand1()));
+			System.out.println(Arrays.toString(m.board.getHand2()));
+			System.out.println(Arrays.toString(m.board.getBattlefield1()));
+			System.out.println(Arrays.toString(m.board.getBattlefield2()));
+			
 			turnCount++;
 			updateHand(playerTurn, m);
 			placeCardsButton.setVisible(true);
@@ -171,58 +219,34 @@ public class Board_DemoController {
 		
 		placeCardsButton.setOnAction((event) -> {
 			m.moveCards(playerTurn);
+			System.out.println(m.player1Selections.toString());
+			System.out.println(m.player2Selections.toString());
+			System.out.println(Arrays.toString(m.board.getHand1()));
+			System.out.println(Arrays.toString(m.board.getHand2()));
+			System.out.println(Arrays.toString(m.board.getBattlefield1()));
+			System.out.println(Arrays.toString(m.board.getBattlefield2()));
 			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
 			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
 			updateHand(playerTurn, m);
-			if (playerTurn % 2 == 1) {
-				hboxField1.getChildren().removeAll(hboxField1.getChildren());
-				for (int i = 0; i < m.board.getBattlefield1().length; ++i) {
-					int temp = i;
-					if (m.board.getBattlefield1()[i] != null  && (m.board.getBattlefield1()[i] instanceof Creature)) {
-						TextArea card = new TextArea();
-						card.setWrapText(true);
-						card.setId("card");
-						card.setText(m.board.getBattlefield1()[i].getName() + "\n" + ((Creature) m.board.getBattlefield1()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield1()[i]).getHealth() + "\n" + m.board.getBattlefield1()[i].getDescription());
-						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
-							public void handle(MouseEvent event) {
-								m.player1Attack[1] = temp;
-								System.out.println(Arrays.toString(m.player1Attack));
-							}
-						});
-						hboxField1.getChildren().add(card);
-					}
-				}
-			} else {
-				hboxField2.getChildren().removeAll(hboxField2.getChildren());
-				for (int i = 0; i < m.board.getBattlefield2().length; ++i) {
-					int temp = i;
-					if(m.board.getBattlefield2()[i] != null && (m.board.getBattlefield2()[i] instanceof Creature)) {
-						TextArea card = new TextArea();
-						card.setWrapText(true);
-						card.setId("card");
-						
-						card.setText(m.board.getBattlefield2()[i].getName() + "\n" + ((Creature) m.board.getBattlefield2()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield2()[i]).getHealth() + "\n" + m.board.getBattlefield2()[i].getDescription());
-						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
-							public void handle(MouseEvent event) {
-								m.player2Attack[1] = temp;
-								System.out.println(Arrays.toString(m.player2Attack));
-							}
-						});
-					hboxField2.getChildren().add(card);
-					}
-				}
-			}
+			updateField(m);
 			declareAttackButton.setVisible(true);
 			placeCardsButton.setVisible(false);
 		});
 		
 		declareAttackButton.setOnAction((event) -> {
+			System.out.println(m.player1Selections.toString());
+			System.out.println(m.player2Selections.toString());
+			System.out.println(Arrays.toString(m.board.getHand1()));
+			System.out.println(Arrays.toString(m.board.getHand2()));
+			System.out.println(Arrays.toString(m.board.getBattlefield1()));
+			System.out.println(Arrays.toString(m.board.getBattlefield2()));
 			Attack round;
 			
 			round = m.turn(playerTurn, turnCount);
 			// set the attack int arrays
 	
 			m.attackPhase(round, playerTurn);
+			updateField(m);
 			// draws cards based on the current cards in the hand
 			player1Health.setText(m.player1.getHealth()+"");
 			player2Health.setText(m.player2.getHealth()+"");
@@ -238,12 +262,20 @@ public class Board_DemoController {
 		});
 		
 		endTurnButton.setOnAction((event) -> {
+			System.out.println(m.player1Selections.toString());
+			System.out.println(m.player2Selections.toString());
+			System.out.println(Arrays.toString(m.board.getHand1()));
+			System.out.println(Arrays.toString(m.board.getHand2()));
+			System.out.println(Arrays.toString(m.board.getBattlefield1()));
+			System.out.println(Arrays.toString(m.board.getBattlefield2()));
 			if((winner = m.checkWin()) != null) {
 				Player lost = winner == m.player1 ? m.player2 : m.player1;
 				m.end(winner, lost);
 			}
 			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
 			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
+			m.player1Selections.clear();
+			m.player2Selections.clear();
 			startTurnButton.setVisible(true);
 			endTurnButton.setVisible(false);
 		});
