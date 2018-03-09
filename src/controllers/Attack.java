@@ -2,6 +2,7 @@ package controllers;
 
 import card.Card;
 import card.Creature;
+import card.Spell;
 import enums.PowerID;
 import player.Player;
 
@@ -150,14 +151,16 @@ public class Attack {
 			int health = 0;
 			switch (powerID) {
 			case DAMAGE:
-				health = player.getHealth();
-				health -= card.getPower();
-				player.setHealth(health);
+				int health1 = player.getHealth();
+				health1 -= card.getPower();
+				player.setHealth(health1);
 				break;
 			case HEAL:
-				health = player.getHealth();
-				health += card.getPower();
-				player.setHealth(health);
+				if(card instanceof Spell) {
+					int health2 = player.getHealth();
+					health2 += card.getPower();
+					player.setHealth(health2);					
+				}
 				break;
 			}
 		}
