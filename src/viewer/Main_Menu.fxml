@@ -31,7 +31,7 @@
                <children>
                   <ImageView fitHeight="84.0" fitWidth="669.0" layoutX="17.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@logo.png" />
+                        <Image url="@CWOTG.png" />
                      </image>
                   </ImageView>
                   <MediaView fx:id="mediaView" fitHeight="270.0" fitWidth="480.0" layoutX="112.0" layoutY="134.0" />
