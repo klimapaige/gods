@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewer.Board_DemoController">
   <columnConstraints>
@@ -22,14 +23,68 @@
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <ImageView fx:id="imageBox1" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
+            <GridPane prefHeight="298.0" prefWidth="870.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="whatGod1" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="whosPlaying1" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="imageBox1" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                  <Text fx:id="player1Health" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="35.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
             <HBox fx:id="hboxField1" alignment="CENTER" maxHeight="-Infinity" prefHeight="508.0" prefWidth="410.0" />
             <HBox fx:id="hboxHand1" alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="273.0" prefWidth="410.0" />
          </children>
       </VBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
          <children>
-            <ImageView fx:id="imageBox2" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
+            <GridPane prefHeight="298.0" prefWidth="870.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fx:id="whatGod2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="whosPlaying2" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="imageBox2" fitHeight="292.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                  <Text fx:id="player2Health" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="35.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
             <HBox fx:id="hboxField2" alignment="CENTER" maxHeight="-Infinity" prefHeight="508.0" prefWidth="410.0" />
             <HBox fx:id="hboxHand2" alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="273.0" prefWidth="410.0" />
          </children>
