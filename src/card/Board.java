@@ -83,7 +83,7 @@ public class Board {
 					}
 				}
 				if (cards < 5) {
-					for (int i = 0; i < 8 && cards < 5; i++) {
+					for (int i = 0; i < 8 && cards < 5 &&!player.getMatchDeck().getDeck().isEmpty(); i++) {
 						if (hand1[i] == null) {
 							cards++;
 							hand1[i] = player.getMatchDeck().pullCard();
@@ -143,6 +143,7 @@ public class Board {
 					for (int i = 0; i < battlefield1.length && !placed; i++) {
 						if (battlefield1[i] == null) {
 							battlefield1[i] = hand1[handIndex];
+							hand1[handIndex]=null;
 							placed = true;
 						}
 					}
@@ -153,6 +154,7 @@ public class Board {
 					for (int i = 0; i < battlefield2.length && !placed; i++) {
 						if (battlefield2[i] == null) {
 							battlefield2[i] = hand2[handIndex];
+							hand2[handIndex]=null;
 							placed = true;
 						}
 					}
