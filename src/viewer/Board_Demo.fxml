@@ -48,6 +48,9 @@
                      <font>
                         <Font name="Rockwell Extra Bold" size="35.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </GridPane.margin>
                   </Text>
                </children>
             </GridPane>
@@ -82,6 +85,9 @@
                      <font>
                         <Font name="Rockwell Extra Bold" size="35.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </GridPane.margin>
                   </Text>
                </children>
             </GridPane>

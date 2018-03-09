@@ -1,5 +1,6 @@
 package viewer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import card.Creature;
@@ -172,32 +173,38 @@ public class Board_DemoController {
 			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
 			updateHand(playerTurn, m);
 			if (playerTurn % 2 == 1) {
-				for (int i = 0; i < m.board.getBattlefield1().length && m.board.getBattlefield1()[i] != null; ++i) {
+				hboxField1.getChildren().removeAll(hboxField1.getChildren());
+				for (int i = 0; i < m.board.getBattlefield1().length; ++i) {
 					int temp = i;
-					TextArea card = new TextArea();
-					card.setWrapText(true);
-					card.setText(m.board.getBattlefield1()[i].getName() + "\n" + ((Creature) m.board.getBattlefield1()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield1()[i]).getHealth() + "\n" + m.board.getBattlefield1()[i].getDescription());
-					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent event) {
-							m.player1Attack[1] = temp;
-							System.out.println(Arrays.toString(m.player1Attack));
-						}
-					});
-					hboxField1.getChildren().add(card);
+					if (m.board.getBattlefield1()[i] != null) {
+						TextArea card = new TextArea();
+						card.setWrapText(true);
+						card.setText(m.board.getBattlefield1()[i].getName() + "\n" + ((Creature) m.board.getBattlefield1()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield1()[i]).getHealth() + "\n" + m.board.getBattlefield1()[i].getDescription());
+						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
+							public void handle(MouseEvent event) {
+								m.player1Attack[1] = temp;
+								System.out.println(Arrays.toString(m.player1Attack));
+							}
+						});
+						hboxField1.getChildren().add(card);
+					}
 				}
 			} else {
-				for (int i = 0; i < m.board.getBattlefield2().length && m.board.getBattlefield2()[i] != null; ++i) {
+				hboxField2.getChildren().removeAll(hboxField2.getChildren());
+				for (int i = 0; i < m.board.getBattlefield2().length; ++i) {
 					int temp = i;
-					TextArea card = new TextArea();
-					card.setWrapText(true);
-					card.setText(m.board.getBattlefield2()[i].getName() + "\n" + ((Creature) m.board.getBattlefield2()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield2()[i]).getHealth() + "\n" + m.board.getBattlefield2()[i].getDescription());
-					card.setOnMouseClicked(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent event) {
-							m.player2Attack[1] = temp;
-							System.out.println(Arrays.toString(m.player2Attack));
-						}
-					});
+					if(m.board.getBattlefield2()[i] != null) {
+						TextArea card = new TextArea();
+						card.setWrapText(true);
+						card.setText(m.board.getBattlefield2()[i].getName() + "\n" + ((Creature) m.board.getBattlefield2()[i]).getPower() + "/" + ((Creature) m.board.getBattlefield2()[i]).getHealth() + "\n" + m.board.getBattlefield2()[i].getDescription());
+						card.setOnMouseClicked(new EventHandler<MouseEvent>() {
+							public void handle(MouseEvent event) {
+								m.player2Attack[1] = temp;
+								System.out.println(Arrays.toString(m.player2Attack));
+							}
+						});
 					hboxField2.getChildren().add(card);
+					}
 				}
 			}
 			declareAttackButton.setVisible(true);
@@ -232,8 +239,6 @@ public class Board_DemoController {
 			}
 			hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
 			hboxHand2.getChildren().removeAll(hboxHand2.getChildren());
-			m.player1Selections.clear();
-			m.player2Selections.clear();
 			startTurnButton.setVisible(true);
 			endTurnButton.setVisible(false);
 		});

@@ -155,19 +155,11 @@ public class Attack {
 				player.setHealth(health1);
 				break;
 			case HEAL:
-				if(card instanceof Spell) {
-					int health2 = player.getHealth();
-					health2 += card.getPower();
-					player.setHealth(health2);					
-				}
+				int health2 = player.getHealth();
+				health2 += card.getPower();
+				player.setHealth(health2);					
 				break;
-			default: 
-				if(card instanceof Creature) {
-					int health2 = player.getHealth();
-					health2 -= card.getPower();
-					player.setHealth(health2);					
-				}
-				break;
+
 			} 
 		}
 	}
