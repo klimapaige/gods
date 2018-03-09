@@ -148,7 +148,6 @@ public class Attack {
 	private void cardVsPlayer(Player player, Card card) {
 		if (card != null) {
 			PowerID powerID = card.getPowerID();
-			int health = 0;
 			switch (powerID) {
 			case DAMAGE:
 				int health1 = player.getHealth();
@@ -162,7 +161,14 @@ public class Attack {
 					player.setHealth(health2);					
 				}
 				break;
-			}
+			default: 
+				if(card instanceof Creature) {
+					int health2 = player.getHealth();
+					health2 -= card.getPower();
+					player.setHealth(health2);					
+				}
+				break;
+			} 
 		}
 	}
 
