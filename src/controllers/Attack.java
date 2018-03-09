@@ -142,19 +142,21 @@ public class Attack {
 	}
 
 	private void cardVsPlayer(Player player, Card card) {
-		PowerID powerID = card.getPowerID();
-		int health = 0;
-		switch (powerID) {
-		case DAMAGE:
-			health = player.getHealth();
-			health -= card.getPower();
-			player.setHealth(health);
-			break;
-		case HEAL:
-			health = player.getHealth();
-			health += card.getPower();
-			player.setHealth(health);
-			break;
+		if (card != null) {
+			PowerID powerID = card.getPowerID();
+			int health = 0;
+			switch (powerID) {
+			case DAMAGE:
+				health = player.getHealth();
+				health -= card.getPower();
+				player.setHealth(health);
+				break;
+			case HEAL:
+				health = player.getHealth();
+				health += card.getPower();
+				player.setHealth(health);
+				break;
+			}
 		}
 	}
 
