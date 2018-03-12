@@ -30,7 +30,7 @@ public class WinnerPage {
 	@FXML
 	private ImageView winnerImage;
 	
-	static private Player winner = null;
+	static private Player winner;
 
 	public static Player getWinner() {
 		return winner;

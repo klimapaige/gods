@@ -28,8 +28,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="232.13671875" GridPane.columnIndex="1" />
-            <ImageView fitHeight="178.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="winnerInfo" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="232.13671875" GridPane.columnIndex="1" />
+            <ImageView fx:id="winnerImage" fitHeight="178.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </GridPane>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Who Won?" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="491.314208984375">
@@ -37,7 +37,7 @@
             <Font name="Rockwell Extra Bold" size="67.0" />
          </font>
       </Text>
-      <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="500.0" style="-fx-alignment: Center;" text="Main Menu" GridPane.rowIndex="2">
+      <Button fx:id="mainMenuButton" mnemonicParsing="false" prefHeight="78.0" prefWidth="500.0" style="-fx-alignment: Center;" text="Main Menu" GridPane.rowIndex="2">
          <font>
             <Font name="Rockwell Extra Bold" size="36.0" />
          </font>

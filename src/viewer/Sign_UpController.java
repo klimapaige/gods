@@ -94,7 +94,7 @@ public class Sign_UpController {
 
 					loginStage.hide();
 
-					loginStage.setMaximized(false);
+					loginStage.setMaximized(true);
 
 					loginStage.setScene(loginScene);
 
@@ -126,7 +126,7 @@ public class Sign_UpController {
 
 				loginStage.hide();
 
-				loginStage.setMaximized(false);
+				loginStage.setMaximized(true);
 
 				loginStage.setScene(loginScene);
 

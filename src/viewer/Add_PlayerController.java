@@ -91,7 +91,7 @@ public class Add_PlayerController {
 					
 					mainMenuStage.hide();
 					
-					mainMenuStage.setFullScreen(false);
+					mainMenuStage.setFullScreen(true);
 					
 					mainMenuStage.setScene(mainMenuScene);
 					
@@ -123,7 +123,7 @@ public class Add_PlayerController {
 				
 				loginStage.hide();
 				
-				loginStage.setMaximized(false);
+				loginStage.setMaximized(true);
 				
 				loginStage.setScene(loginScene);
 				
