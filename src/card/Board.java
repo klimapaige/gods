@@ -67,8 +67,23 @@ public class Board {
 
 	public void drawFirstCards(Player player1, Player player2) {
 		for (int i = 0; i < 5; i++) {
-			hand1[i] = player1.getMatchDeck().pullCard();
-			hand2[i] = player2.getMatchDeck().pullCard();
+			Card card1, card2;
+			boolean placed = false;
+			do {
+				card1=player1.getMatchDeck().pullCard();
+				if(card1 instanceof Creature) {
+					placed = true;
+				}
+			} while (!placed);
+			placed = false;
+			do {
+				card2=player2.getMatchDeck().pullCard();
+				if(card2 instanceof Creature) {
+					placed = true;
+				}
+			} while (!placed);
+			hand1[i] = card1;
+			hand2[i] = card2;
 		}
 
 	}
@@ -83,10 +98,26 @@ public class Board {
 					}
 				}
 				if (cards < 5) {
-					for (int i = 0; i < 8 && cards < 5 &&!player.getMatchDeck().getDeck().isEmpty(); i++) {
+					for (int i = 0; i < 8 && cards < 5; i++) {
+						if (player.getMatchDeck().getDeck().isEmpty()) {
+							player.setMatchDeck(player.getDeck());
+							drawCard(playerNumber, player);
+						}
 						if (hand1[i] == null) {
 							cards++;
-							hand1[i] = player.getMatchDeck().pullCard();
+							boolean placed = false;
+							Card card;
+							do {
+								if (player.getMatchDeck().getDeck().isEmpty()) {
+									player.setMatchDeck(player.getDeck());
+									drawCard(playerNumber, player);
+								}
+								card = player.getMatchDeck().pullCard();
+								if (card instanceof Creature) {
+									placed = true;
+								}
+							} while (!placed);
+							hand1[i] = card;
 						}
 					}
 				} else if (cards >= 5 && cards < 8) {
@@ -101,21 +132,41 @@ public class Board {
 					// Ask user if they want to switch a single card, else nothing
 					// if user says yes, ask which card to discard
 				}
+			} else {
+				player.setMatchDeck(player.getDeck());
+				drawCard(playerNumber, player);
 			}
 
 		} else {
 			if (!player.getMatchDeck().getDeck().isEmpty()) {
 				int cards = 8;
 				for (int i = 0; i < 8; i++) {
+
 					if (hand2[i] == null) {
 						cards--;
 					}
 				}
 				if (cards < 5) {
 					for (int i = 0; i < 8 && cards < 5; i++) {
+						if (player.getMatchDeck().getDeck().isEmpty()) {
+							player.setMatchDeck(player.getDeck());
+							drawCard(playerNumber, player);
+						}
 						if (hand2[i] == null) {
 							cards++;
-							hand2[i] = player.getMatchDeck().pullCard();
+							boolean placed = false;
+							Card card;
+							do {
+								if (player.getMatchDeck().getDeck().isEmpty()) {
+									player.setMatchDeck(player.getDeck());
+									drawCard(playerNumber, player);
+								}
+								card = player.getMatchDeck().pullCard();
+								if (card instanceof Creature) {
+									placed = true;
+								}
+							} while (!placed);
+							hand2[i] = card;
 						}
 					}
 				} else if (cards >= 5 && cards < 8) {
@@ -130,6 +181,9 @@ public class Board {
 					// Ask user if they want to switch a single card, else nothing
 					// if user says yes, ask which card to discard
 				}
+			} else {
+				player.setMatchDeck(player.getDeck());
+				drawCard(playerNumber, player);
 			}
 
 		}
@@ -142,9 +196,9 @@ public class Board {
 					boolean placed = false;
 					for (int i = 0; i < battlefield1.length && !placed; i++) {
 						if (battlefield1[i] == null) {
-							if(hand1[handIndex] instanceof Creature) {
+							if (hand1[handIndex] instanceof Creature) {
 								battlefield1[i] = hand1[handIndex];
-								hand1[handIndex]=null;								
+								hand1[handIndex] = null;
 							}
 							placed = true;
 						}
@@ -155,9 +209,9 @@ public class Board {
 					boolean placed = false;
 					for (int i = 0; i < battlefield2.length && !placed; i++) {
 						if (battlefield2[i] == null) {
-							if(hand2[handIndex] instanceof Creature) {
+							if (hand2[handIndex] instanceof Creature) {
 								battlefield2[i] = hand2[handIndex];
-								hand2[handIndex]=null;
+								hand2[handIndex] = null;
 							}
 							placed = true;
 						}
