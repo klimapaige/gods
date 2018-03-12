@@ -20,6 +20,8 @@ public class Match {
 	public Match(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
+		this.player1.setHealth(20);
+		this.player2.setHealth(20);
 	}
 
 	public void runGame() {
