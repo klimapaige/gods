@@ -75,7 +75,7 @@ public class Main_MenuController {
 
 				addPlayerStage.hide();
 
-				addPlayerStage.setMaximized(false);
+				addPlayerStage.setMaximized(true);
 
 				addPlayerStage.setScene(addPlayerScene);
 
@@ -95,7 +95,7 @@ public class Main_MenuController {
 
 				playGameStage.hide();
 
-				playGameStage.setMaximized(false);
+				playGameStage.setMaximized(true);
 
 				playGameStage.setScene(playGameScene);
 
@@ -115,7 +115,7 @@ public class Main_MenuController {
 
 				instructionStage.hide();
 
-				instructionStage.setMaximized(false);
+				instructionStage.setMaximized(true);
 
 				instructionStage.setScene(instructionScene);
 

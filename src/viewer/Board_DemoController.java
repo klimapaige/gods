@@ -280,46 +280,45 @@ public class Board_DemoController {
 				Player lost = (winner == m.player1) ? m.player2 : m.player1;
 				m.end(winner, lost);
 				//sends it back to the main page but that breaks
-				Parent mainMenueScreen;
-				try {
-					mainMenueScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
-
-					Scene mainMenuScene = new Scene(mainMenueScreen, 960, 540);
-
-					Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-					mainMenuStage.hide();
-
-					mainMenuStage.setMaximized(false);
-
-					mainMenuStage.setScene(mainMenuScene);
-
-					mainMenuStage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+//				Parent mainMenueScreen;
+//				try {
+//					mainMenueScreen = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
+//
+//					Scene mainMenuScene = new Scene(mainMenueScreen, 960, 540);
+//
+//					Stage mainMenuStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//
+//					mainMenuStage.hide();
+//
+//					mainMenuStage.setMaximized(false);
+//
+//					mainMenuStage.setScene(mainMenuScene);
+//
+//					mainMenuStage.show();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
 				//////////////////////////////////////////////////////
 				///////Trying to add a winner page
-				// WinnerPage.setWinner(winner);
-				// Parent winnerScreen;
-				// try {
-				// winnerScreen = FXMLLoader.load(getClass().getResource("Winner.fxml"));
-				//
-				// Scene winnerScene = new Scene(winnerScreen, 960, 540);
-				//
-				// Stage winnerStage = (Stage) ((Node)
-				// event.getSource()).getScene().getWindow();
-				//
-				// winnerStage.hide();
-				//
-				// winnerStage.setMaximized(false);
-				//
-				// winnerStage.setScene(winnerScene);
-				//
-				// winnerStage.show();
-				// }catch (IOException e) {
-				// e.printStackTrace();
-				// }
+				 WinnerPage.setWinner(winner);
+				 Parent winnerScreen;
+				 try {
+				 winnerScreen = FXMLLoader.load(getClass().getResource("Winner.fxml"));
+				
+				 Scene winnerScene = new Scene(winnerScreen, 960, 540);
+				
+				 Stage winnerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				
+				 winnerStage.hide();
+				
+				 winnerStage.setMaximized(true);
+				
+				 winnerStage.setScene(winnerScene);
+				
+				 winnerStage.show();
+				 }catch (IOException e) {
+					 e.printStackTrace();
+				 }
 
 			} else {
 				hboxHand1.getChildren().removeAll(hboxHand1.getChildren());
