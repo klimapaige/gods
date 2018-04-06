@@ -3,6 +3,7 @@ package controllers;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import enums.GodType;
 import player.Player;
@@ -138,7 +139,31 @@ public class Game {
 		ArrayList<String> info = new ArrayList<>();
 		info.add("guestPlayer");
 		info.add("password");
-		info.add("WAR");
+		Random rng = new Random();
+		int godNum = rng.nextInt(6);
+		switch (godNum) {
+		case 0:
+			info.add("WAR");
+			break;
+		case 1:
+			info.add("DEATH");
+			break;
+		case 2:
+			info.add("WATER");
+			break;
+		case 3:
+			info.add("MESSANGER");
+			break;
+		case 4:
+			info.add("LOVER");
+			break;
+		case 5:
+			info.add("KING");
+			break;
+		default:
+			break;
+		}
+		
 		Player p = new Player((String) info.get(0), (String) info.get(1), GodType.valueOf((String) info.get(2)));
 		playersHash.addPlayer(p);
 		players.add(p);
