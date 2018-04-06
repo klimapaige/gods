@@ -155,7 +155,7 @@ public class Game {
 			info.add("MESSANGER");
 			break;
 		case 4:
-			info.add("LOVER");
+			info.add("LOVE");
 			break;
 		case 5:
 			info.add("KING");
