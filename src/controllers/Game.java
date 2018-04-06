@@ -133,5 +133,15 @@ public class Game {
 		playersHash.addPlayer(p);
 		players.add(p);
 	}
+	
+	public static void newTestPlayer() {
+		ArrayList<String> info = new ArrayList<>();
+		info.add("guestPlayer");
+		info.add("password");
+		info.add("WAR");
+		Player p = new Player((String) info.get(0), (String) info.get(1), GodType.valueOf((String) info.get(2)));
+		playersHash.addPlayer(p);
+		players.add(p);
+	}
 
 }

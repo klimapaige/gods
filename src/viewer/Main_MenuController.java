@@ -85,6 +85,7 @@ public class Main_MenuController {
 			}
 		});
 		playGameButton.setOnAction((event) -> {
+			Game.newTestPlayer();
 			Parent playGameScreen;
 			try {
 				playGameScreen = FXMLLoader.load(getClass().getResource("Board_Demo.fxml"));
