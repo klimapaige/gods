@@ -152,7 +152,7 @@ public class Game {
 			info.add("WATER");
 			break;
 		case 3:
-			info.add("MESSANGER");
+			info.add("MESSENGER");
 			break;
 		case 4:
 			info.add("LOVE");
