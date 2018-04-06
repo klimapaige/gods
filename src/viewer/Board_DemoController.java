@@ -70,7 +70,11 @@ public class Board_DemoController {
 			for (int i = 0; i < m.board.getBattlefield1().length; ++i) {
 				int temp = i;
 				if (m.board.getBattlefield1()[i] != null && (m.board.getBattlefield1()[i] instanceof Creature)) {
-					TextArea card = new TextArea();
+//					TextArea card = new TextArea();
+					Button card = new Button();
+					card.setMinHeight(200);
+					card.setMaxHeight(200);
+					card.setMaxWidth(120);
 					card.setWrapText(true);
 					card.setId("card");
 					card.setText(m.board.getBattlefield1()[i].getName() + "\n"
@@ -90,7 +94,11 @@ public class Board_DemoController {
 			for (int i = 0; i < m.board.getBattlefield2().length; ++i) {
 				int temp = i;
 				if (m.board.getBattlefield2()[i] != null && (m.board.getBattlefield2()[i] instanceof Creature)) {
-					TextArea card = new TextArea();
+//					TextArea card = new TextArea();
+					Button card = new Button();
+					card.setMinHeight(200);
+					card.setMaxHeight(200);
+					card.setMaxWidth(120);
 					card.setWrapText(true);
 					card.setId("card");
 
@@ -115,7 +123,11 @@ public class Board_DemoController {
 			for (int i = 0; i < m.board.getHand1().length; ++i) {
 				int temp = i;
 				if (m.board.getHand1()[i] != null) {
-					TextArea card = new TextArea();
+//					TextArea card = new TextArea();
+					Button card = new Button();
+					card.setMinHeight(200);
+					card.setMaxHeight(200);
+					card.setMaxWidth(120);
 					card.setWrapText(true);
 					card.setId("card");
 					card.setText(m.board.getHand1()[i].getDescription() + "\n"
@@ -133,7 +145,11 @@ public class Board_DemoController {
 			for (int i = 0; i < m.board.getHand2().length; ++i) {
 				int temp = i;
 				if (m.board.getHand2()[i] != null) {
-					TextArea card = new TextArea();
+//					TextArea card = new TextArea();
+					Button card = new Button();
+					card.setMinHeight(200);
+					card.setMaxHeight(200);
+					card.setMaxWidth(120);
 					card.setWrapText(true);
 					card.setId("card");
 					card.setText(m.board.getHand2()[i].getDescription() + "\n"
